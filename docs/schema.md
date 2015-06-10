@@ -14,7 +14,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 title           | string    | not null
-author-id       | integer   | not null, foreign key
+author_id       | integer   | not null, foreign key
 body            | text      | not null
 genre           | string    |
 

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">LitGenius</a>
+  </div>
+
+  <ul class="nav navbar-nav toggle-sign-in">
+    <li class="about-link">
+      <a href="#">
+      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      </a>
+    </li>
+    <li><a href="<%= root_url %>">Sign In</a></li>
+  </ul>
+
+
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="sign-in-form col-centered">
+      <h3>Sign Up</h3>
+
+      <form action="<%= users_url %>" method="post">
+        <%= auth_token %>
+        <input type="text" name="user[email]" placeholder="email">
+        <br>
+        <input type="password" name="user[password]" placeholder="password">
+        <br>
+        <input type="submit" value="create account">
+      </form>
+    </div>
+  </div>
+</div>
