@@ -9,4 +9,5 @@ class Paper < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :annotations
 end

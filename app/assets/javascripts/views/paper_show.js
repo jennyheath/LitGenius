@@ -1,6 +1,10 @@
 LitGenius.Views.PaperShow = Backbone.View.extend({
   template: JST['papers/show'],
 
+  events: {
+
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },

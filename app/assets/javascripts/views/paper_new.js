@@ -23,6 +23,9 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model);
         Backbone.history.navigate("", { trigger: true });
+      }.bind(this),
+      error: function (model, response) {
+        this.$el.append(response.responseText);
       }.bind(this)
     });
   }

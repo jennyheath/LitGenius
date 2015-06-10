@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :papers
-  
+  has_many :annotations
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

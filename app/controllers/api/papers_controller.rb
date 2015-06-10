@@ -12,8 +12,7 @@ class Api::PapersController < ApplicationController
     if @paper.save
       render json: @paper
     else
-      flash.now[:errors] = @paper.errors.full_messages
-      render :new
+      render json: @paper.errors.full_messages, status: 402
     end
   end
 
