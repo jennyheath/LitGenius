@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_signed_in!, only: [:show, :edit, :update, :destroy]
+
   def new
     @user = User.new
   end
@@ -8,7 +10,8 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      render json: @user
+      # render json: @user
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -30,6 +33,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:penname, :password, :is_author)
   end
 end

@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_credentials(
-      params[:user][:email],
+      params[:user][:penname],
       params[:user][:password]
     )
 
     if user
       sign_in(user)
-      render json: user
+      redirect_to root_url
     else
       flash.now[:errors] = ["Invalid account information"]
       render :new

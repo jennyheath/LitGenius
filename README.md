@@ -14,7 +14,7 @@ A Rap Genius clone for literature. Users can:
 - [ ] annotate sections of text
 - [ ] become verified as an author
 - [ ] post works/text as an author
-- [ ] edit their profile (email, password, picture, location (optional))
+- [ ] edit their profile (penname, password, picture)
 - [ ] reply to annotations
 - [ ] vote on annotations
 
