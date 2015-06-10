@@ -1,0 +1,12 @@
+<form class="new-paper-form">
+  <h3>Post a New Paper</h3>
+  <label>Title:
+    <input type="text" name="paper[title]" value="<%= paper.escape("title") %>">
+  </label>
+  <br>
+  <label>Body:
+    <input type="textarea" name="paper[body]" value="<%= paper.escape("body") %>">
+  </label>
+
+  <button class="submit">Post Paper</button>
+</form>

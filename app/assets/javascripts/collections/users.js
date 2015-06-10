@@ -1,10 +1,6 @@
 LitGenius.Collections.Users = Backbone.Collection.extend({
   model: LitGenius.Models.User,
 
-  initialize: function () {
-    // add listener on database?
-  },
-
   getOrFetch: function (id) {
     var user = this.get(id),
       users = this;

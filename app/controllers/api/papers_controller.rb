@@ -1,4 +1,4 @@
-class PapersController < ApplicationController
+class Api::PapersController < ApplicationController
   before_action :require_signed_in!
 
   def new
@@ -7,9 +7,10 @@ class PapersController < ApplicationController
 
   def create
     @paper = Paper.new(paper_params)
+    @paper.assign_attributes(author_id: current_user.id)
 
     if @paper.save
-      redirect_to api_paper_url
+      render json: @paper
     else
       flash.now[:errors] = @paper.errors.full_messages
       render :new
@@ -17,7 +18,7 @@ class PapersController < ApplicationController
   end
 
   def show
-    @paper = Paper.find(paarams[:id])
+    @paper = Paper.find(params[:id])
   end
 
   private
