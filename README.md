@@ -1,27 +1,25 @@
-# Flux-capacitr
+# LitGenius
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: https://fathomless-reaches-2713.herokuapp.com/
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+A Rap Genius clone for literature. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] create an account
+- [ ] log in
+- [ ] view other user profile pages
+- [ ] view literature excerpts, poetry, plays, etc
+- [ ] annotate sections of text
+- [ ] become verified as an author
+- [ ] post works/text as an author
+- [ ] edit their profile (email, password, picture, location (optional))
+- [ ] reply to annotations
+- [ ] vote on annotations
 
 ## Design Docs
-* [View Wireframes][views]
+* [Wireframes][views]
 * [DB schema][schema]
 
 [views]: ./docs/views.md
@@ -29,63 +27,37 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase I: User authentication and profiles (~1 day)
+Implement user authentication and sessions based on the best practices we learned in the Rails curriculum. Make views for sign up and sign in pages. Create profile pages for users with Backbone. Allow users to edit their profile pages.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase II: Creation and annotation of works (~3 days)
+Allow users who are verified as authors to post their works. Allow users to annotate specific portions of a text and to view annotations by hovering over text.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase III: Search by author and by name of work (~2 days)
+Add a search bar with dynamic results that allows users to search by author name and title of work.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase IV: Replying to and voting on annotations (~3 days)
+Add a comment field on annotations where users can reply to annotations made by other users. Add thumbs up and thumbs down buttons that modify the rank of an annotation. Rank annotations and display only the most highly ranked (with the option to display all).
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase V: Styling (~2 days)
+Making everything look pretty with CSS and potentially some jQuery plugins. Add a guest user button. If time, allow users to view everything and only ask for login when they try to reply or make an annotation.
 
-[Details][phase-five]
+[Details][phase-six]
 
-### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+### Bonus Features
+- [ ] implement user feeds on profile pages that show a user's activity
+- [ ] allow users to follow other users, which puts more activity on the user's feed
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-

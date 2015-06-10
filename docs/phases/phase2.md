@@ -1,29 +1,29 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Creation and annotation of works
 
 ## Rails
 ### Models
+* Work
+* Annotation
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+* WorksController
+* AnnotationsController
 
 ### Views
-* blogs/show.json.jbuilder
+* works/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Work
+* Annotation
 
 ### Collections
-* Blogs
-* Posts
+* Works
+* Annotations
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* WorkShow
+* AnnotationShow
 
 ## Gems/Libraries
+* Backbone-rails

@@ -1,20 +1,23 @@
-# Phase 4: User Feeds
+# Phase 4: Replying to and voting on annotations
 
 ## Rails
 ### Models
+* Comment
 
 ### Controllers
-Api::PostsController (feed)
+* CommentsController
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
+* Comment
 
 ### Collections
+* Comments
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* (modify) AnnotationShow
+* CommentShow
 
 ## Gems/Libraries
