@@ -5,16 +5,15 @@
 [heroku]: https://fathomless-reaches-2713.herokuapp.com/
 
 ## Minimum Viable Product
-A Rap Genius clone for literature. Users can:
+A Genius clone for scientific literature. Users can:
 
-- [ ] create an account
-- [ ] log in
-- [ ] view other user profile pages
-- [ ] view literature excerpts, poetry, plays, etc
+- [x] create an account
+- [x] log in
+- [x] view other user profile pages
+- [ ] view academic papers
 - [ ] annotate sections of text
-- [ ] become verified as an author
-- [ ] post works/text as an author
-- [ ] edit their profile (penname, password, picture)
+- [ ] post papers
+- [ ] edit their profile (username, password, picture)
 - [ ] reply to annotations
 - [ ] vote on annotations
 
@@ -33,12 +32,12 @@ Implement user authentication and sessions based on the best practices we learne
 [Details][phase-one]
 
 ### Phase II: Creation and annotation of works (~3 days)
-Allow users who are verified as authors to post their works. Allow users to annotate specific portions of a text and to view annotations by hovering over text.
+Allow users to post papers. Allow users to annotate specific portions of text and to view annotations by hovering over and clicking the text.
 
 [Details][phase-two]
 
-### Phase III: Search by author and by name of work (~2 days)
-Add a search bar with dynamic results that allows users to search by author name and title of work.
+### Phase III: Search for papers (~2 days)
+Add a search bar with dynamic results that allows users to search by categories like author names, title of paper, and institution.
 
 [Details][phase-three]
 

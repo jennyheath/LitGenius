@@ -22,11 +22,10 @@
 
       <form action="<%= users_url %>" method="post">
         <%= auth_token %>
-        <input type="text" name="user[penname]" placeholder="penname">
+        <input type="text" name="user[username]" placeholder="username" value="<%= @user.username %>">
         <br>
-        <input type="password" name="user[password]" placeholder="password">
+        <input type="password" name="user[password]" placeholder="password" value="<%= @user.password %>">
         <br>
-        <input type="hidden" name="user[is_author]" value="false">
         <input type="submit" value="create account">
       </form>
     </div>

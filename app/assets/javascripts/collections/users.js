@@ -1,22 +1,25 @@
 LitGenius.Collections.Users = Backbone.Collection.extend({
   model: LitGenius.Models.User,
 
-  url: '/users',
+  initialize: function () {
+    // add listener on database?
+  },
 
   getOrFetch: function (id) {
     var user = this.get(id),
-      posts = this;
-    if(!user) {
+      users = this;
+
+    if (!user) {
       user = new LitGenius.Models.User({ id: id });
       user.fetch({
         success: function () {
-          posts.add(user);
-        },
+          users.add(user);
+        }
       });
     } else {
       user.fetch();
     }
-    return user;
+      return user;
   }
 });
 

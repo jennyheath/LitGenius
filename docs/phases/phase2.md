@@ -2,27 +2,29 @@
 
 ## Rails
 ### Models
-* Work
+* Paper
 * Annotation
 
 ### Controllers
-* WorksController
+* PapersController
 * AnnotationsController
 
 ### Views
-* works/show.json.jbuilder
+* papers/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Work
+* Paper
 * Annotation
 
 ### Collections
-* Works
+* Papers
 * Annotations
 
 ### Views
-* WorkShow
+* PaperNew
+* PaperShow
+* AnnotationNew
 * AnnotationShow
 
 ## Gems/Libraries

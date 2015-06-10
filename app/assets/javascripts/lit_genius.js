@@ -10,7 +10,3 @@ window.LitGenius = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  LitGenius.initialize();
-});

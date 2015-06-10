@@ -5,7 +5,8 @@ LitGenius.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'home',
-    'users/:id': 'usershow'
+    'users/:id': 'userShow',
+    'users/:id/edit': 'userEdit'
   },
 
   home: function () {
@@ -14,8 +15,24 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     this._swapView(homeView);
   },
 
-  usershow: function (id) {
-    var user = User.getOrFetch(id);
+  userEdit: function (id) {
+    var user = LitGenius.Collections.users.getOrFetch(id);
+
+    var view = new LitGenius.Views.UserEdit({
+      model: user
+    });
+
+    this._swapView(view);
+  },
+
+  userShow: function (id) {
+    var user = LitGenius.Collections.users.getOrFetch(id);
+
+    var view = new LitGenius.Views.UserShow({
+      model: user
+    });
+
+    this._swapView(view);
   },
 
   _swapView: function (view) {

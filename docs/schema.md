@@ -4,26 +4,41 @@
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-penname         | string    | not null, unique
+username        | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-is_author       | boolean   | not null
 
-## works
+## papers
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 title           | string    | not null
 author_id       | integer   | not null, foreign key
 body            | text      | not null
-genre           | string    |
+field           | string    | not null
+institution     | string    | 
+
+## authors
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+
+## author_papers
+(join table)
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+paper_id        | integer   | not null, foreign key
+author_id       | integer   | not null, foreign key
 
 ## annotations
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (author of annotation)
-work_id     | integer   | not null, foreign key
+paper_id    | integer   | not null, foreign key
 body        | text      | not null
 excerpt     | text      | not null (the exact line being annotated)
 up_votes    | integer   |

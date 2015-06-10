@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      # render json: @user
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -23,9 +22,18 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    # TODO: make update work
+    @user = User.find(params[:id])
+    if @user.update!(user_params)
+      redirect_to root_url
+    else
+      flash[:errors] = @user.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
@@ -33,6 +41,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:penname, :password, :is_author)
+    params.require(:user).permit(:username, :password)
   end
 end
