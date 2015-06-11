@@ -13,6 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.js
+//= require rangy-core
+//= require rangy-classapplier
+//= require rangy-highlighter
+//= require rangy-selectionsaverestore
+//= require rangy-serializer
+//= require rangy-textrange
 //= require underscore
 //= require backbone
 //= require bootstrap

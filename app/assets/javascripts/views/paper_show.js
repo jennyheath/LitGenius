@@ -11,12 +11,16 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   addAnnotationForm: function (event) {
+    this.$('.annotation-pane').html("");
+    if (window.getSelection().toString().length === 0) {
+      return;
+    }
     var collection = LitGenius.Collections.annotations;
     var annotation = new LitGenius.Models.Annotation();
 
-    var selection = window.getSelection();
-    var startIndex = selection.baseOffset; // TODO: fix this?
-    var endIndex = selection.extentOffset; // TODO: fix this?
+    var selection = this.selectionHTML();
+    var startIndex = selection.offsets.start - 7;
+    var endIndex = selection.offsets.end - 7;
 
     if (selection.toString() === "") {
       this.$('.annotation-pane').html("");
@@ -33,6 +37,18 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.addSubview('.annotation-pane', subView);
   },
 
+  selectionHTML: function (container) {
+    var selection = rangy.getSelection();
+    if (selection.rangeCount > 0) {
+        var range = selection.getRangeAt(0);
+        return {
+            offsets: range.toCharacterRange(container),
+            html: range.toHtml()
+        };
+    }
+    return null;
+  },
+
   addAnnotationTags: function () {
     var annotations = this.model.annotations();
     if (annotations.length === 0) {
@@ -42,7 +58,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     var paperText = this.$('.paper-body').text();
     this.$('.paper-body').html("");
     var paperElement = this.$('.paper-body');
-    var breakText = 5; // TODO: fix this?
+    var breakText = 0; // TODO: fix this?
 
     annotations = annotations.sortBy('start_index');
     annotations.map(function (annotation) {
