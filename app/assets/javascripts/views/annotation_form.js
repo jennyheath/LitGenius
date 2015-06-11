@@ -11,7 +11,10 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
   initialize: function (options) {
     this.buttonState = false;
     this.paper = options.paper;
+    this.paperView = options.paperView;
     this.selection = options.selection;
+    this.startIndex = options.startIndex;
+    this.endIndex = options.endIndex;
   },
 
   showForm: function () {
@@ -25,7 +28,8 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
       content = this.template({
         annotation: this.model,
         paper: this.paper,
-        selection: this.selection
+        startIndex: this.startIndex,
+        endIndex: this.endIndex
       });
     } else {
       content = this.buttonTemplate();
@@ -33,5 +37,23 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
 
     this.$el.html(content);
     return this;
+  },
+
+  submit: function (event) {
+    event.preventDefault();
+
+    var attrs = $(event.currentTarget).serializeJSON();
+    // TODO: call function that checks for overlap of annotations
+    this.model.set(attrs.annotation);
+    this.model.save({}, {
+      success: function () {
+        this.collection.add(this.model);
+        this.paperView.render();
+        // TODO: render annotation show
+      }.bind(this),
+      error: function (model, response) {
+        this.$el.append(response.responseText);
+      }.bind(this)
+    });
   }
 });

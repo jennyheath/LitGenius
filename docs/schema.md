@@ -15,9 +15,22 @@ id              | integer   | not null, primary key
 title           | string    | not null
 author_id       | integer   | not null, foreign key
 body            | text      | not null
-field           | string    | not null
 institution     | string    | 
 journal         | string    |
+
+
+## fields
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+
+## field_tags
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+paper_id        | integer   | not null
+field_id        | integer   | not null
 
 ## annotations
 column name | data type | details

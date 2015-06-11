@@ -1,10 +1,28 @@
 # View Wireframes
 
-## New Session
-![new-session]
 
-## Map Show (landing page)
-![map-show]
+## Navbar
+![navbar]
 
-[new-session]: ./wireframes/
-[map-show]: ./wireframes/
+## Home Page
+![home-page]
+
+## User profile
+![user-view]
+
+## Field show page
+![field-view]
+
+## Paper show page
+![paper-view]
+
+## Annotation sidebar
+![annotation-view]
+
+[new-session]: ./wireframes/new_session.jpg
+[home-page]: ./wireframes/home_view.jpg
+[navbar]: ./wireframes/navbar.jpg
+[user-view]: ./wireframes/user_view.jpg
+[field-view]: ./wireframes/field_view.jpg
+[paper-view]: ./wireframes/paper_view.jpg
+[annotation-view]: ./wireframes/annotation_view.jpg

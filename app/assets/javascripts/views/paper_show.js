@@ -11,18 +11,60 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   addAnnotationForm: function (event) {
+    var collection = LitGenius.Collections.annotations;
     var annotation = new LitGenius.Models.Annotation();
+
     var selection = window.getSelection();
+    var startIndex = selection.baseOffset; // TODO: fix this?
+    var endIndex = selection.extentOffset; // TODO: fix this?
+
     if (selection.toString() === "") {
       this.$('.annotation-pane').html("");
       return;
     }
     var subView = new LitGenius.Views.AnnotationForm({
+      collection: collection,
       model: annotation,
       paper: this.model,
-      selection: selection
+      startIndex: startIndex,
+      endIndex: endIndex,
+      paperView: this
     });
     this.addSubview('.annotation-pane', subView);
+  },
+
+  addAnnotationTags: function () {
+    var annotations = this.model.annotations();
+    if (annotations.length === 0) {
+      return;
+    }
+
+    var paperText = this.$('.paper-body').text();
+    this.$('.paper-body').html("");
+    var paperElement = this.$('.paper-body');
+    var breakText = 5; // TODO: fix this?
+
+    annotations = annotations.sortBy('start_index');
+    annotations.map(function (annotation) {
+      var s = annotation.get('start_index');
+      var e = annotation.get('end_index');
+
+      var appendText = paperText.slice(breakText, s);
+      var tagText = paperText.slice(s, e);
+      var appendATag = $("<a />", {
+        id : "annotation-tag",
+        href: "#",
+        text : tagText
+      });
+
+      paperElement.append(appendText);
+      paperElement.append(appendATag);
+      breakText = e;
+    });
+
+    var lastTag = annotations[annotations.length - 1].get('end_index');
+    var endText = paperText.slice(lastTag);
+    paperElement.append(endText);
   },
 
   clearAnnotationPane: function (event) {
@@ -41,6 +83,8 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
     this.$el.html(content);
     this.attachSubviews();
+
+    this.addAnnotationTags();
     return this;
   }
 });

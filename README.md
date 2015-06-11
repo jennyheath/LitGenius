@@ -10,7 +10,7 @@ A Genius clone for scientific literature. Users can:
 - [x] create an account
 - [x] log in
 - [x] view other user profile pages
-- [ ] view academic papers
+- [x] view academic papers
 - [ ] annotate sections of text
 - [ ] post papers
 - [ ] edit their profile (username, password, picture)

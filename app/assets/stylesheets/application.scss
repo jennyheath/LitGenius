@@ -26,6 +26,11 @@
   display: block;
 }
 
+.paper-show {
+  display: block;
+  float: left;
+}
+
 .paper-body {
   width: 500px;
   margin-left: 50px;
@@ -36,7 +41,7 @@
   margin-left: 50px;
 }
 
-.row-same-height {
+.row-full-height {
   float: none;
   display: table;
 }
