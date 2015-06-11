@@ -17,16 +17,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-#main {
-  display: block;
-  height: auto;
-}
-
-.sign-in-form {
-  // display: block;
-  // margin: auto;
-}
-
 .toggle-sign-in {
   display: block;
   float: right;
@@ -34,4 +24,24 @@
 
 .about-link {
   display: block;
+}
+
+.paper-body {
+  width: 500px;
+  margin-left: 50px;
+}
+
+.annotation-pane {
+  width: 500px;
+  margin-left: 50px;
+}
+
+.row-same-height {
+  float: none;
+  display: table;
+}
+
+.col-full-height {
+  float: none;
+  display: table-cell;
 }

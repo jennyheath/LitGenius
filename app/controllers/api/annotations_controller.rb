@@ -1,4 +1,4 @@
-class AnnotationsController < ApplicationController
+class Api::AnnotationsController < ApplicationController
   before_action :require_signed_in!
 
   def new
@@ -8,7 +8,6 @@ class AnnotationsController < ApplicationController
   def create
     @annotation = Annotation.new(annotation_params)
     @annotation.assign_attributes(author_id: current_user.id)
-
     if @annotation.save
       render json: @annotation
     else

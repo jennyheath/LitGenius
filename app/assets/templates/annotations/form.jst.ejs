@@ -1,0 +1,15 @@
+<form class="annotation-form">
+  <label>Annotation:
+    <input
+      type="text"
+      name="annotation[body]"
+      value="<%= annotation.escape("body") %>">
+  </label>
+
+  <input
+    type="hidden"
+    name="annotation[paper_id]"
+    value="<%= paper.id %>">
+
+  <button class="submit">Make Annotation</button>
+</form>
