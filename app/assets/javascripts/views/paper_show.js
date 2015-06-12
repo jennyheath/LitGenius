@@ -43,7 +43,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
     var annotationId = $(event.target).data('id');
     var annotation = this.model.annotations().getOrFetch(annotationId);
-    
+
     var subView = new LitGenius.Views.AnnotationShow({
       model: annotation
     });
@@ -97,11 +97,8 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   clearAnnotationPane: function (event) {
-    if (event.target.className !== "annotation-button") {
-      if (event.target.parentElement.className !== "annotation-form") {
-        if (event.target.parentElement.parentElement.className !== "annotation-form")
-          this.$('.annotation-pane').html("");
-      }
+    if (event.target.className === "annotation-pane col-full-height") {
+      this.$('.annotation-pane').html("");
     }
   },
 

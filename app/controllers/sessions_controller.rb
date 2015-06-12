@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    
+
     if user.nil?
       flash.now[:errors] = ["Invalid account information"]
       render :new
@@ -24,5 +24,11 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to new_session_url
+  end
+
+  def guest_login
+    user = User.find(1)
+    sign_in(user)
+    redirect_to root_url
   end
 end

@@ -1,5 +1,13 @@
-<h5>user id:<h5><%= annotation.get('author_id') %></h5>
+<div class="annotation-show">
+    <h5>user id:<h5><%= annotation.get('author_id') %></h5>
 
-<p class="annotation-body">
-  <%= annotation.escape('body') %>
-</p>
+  <p class="annotation-body">
+    <%= annotation.escape('body') %>
+  </p>
+
+  <ul class="comment-list"></ul>
+  <form class="comment-form">
+    <input type="text-area" name="comment[body]">
+    <button class="submit">Comment</button>
+  </form>
+</div>

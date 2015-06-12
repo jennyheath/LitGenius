@@ -11,8 +11,8 @@ A Genius clone for scientific literature. Users can:
 - [x] log in
 - [x] view other user profile pages
 - [x] view academic papers
-- [ ] annotate sections of text
-- [ ] post papers
+- [x] annotate sections of text
+- [x] post papers
 - [ ] edit their profile (username, password, picture)
 - [ ] reply to annotations
 - [ ] vote on annotations

@@ -45,6 +45,8 @@ up_votes    | integer   |
 down_votes  | integer   |
 
 ## comments
+(polymorphic)
+
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
