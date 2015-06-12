@@ -11,8 +11,7 @@ class Api::AnnotationsController < ApplicationController
     if @annotation.save
       render json: @annotation
     else
-      flash[:errors] = @annotation.errors.full_messages
-      render :new # TODO: verify correct
+      render json: @paper.errors.full_messages, status: 402
     end
   end
 

@@ -10,8 +10,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render json: @comment
     else
-      flash[:errors] = @comment.errors.full_messages
-      render :new # TODO: verify correct
+      render json: @comment.errors.full_messages, status: :unprocessable_entity
     end
   end
 

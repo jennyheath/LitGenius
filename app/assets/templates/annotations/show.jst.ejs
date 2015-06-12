@@ -1,5 +1,5 @@
 <div class="annotation-show">
-    <h5>user id:<h5><%= annotation.get('author_id') %></h5>
+  <h5><%= annotation.escape('author_name') %></h5>
 
   <p class="annotation-body">
     <%= annotation.escape('body') %>
@@ -7,7 +7,7 @@
 
   <ul class="comment-list"></ul>
   <form class="comment-form">
-    <input type="text-area" name="comment[body]" value="<%= comment.escape('body') %>">
+    <input type="text-area" name="comment[body]" id="comment" value="<%= comment.escape('body') %>">
     <input type="hidden" name="comment[commentable_id]" value="<%= annotation.id %>">
     <input type="hidden" name="comment[commentable_type]" value="Annotation">
 

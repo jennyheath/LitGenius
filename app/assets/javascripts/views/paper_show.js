@@ -4,12 +4,16 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   events: {
     "mouseup .paper-body": "addAnnotationForm",
     "mouseup .annotation-pane": "clearAnnotationPane",
-    "click .annotation-tag": "addAnnotationShow"
+    "click .annotation-tag": "addAnnotationShow",
+    "submit .paper-comment-form": "submitComment"
   },
 
   initialize: function () {
+    this.comments = this.model.comments();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.annotations(), 'add', this.addAnnotationTags);
+    this.listenTo(this.comments, 'add', this.addCommentView);
+    // this.listenTo(this.comments, 'add', this.render);
   },
 
   addAnnotationForm: function (event) {
@@ -96,15 +100,26 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     paperElement.append(endText);
   },
 
+  addCommentView: function (model) {
+    var comment = this.comments.getOrFetch(model.id);
+    var subView = new LitGenius.Views.CommentShow({
+      model: comment
+    });
+
+    this.addSubview('.paper-comment-list', subView);
+  },
+
   clearAnnotationPane: function (event) {
-    if (event.target.className === "annotation-pane col-full-height") {
+    if (event.target.className === "annotation-pane") {
       this.$('.annotation-pane').html("");
     }
   },
 
   render: function () {
+    this.newComment = new LitGenius.Models.Comment();
     var content = this.template({
-      paper: this.model
+      paper: this.model,
+      comment: this.newComment
     });
 
     this.$el.html(content);
@@ -112,5 +127,19 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
     this.addAnnotationTags();
     return this;
+  },
+
+  submitComment: function (event) {
+    event.preventDefault();
+
+    var attrs = $(event.currentTarget).serializeJSON();
+    this.newComment.set(attrs.comment);
+    this.newComment.save({}, {
+      success: function () {
+        this.comments.add(this.newComment);
+        this.$('.paper-comment-form').val('');
+        this.render();
+      }.bind(this)
+    });
   }
 });

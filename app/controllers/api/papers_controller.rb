@@ -17,7 +17,7 @@ class Api::PapersController < ApplicationController
   end
 
   def show
-    @paper = Paper.find(params[:id])
+    @paper = Paper.includes(comments: :author, annotations: :author).find(params[:id])
   end
 
   private

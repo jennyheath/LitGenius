@@ -7,12 +7,11 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.comments = this.model.comments();
-    // this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.comments, 'add', this.addCommentView);
   },
 
-  addCommentView: function (event) {
-    var comment = this.comments.getOrFetch(event.id);
+  addCommentView: function (model) {
+    var comment = this.comments.getOrFetch(model.id);
     var subView = new LitGenius.Views.CommentShow({
       model: comment
     });
@@ -40,8 +39,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     this.newComment.save({}, {
       success: function () {
         this.comments.add(this.newComment);
-        this.$('comment-form').val('');
-        this.render();
+        this.$('#comment').val('');
       }.bind(this)
     });
   }
