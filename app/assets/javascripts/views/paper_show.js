@@ -3,7 +3,8 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
   events: {
     "mouseup .paper-body": "addAnnotationForm",
-    "mouseup .annotation-pane": "clearAnnotationPane"
+    "mouseup .annotation-pane": "clearAnnotationPane",
+    "click .annotation-tag": "addAnnotationShow"
   },
 
   initialize: function () {
@@ -37,6 +38,19 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.addSubview('.annotation-pane', subView);
   },
 
+  addAnnotationShow: function (event) {
+    this.$('.annotation-pane').html("");
+
+    var annotationId = $(event.target).data('id');
+    var annotation = this.model.annotations().getOrFetch(annotationId);
+    
+    var subView = new LitGenius.Views.AnnotationShow({
+      model: annotation
+    });
+
+    this.addSubview('.annotation-pane', subView);
+  },
+
   selectionHTML: function (container) {
     var selection = rangy.getSelection();
     if (selection.rangeCount > 0) {
@@ -58,7 +72,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     var paperText = this.$('.paper-body').text();
     this.$('.paper-body').html("");
     var paperElement = this.$('.paper-body');
-    var breakText = 0; // TODO: fix this?
+    var breakText = 0;
 
     annotations = annotations.sortBy('start_index');
     annotations.map(function (annotation) {
@@ -68,10 +82,9 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
       var appendText = paperText.slice(breakText, s);
       var tagText = paperText.slice(s, e);
       var appendATag = $("<a />", {
-        id : "annotation-tag",
-        href: "#",
+        class : "annotation-tag",
         text : tagText
-      });
+      }).data('id', annotation.id);
 
       paperElement.append(appendText);
       paperElement.append(appendATag);

@@ -16,6 +16,10 @@ class Api::AnnotationsController < ApplicationController
     end
   end
 
+  def show
+    @annotation = Annotation.find(params[:id])
+  end
+
   private
   def annotation_params
     params.require(:annotation).permit(:author_id, :paper_id, :body, :start_index, :end_index)
