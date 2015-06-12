@@ -14,7 +14,8 @@ A Genius clone for scientific literature. Users can:
 - [x] annotate sections of text
 - [x] post papers
 - [ ] edit their profile (username, password, picture)
-- [ ] reply to annotations
+- [x] reply to annotations
+- [x] comment on papers
 - [ ] vote on annotations
 
 ## Design Docs
@@ -38,6 +39,9 @@ Allow users to post papers. Allow users to annotate specific portions of text an
 
 ### Phase III: Search for papers (~2 days)
 Add a search bar with dynamic results that allows users to search by categories like author names, title of paper, and institution.
+
+make collection, set query attr, in controller check for query string (if none, reaturn all), match query string
+
 
 [Details][phase-three]
 

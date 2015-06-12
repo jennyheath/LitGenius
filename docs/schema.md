@@ -18,20 +18,6 @@ body            | text      | not null
 institution     | string    | 
 journal         | string    |
 
-
-## fields
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-name            | string    | not null
-
-## field_tags
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-paper_id        | integer   | not null
-field_id        | integer   | not null
-
 ## annotations
 column name | data type | details
 ------------|-----------|-----------------------
@@ -55,14 +41,53 @@ body             | text      |
 commentable_id   | integer   | not null
 commentable_type | string    | not null
 
+
+## fields
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+
+## field_tags
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+paper_id        | integer   | not null
+field_id        | integer   | not null
+
+## institutions
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+
+## institution_tags
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+paper_id        | integer   | not null
+institution_id  | integer   | not null
+
+## journals
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+
+## journal_tags
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+paper_id        | integer   | not null
+journal_id      | integer   | not null
+
 ## authors
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## author_papers
-(join table)
+## author_tags
 
 column name     | data type | details
 ----------------|-----------|-----------------------

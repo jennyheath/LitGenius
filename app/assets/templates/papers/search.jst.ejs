@@ -1,0 +1,12 @@
+<h3>Search Results:</h3>
+<p class="search-results">
+  <ul>
+    <% papers.each(function (paper) { %>
+      <li>
+        <a href="#/papers/<%= paper.id %>">
+          <%= paper.escape('title') %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</p>

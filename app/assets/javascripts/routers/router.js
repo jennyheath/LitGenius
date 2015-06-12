@@ -1,12 +1,17 @@
 LitGenius.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    var navbar = new LitGenius.Views.NavBar({
+      collection: LitGenius.Collections.papers
+    });
+    $('#navbar').html(navbar.render().$el);
   },
 
   routes: {
     '': 'home',
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
+    'papers': 'searchResults',
     'papers/new': 'paperNew',
     'papers/:id': 'paperShow'
   },
@@ -34,6 +39,15 @@ LitGenius.Routers.Router = Backbone.Router.extend({
 
     var view = new LitGenius.Views.PaperShow({
       model: paper
+    });
+
+    this._swapView(view);
+  },
+
+  searchResults: function () {
+    var collection = LitGenius.Collections.papers;
+    var view = new LitGenius.Views.SearchResults({
+      collection: collection
     });
 
     this._swapView(view);

@@ -16,6 +16,14 @@ class Api::PapersController < ApplicationController
     end
   end
 
+  def index
+    if params[:search]
+      search_title = params[:search]
+      @papers = Paper.where("title LIKE ?", "%#{search_title}%")
+      render json: @papers
+    end
+  end
+
   def show
     @paper = Paper.includes(comments: :author, annotations: :author).find(params[:id])
   end
