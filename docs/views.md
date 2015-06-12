@@ -20,9 +20,9 @@
 ![annotation-view]
 
 [new-session]: ./wireframes/new_session.jpg
-[home-page]: ./wireframes/home_view.jpg
+[home-page]: ./wireframes/home_view.JPG
 [navbar]: ./wireframes/navbar.jpg
-[user-view]: ./wireframes/user_view.jpg
-[field-view]: ./wireframes/field_view.jpg
-[paper-view]: ./wireframes/paper_view.jpg
-[annotation-view]: ./wireframes/annotation_view.jpg
+[user-view]: ./wireframes/user_view.JPG
+[field-view]: ./wireframes/field_view.JPG
+[paper-view]: ./wireframes/paper_view.JPG
+[annotation-view]: ./wireframes/annotation_view.JPG
