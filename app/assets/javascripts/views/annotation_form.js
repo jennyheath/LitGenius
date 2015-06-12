@@ -11,7 +11,6 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
   initialize: function (options) {
     this.buttonState = false;
     this.paper = options.paper;
-    this.paperView = options.paperView;
     this.selection = options.selection;
     this.startIndex = options.startIndex;
     this.endIndex = options.endIndex;
@@ -48,7 +47,7 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model);
-        this.paperView.render();
+        $('.annotation-pane').html("");
         // TODO: render annotation show
       }.bind(this),
       error: function (model, response) {

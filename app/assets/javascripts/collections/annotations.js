@@ -19,5 +19,3 @@ LitGenius.Collections.Annotations = Backbone.Collection.extend({
       return annotation;
   }
 });
-
-LitGenius.Collections.annotations = new LitGenius.Collections.Annotations();
