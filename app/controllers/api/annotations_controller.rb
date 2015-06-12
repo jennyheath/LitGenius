@@ -17,7 +17,7 @@ class Api::AnnotationsController < ApplicationController
   end
 
   def show
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation.includes(comments: :author).find(params[:id])
   end
 
   private

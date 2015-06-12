@@ -9,7 +9,6 @@ class Api::CommentsController < ApplicationController
 
     if @comment.save
       render json: @comment
-      # flash[:notices] = ["Comment saved!"] # TODO: make flash[:notices]
     else
       flash[:errors] = @comment.errors.full_messages
       render :new # TODO: verify correct

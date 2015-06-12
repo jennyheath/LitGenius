@@ -1,4 +1,4 @@
-LitGenius.Views.AnnotationShow = Backbone.View.extend({
+LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   template: JST['annotations/show'],
 
   events: {
@@ -6,7 +6,18 @@ LitGenius.Views.AnnotationShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    // this.listenTo(LitGenius.Collections.comments, 'add', this.render);
+    this.comments = this.model.comments();
+    // this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.comments, 'add', this.addCommentView);
+  },
+
+  addCommentView: function (event) {
+    var comment = this.comments.getOrFetch(event.id);
+    var subView = new LitGenius.Views.CommentShow({
+      model: comment
+    });
+
+    this.addSubview('.comment-list', subView);
   },
 
   render: function () {
@@ -16,11 +27,8 @@ LitGenius.Views.AnnotationShow = Backbone.View.extend({
       comment: this.newComment
     });
 
-    // var commentForm = new LitGenius.Views.CommentForm();
     this.$el.html(content);
-
-    // this.$el.append(commentForm);
-    // this.$('.annotation-show').append(commentForm);
+    this.attachSubviews();
     return this;
   },
 
@@ -28,12 +36,12 @@ LitGenius.Views.AnnotationShow = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.currentTarget).serializeJSON();
-    var comments = LitGenius.Collections.comments;
     this.newComment.set(attrs.comment);
     this.newComment.save({}, {
       success: function () {
-        comments.add(this.newComment);
-        // TODO: render comment
+        this.comments.add(this.newComment);
+        this.$('comment-form').val('');
+        this.render();
       }.bind(this)
     });
   }
