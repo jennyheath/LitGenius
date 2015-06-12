@@ -47,12 +47,13 @@ down_votes  | integer   |
 ## comments
 (polymorphic)
 
-column name   | data type | details
---------------|-----------|-----------------------
-id            | integer   | not null, primary key
-author_id     | integer   | not null, foreign key (author of comment)
-annotation_id | integer   | not null, foreign key
-body          | text      | not null
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+author_id        | integer   | not null, foreign key (author of comment)
+body             | text      | 
+commentable_id   | integer   | not null
+commentable_type | string    | not null
 
 ## authors
 column name     | data type | details

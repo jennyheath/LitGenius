@@ -48,7 +48,6 @@ LitGenius.Views.AnnotationForm = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model);
         $('.annotation-pane').html("");
-        // TODO: render annotation show
       }.bind(this),
       error: function (model, response) {
         this.$el.append(response.responseText);

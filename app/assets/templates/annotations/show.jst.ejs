@@ -7,7 +7,10 @@
 
   <ul class="comment-list"></ul>
   <form class="comment-form">
-    <input type="text-area" name="comment[body]">
+    <input type="text-area" name="comment[body]" value="<%= comment.escape('body') %>">
+    <input type="hidden" name="comment[commentable_id]" value="<%= annotation.id %>">
+    <input type="hidden" name="comment[commentable_type]" value="Annotation">
+
     <button class="submit">Comment</button>
   </form>
 </div>

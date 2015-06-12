@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :papers
     resources :annotations
+    resources :comments
   end
 end

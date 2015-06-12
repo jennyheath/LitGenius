@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
 
   has_many :papers
   has_many :annotations
+  has_many(
+    :comments,
+    class_name: "Comments",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
 
   after_initialize :ensure_session_token
 

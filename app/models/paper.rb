@@ -1,4 +1,6 @@
 class Paper < ActiveRecord::Base
+  include Commentable
+
   validates :body, :author_id, presence: true
   validates :title, presence: true, uniqueness: true
 
@@ -10,4 +12,5 @@ class Paper < ActiveRecord::Base
   )
 
   has_many :annotations
+  # has_many :comments, as: :commentable
 end

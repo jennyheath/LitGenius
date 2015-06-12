@@ -12,7 +12,7 @@ class Api::AnnotationsController < ApplicationController
       render json: @annotation
     else
       flash[:errors] = @annotation.errors.full_messages
-      render :new
+      render :new # TODO: verify correct
     end
   end
 

@@ -1,4 +1,6 @@
 class Annotation < ActiveRecord::Base
+  include Commentable
+
   validates :author_id, :paper_id, :body, :start_index, :end_index, presence: true
 
   belongs_to(
@@ -9,4 +11,5 @@ class Annotation < ActiveRecord::Base
   )
 
   belongs_to :paper
+  # has_many :comments, as: :commentable
 end
