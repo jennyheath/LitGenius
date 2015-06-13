@@ -13,10 +13,10 @@ A Genius clone for scientific literature. Users can:
 - [x] view academic papers
 - [x] annotate sections of text
 - [x] post papers
-- [ ] edit their profile (username, password, picture)
+- [x] search papers by topic, journal, etc.
 - [x] reply to annotations
 - [x] comment on papers
-- [ ] vote on annotations
+- [ ] up-vote/down-vote on annotations
 
 ## Design Docs
 * [Wireframes][views]
@@ -37,23 +37,24 @@ Allow users to post papers. Allow users to annotate specific portions of text an
 
 [Details][phase-two]
 
-### Phase III: Search for papers (~2 days)
+### Phase III: Commenting on papers and annotations (~1/2 day)
+Add comment boxes for papers and annotations. Display all previous comments with username of comment author.
+
+
+### Phase IV: Search for papers (~2 days)
 Add a search bar with dynamic results that allows users to search by categories like author names, title of paper, and institution.
-
-make collection, set query attr, in controller check for query string (if none, reaturn all), match query string
-
 
 [Details][phase-three]
 
-### Phase IV: Replying to and voting on annotations (~3 days)
-Add a comment field on annotations where users can reply to annotations made by other users. Add thumbs up and thumbs down buttons that modify the rank of an annotation. Rank annotations and display only the most highly ranked (with the option to display all).
+### Phase V: Voting on annotations (~3 days)
+Add thumbs up and thumbs down buttons that modify the rank of an annotation. Users get one vote and can change it. Rank annotations and display only the most highly ranked (with the option to display all).
 
 [Details][phase-four]
 
-### Phase V: Styling (~2 days)
+### Phase VI: Styling (~2 days)
 Making everything look pretty with CSS and potentially some jQuery plugins. Add a guest user button. If time, allow users to view everything and only ask for login when they try to reply or make an annotation.
 
-[Details][phase-six]
+[Details][phase-five]
 
 ### Bonus Features
 - [ ] implement user feeds on profile pages that show a user's activity

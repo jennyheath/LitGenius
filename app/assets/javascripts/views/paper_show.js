@@ -109,7 +109,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   clearAnnotationPane: function (event) {
-    if (event.target.className === "annotation-pane") {
+    if (event.target.className === "annotation-pane col-full-height") {
       this.$('.annotation-pane').html("");
     }
   },

@@ -7,6 +7,40 @@
   <label>Body:
     <textarea name="paper[body]"><%= paper.escape("body") %></textarea>
   </label>
-
+  <br>
+  <label>Field:
+    <select name="paper[field]">
+      <option value:"astrophysics">Astrophysics</option>
+      <option value:"biochemistry">Biochemistry</option>
+      <option value:"bioengineering">Bioengineering</option>
+      <option value:"bioinformatics">Bioinformatics</option>
+      <option value:"biophysics">Biophysics</option>
+      <option value:"cell_biology">Cell Biology</option>
+      <option value:"chemistry">Chemistry</option>
+      <option value:"chemical_engineering">Chemical Engineering</option>
+      <option value:"epidemiology">Epidemiology</option>
+      <option value:"genetics">Genetics</option>
+      <option value:"geophysics">Geophysics</option>
+      <option value:"inorganic_chemistry">Inorganic Chemistry</option>
+      <option value:"molecular_biology">Molecular Biology</option>
+      <option value:"neurobiology">Neurobiology</option>
+      <option value:"organic_chemistry">Organic Chemistry</option>
+      <option value:"physics">Physics</option>
+      <option value:"physical_chemistry">Physical Chemistry</option>
+    </select>
+  </label>
+  <br>
+  <label>Authors:
+    <input type="text" name="paper[authors]" value="<%= paper.escape("authors") %>">
+  </label>
+  <br>
+  <label>Institution:
+    <input type="text" name="paper[institution]" value="<%= paper.escape("institution") %>">
+  </label>
+  <br>
+  <label>Journal:
+    <input type="text" name="paper[journal]" value="<%= paper.escape("journal") %>">
+  </label>
+  <br>
   <button class="submit">Post Paper</button>
 </form>

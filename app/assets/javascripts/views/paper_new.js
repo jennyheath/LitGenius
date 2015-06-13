@@ -18,6 +18,7 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.currentTarget).serializeJSON();
+    // TODO: figure out how to save association models (field, journal, etc)
     this.model.set(attrs.paper);
     this.model.save({}, {
       success: function () {

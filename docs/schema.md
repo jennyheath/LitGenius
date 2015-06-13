@@ -48,7 +48,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## field_tags
+## field_taggings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -61,7 +61,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## institution_tags
+## institution_taggings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -74,7 +74,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## journal_tags
+## journal_taggings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -87,7 +87,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## author_tags
+## author_taggings
 
 column name     | data type | details
 ----------------|-----------|-----------------------

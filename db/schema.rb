@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612044445) do
+ActiveRecord::Schema.define(version: 20150613025636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 20150612044445) do
 
   add_index "annotations", ["paper_id"], name: "index_annotations_on_paper_id", using: :btree
 
+  create_table "author_taggings", force: :cascade do |t|
+    t.integer  "paper_id",   null: false
+    t.integer  "author_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string   "body"
     t.integer  "commentable_id"
@@ -38,6 +51,45 @@ ActiveRecord::Schema.define(version: 20150612044445) do
   end
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+
+  create_table "field_taggings", force: :cascade do |t|
+    t.integer  "paper_id",   null: false
+    t.integer  "field_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "institution_taggings", force: :cascade do |t|
+    t.integer  "paper_id",       null: false
+    t.integer  "institution_id", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "journal_taggings", force: :cascade do |t|
+    t.integer  "paper_id",   null: false
+    t.integer  "journal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "papers", force: :cascade do |t|
     t.string   "title",      null: false

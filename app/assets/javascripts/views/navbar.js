@@ -13,7 +13,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     }
 
     this.collection.fetch({
-      data: { search: this.$el.find('input').val() }
+      data: { search_params: this.$el.find('input').val() }
     });
 
     this.showResults();
