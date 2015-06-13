@@ -41,6 +41,13 @@ body             | text      |
 commentable_id   | integer   | not null
 commentable_type | string    | not null
 
+## votes
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+user_id       | integer   | not null
+comment_id    | integer   | not null
+value         | integer   | 
 
 ## fields
 column name     | data type | details

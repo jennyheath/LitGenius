@@ -31,6 +31,15 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
       this.$('.annotation-pane').html("");
       return;
     }
+
+    this.annotation_overlaps = false;
+    this.overlappingAnnotation(startIndex, endIndex);
+    if (this.annotation_overlaps === true) {
+      var noAnnotation = new LitGenius.Views.NoAnnotation();
+      this.$('.annotation-pane').html(noAnnotation.render().$el);
+      return;
+    }
+
     var subView = new LitGenius.Views.AnnotationForm({
       collection: collection,
       model: annotation,
@@ -112,6 +121,25 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     if (event.target.className === "annotation-pane col-full-height") {
       this.$('.annotation-pane').html("");
     }
+  },
+
+  overlappingAnnotation: function (startIndex, endIndex) {
+    var annotations = this.model.annotations();
+
+    annotations.each(function (annotation) {
+      var compareStart = annotation.get('start_index');
+      var compareEnd = annotation.get('end_index');
+
+      if (startIndex > compareStart && startIndex < compareEnd) {
+        this.annotation_overlaps = true;
+      } else if (endIndex > compareStart && endIndex < compareEnd) {
+        this.annotation_overlaps = true;
+      } else if (startIndex < compareStart && endIndex > compareEnd) {
+        this.annotation_overlaps = true;
+      }
+    }.bind(this));
+
+    // return false;
   },
 
   render: function () {
