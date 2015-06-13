@@ -11,6 +11,7 @@ class Api::PapersController < ApplicationController
 
     if @paper.save
       render json: @paper
+      # render :show?
     else
       render json: @paper.errors.full_messages, status: 402
     end
@@ -50,7 +51,6 @@ class Api::PapersController < ApplicationController
                                    '%' + search_string + '%',
                                    '%' + search_string + '%',
                                    '%' + search_string + '%']
-      # debugger;
       render json: @papers
     end
   end

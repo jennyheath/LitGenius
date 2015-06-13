@@ -18,8 +18,27 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.currentTarget).serializeJSON();
-    // TODO: figure out how to save association models (field, journal, etc)
-    this.model.set(attrs.paper);
+    this.model.set({body: attrs.paper.body, title: attrs.paper.title});
+
+    // var fieldId = LitGenius.Collections.fields.getOrFetchId(attrs.paper.field);
+    // var field_tagging = new LitGenius.Models.FieldTagging();
+    // field_tagging.save({paper_id: this.model.id, field_id: fieldId});
+
+    var authors = attrs.paper.authors.split(", ");
+    authors.forEach(function (author) {
+      var authorId = LitGenius.Collections.authors.getOrFetchId(author);
+      var author_tagging = new LitGenius.Models.AuthorTagging();
+      author_tagging.save({paper_id: this.model.id, author_id: authorId});
+    });
+
+    // var institutionId = LitGenius.Collections.institutions.getOrFetchId(attrs.paper.institution);
+    // var institution_tagging = new LitGenius.Models.InstitutionTagging();
+    // institution_tagging.save({paper_id: this.model.id, institution_id: institutionId});
+    //
+    // var journalId = LitGenius.Collections.journals.getOrFetchId(attrs.paper.journal);
+    // var journal_tagging = new LitGenius.Models.JournalTagging();
+    // journal_tagging.save({paper_id: this.model.id, journal_id: journalId});
+
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model);

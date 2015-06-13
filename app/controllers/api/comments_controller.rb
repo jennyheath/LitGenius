@@ -9,6 +9,7 @@ class Api::CommentsController < ApplicationController
 
     if @comment.save
       render json: @comment
+      # render :show?
     else
       render json: @comment.errors.full_messages, status: :unprocessable_entity
     end
