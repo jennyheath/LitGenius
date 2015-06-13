@@ -9,7 +9,7 @@ class Api::AnnotationsController < ApplicationController
     @annotation = Annotation.new(annotation_params)
     @annotation.assign_attributes(author_id: current_user.id)
     if @annotation.save
-      render json: @annotation
+      render :show
     else
       render json: @paper.errors.full_messages, status: 402
     end

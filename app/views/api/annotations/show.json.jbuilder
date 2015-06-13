@@ -1,4 +1,5 @@
-json.author @annotation.author
+json.id @annotation.id
+json.author_name @annotation.author.username
 json.body @annotation.body
 json.comments do
   json.array! @annotation.comments do |comment|

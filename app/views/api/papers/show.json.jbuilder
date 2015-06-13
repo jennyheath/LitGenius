@@ -12,3 +12,4 @@ json.comments do
     json.author_name comment.author.username
   end
 end
+json.paragraphs @paper.body.split("\n")

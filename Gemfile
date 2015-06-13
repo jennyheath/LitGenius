@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'backbone-on-rails'
+# gem 'cloudinary'
+# gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

@@ -2,9 +2,7 @@
 
 <div class="paper-show clearfix row-full-height">
   <div class="col-full-height">
-    <p class="paper-body">
-      <%= paper.escape('body') %>
-    </p>
+    <pre class="paper-body"><%= paper.formattedBody() %></pre>
 
     <form class="paper-comment-form">
       <input type="text-area"

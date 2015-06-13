@@ -11,6 +11,6 @@ class Paper < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :annotations
+  has_many :annotations, dependent: :destroy
   # has_many :comments, as: :commentable
 end

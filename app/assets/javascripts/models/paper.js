@@ -11,6 +11,12 @@ LitGenius.Models.Paper = Backbone.Model.extend({
     return this._comments;
   },
 
+  formattedBody: function () {
+    var text = this.get('body') || "loading...";
+    var formattedText = text.split("\n").join('<p>');
+    return formattedText;
+  },
+
   parse: function (response) {
     if (response.annotations) {
       this.annotations().set(response.annotations);
@@ -20,7 +26,7 @@ LitGenius.Models.Paper = Backbone.Model.extend({
       this.comments().set(response.comments);
       delete response.comments;
     }
-    
+
     return response;
   }
 });

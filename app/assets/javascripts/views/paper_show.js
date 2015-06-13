@@ -23,10 +23,9 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     var collection = this.model.annotations();
     var annotation = new LitGenius.Models.Annotation();
 
-    var selection = this.selectionHTML();
-    var startIndex = selection.offsets.start - 7;
-    var endIndex = selection.offsets.end - 7;
-    // debugger;
+    var selection = this.selectionHTML(document.getElementsByClassName('paper-body')[0]);
+    var startIndex = selection.offsets.start;
+    var endIndex = selection.offsets.end;
 
     if (selection.toString() === "") {
       this.$('.annotation-pane').html("");
@@ -56,7 +55,6 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   selectionHTML: function (container) {
-    // debugger;
     var selection = rangy.getSelection();
     if (selection.rangeCount > 0) {
         var range = selection.getRangeAt(0);
