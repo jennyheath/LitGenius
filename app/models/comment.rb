@@ -8,4 +8,7 @@ class Comment < ActiveRecord::Base
     foreign_key: :author_id,
     primary_key: :id
   )
+
+  has_many :votes
+  has_many :voters, through: :votes, source: :users
 end

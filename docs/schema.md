@@ -47,7 +47,7 @@ column name   | data type | details
 id            | integer   | not null, primary key
 user_id       | integer   | not null
 comment_id    | integer   | not null
-value         | integer   | 
+value         | integer   | not null
 
 ## fields
 column name     | data type | details

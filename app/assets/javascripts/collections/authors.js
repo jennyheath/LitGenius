@@ -12,14 +12,14 @@ LitGenius.Collections.Authors = Backbone.Collection.extend({
       author.fetch({
         success: function () {
           authors.add(author);
-        },
-        error: function () {
-          author.save({name: name}, {
-            success: function () {
-              authors.add(author);
-            }
-          });
         }
+        // error: function () {
+        //   author.save({name: name}, {
+        //     success: function () {
+        //       authors.add(author);
+        //     }
+        //   });
+        // }
       });
     } else {
       author.fetch();

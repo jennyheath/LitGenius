@@ -24,12 +24,12 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
     // var field_tagging = new LitGenius.Models.FieldTagging();
     // field_tagging.save({paper_id: this.model.id, field_id: fieldId});
 
-    var authors = attrs.paper.authors.split(", ");
-    authors.forEach(function (author) {
-      var authorId = LitGenius.Collections.authors.getOrFetchId(author);
-      var author_tagging = new LitGenius.Models.AuthorTagging();
-      author_tagging.save({paper_id: this.model.id, author_id: authorId});
-    });
+    // var authors = attrs.paper.authors.split(", ");
+    // authors.forEach(function (author) {
+    //   var authorId = LitGenius.Collections.authors.getOrFetchId(author);
+    //   var author_tagging = new LitGenius.Models.AuthorTagging();
+    //   author_tagging.save({paper_id: this.model.id, author_id: authorId});
+    // });
 
     // var institutionId = LitGenius.Collections.institutions.getOrFetchId(attrs.paper.institution);
     // var institution_tagging = new LitGenius.Models.InstitutionTagging();

@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :votes
+  has_many :voted_for_comments, through: :votes, source: :comments
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

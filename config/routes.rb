@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :papers
     resources :annotations
     resources :comments
+    resources :votes
   end
 end
