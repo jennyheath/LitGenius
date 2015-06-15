@@ -7,3 +7,5 @@ json.comments do
     json.author_name comment.author.username
   end
 end
+
+# json.comment_counts @comments

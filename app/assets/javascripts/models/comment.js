@@ -16,12 +16,6 @@ LitGenius.Models.Comment = Backbone.Model.extend({
       });
     }
 
-    if (response.vote_count) {
-      this.set('vote_count', response.vote_count);
-    } else {
-      this.set('vote_count', 0);
-    }
-
     return response;
   }
 });

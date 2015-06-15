@@ -6,10 +6,10 @@ json.annotations do
     json.author_name annotation.author.username
   end
 end
+
 json.comments do
-  json.array! @paper.comments do |comment|
-    json.extract! comment, :id, :body, :author_id
-    json.author_name comment.author.username
+  json.array! @comments do |comment|
+    json.extract! comment, :id, :body, :author_id, :vote_count
   end
 end
-json.paragraphs @paper.body.split("\n")
+# json.paragraphs @paper.body.split("\n")

@@ -10,4 +10,4 @@ json.current_user_vote do
   end
 end
 
-json.vote_count @vote_count
+# json.vote_count @comment.count_votes

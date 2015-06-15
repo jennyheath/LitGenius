@@ -57,6 +57,25 @@ class Api::PapersController < ApplicationController
 
   def show
     @paper = Paper.includes(comments: :author, annotations: :author).find(params[:id])
+    @comments = Comment.find_by_sql ["SELECT
+                                      comments.*, SUM(votes.value) AS vote_count
+                                      FROM
+                                      comments
+                                      LEFT OUTER JOIN
+                                      votes ON comments.id = votes.comment_id
+                                      WHERE
+                                      comments.commentable_type = 'Paper' AND comments.commentable_id = ?
+                                      GROUP BY
+                                      comments.id, comments.body
+                                      ORDER BY
+                                      vote_count DESC",
+                                      params[:id]]
+    @comments.each do |comment|
+      if comment.vote_count.nil?
+        comment.vote_count = 0
+      end
+    end
+    @comments.sort! {|a, b| b.vote_count <=> a.vote_count}
   end
 
   private
