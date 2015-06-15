@@ -3,7 +3,8 @@ LitGenius.Views.NavBar = Backbone.View.extend({
 
   events: {
     "keyup .search-field": "getResults",
-    "focus": "showResults"
+    "focus": "showResults",
+    "click .sign-out": "signOut"
   },
 
   getResults: function (event) {
@@ -21,6 +22,14 @@ LitGenius.Views.NavBar = Backbone.View.extend({
 
   showResults: function () {
     Backbone.history.navigate("#/papers", { trigger: true });
+  },
+
+  signOut: function () {
+    $.ajax({
+      url: "/session",
+      method: "delete",
+    });
+    window.location.replace('session/new');
   },
 
   render: function () {

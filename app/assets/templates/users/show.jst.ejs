@@ -1,2 +1,22 @@
 <p> user: <%= user.get('username') %> </p>
 <a href="#/users/<%= user.id %>/edit">Edit Profile</a>
+
+<div class="new-paper-link">
+  <a href="#/papers/new">Add a paper</a>
+</div>
+
+<ul>
+  <% activities.forEach(function (activity) { %>
+
+    <li>
+
+      <% if (activity.get('title')) { %>
+        <%= activity.get('title') %>
+      <% } else { %>
+        <%= activity.get('body') %>
+      <% } %>
+
+    </li>
+
+  <% }) %>
+</ul>

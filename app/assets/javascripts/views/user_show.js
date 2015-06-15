@@ -5,9 +5,43 @@ LitGenius.Views.UserShow = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  getActivity: function () {
+    var user = this.model;
+
+    var papers = this.model.papers();
+    var annotations = this.model.annotations();
+
+    var activities = [];
+
+    papers.each(function (paper) {
+      activities.push(paper);
+    });
+    annotations.each(function (annotation) {
+      activities.push(annotation);
+    });
+
+    return this.sortByAge(activities);
+  },
+
+  sortByAge: function (array) {
+    function compare(a, b) {
+      // if (a.get('created_at') > b.get('created_at')) {
+      if (a.get('id') > b.get('id')) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+    return array.sort(compare);
+  },
+
   render: function () {
+    var recent_activity = this.getActivity();
+
     var content = this.template({
-      user: this.model
+      user: this.model,
+      activities: recent_activity
     });
 
     this.$el.html(content);

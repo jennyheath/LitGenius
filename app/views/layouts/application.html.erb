@@ -10,10 +10,6 @@
 
 <%= render "shared/errors" %>
 
-<% if current_user %>
-  <%= button_to "Logout", session_url, method: :delete %>
-<% end %>
-
 <%= yield %>
 
 </body>
