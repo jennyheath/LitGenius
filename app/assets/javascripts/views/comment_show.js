@@ -8,13 +8,13 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.vote_count, 'change', this.render);
+    this.listenTo(this.model, 'change:vote_count', this.render);
   },
 
   render: function () {
     var content = this.template({
       comment: this.model,
-      voteCount: this.model.vote_count
+      voteCount: this.model.get('vote_count')
     });
 
     this.$el.html(content);
@@ -24,6 +24,7 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   downVote: function () {
     var currentVote = this.model.current_user_vote;
     var voteVal = currentVote.get('value');
+    var initialVal = voteVal;
 
     if (voteVal === 0) {
       voteVal = -1;
@@ -33,13 +34,19 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
       voteVal = 0;
     }
 
+    var netVoteDiff = voteVal - initialVal;
     currentVote.set({value: voteVal});
-    currentVote.save();
+    currentVote.save({}, {
+      success: function () {
+        this.updateVoteCount(netVoteDiff);
+      }.bind(this)
+    });
   },
 
   upVote: function () {
     var currentVote = this.model.current_user_vote;
     var voteVal = currentVote.get('value');
+    var initialVal = voteVal;
 
     if (voteVal === 0) {
       voteVal = 1;
@@ -49,7 +56,16 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
       voteVal = 0;
     }
 
+    var netVoteDiff = voteVal - initialVal;
     currentVote.set({value: voteVal});
-    currentVote.save();
+    currentVote.save({}, {
+      success: function () {
+        this.updateVoteCount(netVoteDiff);
+      }.bind(this)
+    });
+  },
+
+  updateVoteCount: function (voteVal) {
+    this.model.set({vote_count: this.model.get('vote_count') + voteVal});
   }
 });

@@ -8,15 +8,5 @@
 <ul>
   <% activities.forEach(function (activity) { %>
 
-    <li>
-
-      <% if (activity.get('title')) { %>
-        <%= activity.get('title') %>
-      <% } else { %>
-        <%= activity.get('body') %>
-      <% } %>
-
-    </li>
-
   <% }) %>
 </ul>

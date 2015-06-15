@@ -4,6 +4,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   events: {
     "mouseup .paper-body": "addAnnotationForm",
     "mouseup .annotation-pane": "clearAnnotationPane",
+    "mouseup .paper-comment-form": "clearAnnotationPane",
     "click .annotation-tag": "addAnnotationShow",
     "submit .paper-comment-form": "submitComment"
   },
@@ -118,7 +119,12 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   clearAnnotationPane: function (event) {
+    // debugger;
     if (event.target.className === "annotation-pane col-full-height") {
+      this.$('.annotation-pane').html("");
+    }
+
+    if (event.currentTarget.className === "paper-comment-form") {
       this.$('.annotation-pane').html("");
     }
   },
@@ -138,8 +144,6 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
         this.annotation_overlaps = true;
       }
     }.bind(this));
-
-    // return false;
   },
 
   render: function () {

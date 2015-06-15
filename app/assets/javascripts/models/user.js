@@ -12,13 +12,17 @@ LitGenius.Models.User = Backbone.Model.extend({
   },
 
   parse: function (response) {
-    if (response.annotations) {
-      this.annotations().set(response.annotations);
-      delete response.annotations;
-    }
-    if (response.papers) {
-      this.papers().set(response.papers);
-      delete response.papers;
+    // if (response.annotations) {
+    //   this.annotations().set(response.annotations);
+    //   delete response.annotations;
+    // }
+    // if (response.papers) {
+    //   this.papers().set(response.papers);
+    //   delete response.papers;
+    // }
+    if (response.activities) {
+      this.activities = response.activities;
+      // delete response.activities;
     }
 
     return response;

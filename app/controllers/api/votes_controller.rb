@@ -4,10 +4,10 @@ class Api::VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.new(vote_params)
+    @vote = current_user.votes.new(vote_params)
+
     if @vote.save
-      render :show
-      # render json: @vote
+      render json: @vote
     else
       render json: @vote.errors.full_messages
     end
@@ -24,7 +24,6 @@ class Api::VotesController < ApplicationController
   def update
     @vote = Vote.find(params[:id])
     if @vote.update(vote_params)
-      # render :show
       render json: @vote
     else
       render json: @vote.errors.full_messages
