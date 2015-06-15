@@ -25,8 +25,8 @@ LitGenius.Views.UserShow = Backbone.View.extend({
 
   sortByAge: function (array) {
     function compare(a, b) {
-      // if (a.get('created_at') > b.get('created_at')) {
-      if (a.get('id') > b.get('id')) {
+      if (a.get('created_at') > b.get('created_at')) {
+      // if (a.get('id') > b.get('id')) {
         return 1;
       } else {
         return -1;

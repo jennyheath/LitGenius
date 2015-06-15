@@ -1,4 +1,8 @@
 <li class="comment">
   <h6><%= comment.escape('author_name') %></h6>
   <p><%= comment.escape('body')%></p>
+
+  <button class="up-vote">up-vote</button>
+  <button class="down-vote">down-vote</button>
+  <%= voteCount %>
 </li>

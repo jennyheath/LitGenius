@@ -1,4 +1,5 @@
 LitGenius.Collections.Comments = Backbone.Collection.extend({
+  model: LitGenius.Models.Comment,
   url: '/api/comments',
 
   getOrFetch: function (id) {
