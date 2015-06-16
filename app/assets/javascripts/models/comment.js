@@ -16,6 +16,12 @@ LitGenius.Models.Comment = Backbone.Model.extend({
       });
     }
 
+    if (response.current_user_id) {
+      this.set('current_user_id', response.current_user_id);
+    } else {
+      this.set('current_user_id', 0);
+    }
+
     return response;
   }
 });

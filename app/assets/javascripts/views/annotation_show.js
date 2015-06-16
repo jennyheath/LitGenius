@@ -2,7 +2,8 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   template: JST['annotations/show'],
 
   events: {
-    "submit form": "submitComment"
+    "submit form": "submitComment",
+    "click .delete-annotation": "destroyAnnotation"
   },
 
   initialize: function () {
@@ -14,7 +15,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   },
 
   addCommentView: function (model) {
-    var comment = this.comments.getOrFetch(model.id);
+    var comment = this.comments.getOrFetch(model.id, { parse: true });
     var subView = new LitGenius.Views.CommentShow({
       model: comment
     });
@@ -34,6 +35,17 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  destroyAnnotation: function (model) {
+    event.preventDefault();
+    var view = this;
+
+    this.model.destroy({
+      success: function () {
+        view.remove();
+      }
+    });
+  },
+
   submitComment: function (event) {
     event.preventDefault();
 
@@ -42,6 +54,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     this.newComment.save({}, {
       success: function () {
         this.comments.add(this.newComment);
+        // this.comments.getOrFetch(this.newComment);
         this.$('#comment').val('');
       }.bind(this)
     });

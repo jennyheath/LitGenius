@@ -5,6 +5,10 @@
     <%= annotation.escape('body') %>
   </p>
 
+  <% if (CURRENT_USER_ID === annotation.get('user_id')) { %>
+    <button class="delete-annotation">Delete</button>
+  <% } %>
+
   <ul class="comment-list"></ul>
   <form class="comment-form">
     <input type="text-area" name="comment[body]" id="comment" value="<%= comment.escape('body') %>">

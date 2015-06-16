@@ -3,7 +3,8 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
 
   events: {
     "click .up-vote": "upVote",
-    "click .down-vote": "downVote"
+    "click .down-vote": "downVote",
+    "click .delete-comment": "destroyComment"
   },
 
   initialize: function () {
@@ -12,13 +13,26 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   },
 
   render: function () {
+    var votes = this.model.get('vote_count');
+
     var content = this.template({
       comment: this.model,
-      voteCount: this.model.get('vote_count')
+      voteCount: votes
     });
 
     this.$el.html(content);
     return this;
+  },
+
+  destroyComment: function (model) {
+    event.preventDefault();
+    var view = this;
+
+    this.model.destroy({
+      success: function () {
+        view.remove();
+      }
+    });
   },
 
   downVote: function () {

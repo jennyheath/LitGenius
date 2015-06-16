@@ -33,7 +33,9 @@ LitGenius.Views.NavBar = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template();
+    var content = this.template({
+      currentUserId: CURRENT_USER_ID
+    });
     this.$el.html(content);
     return this;
   }

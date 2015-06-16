@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<script>
+  <% if current_user %>
+    window.CURRENT_USER_ID = <%= current_user.id %>
+  <% end %>
+</script>
+
 <%= render "shared/errors" %>
 
 <%= yield %>

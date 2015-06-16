@@ -161,7 +161,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.newComment.set(attrs.comment);
     this.newComment.save({}, {
       success: function () {
-        this.comments.add(this.newComment);
+        this.model.comments().add(this.newComment);
         this.$('.paper-comment-form').val('');
         this.render();
         this.$('.annotation-pane').html("");

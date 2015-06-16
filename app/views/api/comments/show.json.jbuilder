@@ -1,5 +1,6 @@
 json.author_name @comment.user.username
 json.body @comment.body
+json.user_id @comment.user_id
 
 json.current_user_vote do
   vote = @comment.votes.find_by(user_id: current_user.id)
@@ -9,5 +10,3 @@ json.current_user_vote do
     nil
   end
 end
-
-# json.vote_count @comment.count_votes

@@ -1,6 +1,6 @@
 class AuthorTagging < ActiveRecord::Base
-  validates :paper_id, :author_id, presence: true
+  validates :paper, :author_id, presence: true
 
-  has_many :papers
-  has_many :authors
+  belongs_to :paper
+  belongs_to :author
 end

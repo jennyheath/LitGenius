@@ -8,7 +8,15 @@ class Api::PapersController < ApplicationController
   def create
     @paper = Paper.new(paper_params)
     @paper.assign_attributes(user_id: current_user.id)
-    # debugger;
+
+    @paper.institution = Institution.find_or_create(params[:paper][:institution])
+    @paper.journal = Journal.find_or_create(params[:paper][:journal])
+    @paper.field = Field.find_by(name: params[:paper][:field])
+    @authors = params[:paper][:authors].split(", ")
+    @authors.each do |author_name|
+      author = Author.find_or_create(author_name)
+      @paper.authors << author
+    end
 
     if @paper.save
       render json: @paper
@@ -75,6 +83,6 @@ class Api::PapersController < ApplicationController
 
   private
   def paper_params
-    params.require(:paper).permit(:title, :body, :user_id, :journal_id, :institution_id, :field_id)
+    params.require(:paper).permit(:title, :body, :user_id)
   end
 end

@@ -18,7 +18,9 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.currentTarget).serializeJSON();
-    this.model.set({body: attrs.paper.body, title: attrs.paper.title});
+    // this.model.set({body: attrs.paper.body,
+    //                 title: attrs.paper.title,
+    //                 });
 
     // var fieldId = LitGenius.Collections.fields.getOrFetchId(attrs.paper.field);
     // var field_tagging = new LitGenius.Models.FieldTagging();
@@ -39,7 +41,7 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
     // var journal_tagging = new LitGenius.Models.JournalTagging();
     // journal_tagging.save({paper_id: this.model.id, journal_id: journalId});
 
-    this.model.save({}, {
+    this.model.save(attrs, {
       success: function () {
         this.collection.add(this.model);
         Backbone.history.navigate("", { trigger: true });

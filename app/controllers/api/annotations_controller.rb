@@ -34,8 +34,15 @@ class Api::AnnotationsController < ApplicationController
       end
     end
     @comments.sort! { |a, b| b.vote_count <=> a.vote_count }
+    render :show
   end
 
+  def destroy
+    @annotation = Annotation.find(params[:id])
+    @annotation.delete
+    render json: {}
+  end
+  
   private
   def annotation_params
     params.require(:annotation).permit(:user_id, :paper_id, :body, :start_index, :end_index)
