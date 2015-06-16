@@ -6,7 +6,8 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     "mouseup .annotation-pane": "clearAnnotationPane",
     "mouseup .paper-comment-form": "clearAnnotationPane",
     "click .annotation-tag": "addAnnotationShow",
-    "submit .paper-comment-form": "submitComment"
+    "submit .paper-comment-form": "submitComment",
+    "click .delete-paper": "destroyPaper"
   },
 
   initialize: function () {
@@ -63,18 +64,6 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.addSubview('.annotation-pane', subView);
   },
 
-  selectionHTML: function (container) {
-    var selection = rangy.getSelection();
-    if (selection.rangeCount > 0) {
-        var range = selection.getRangeAt(0);
-        return {
-            offsets: range.toCharacterRange(container),
-            html: range.toHtml()
-        };
-    }
-    return null;
-  },
-
   addAnnotationTags: function () {
     var annotations = this.model.annotations();
     if (annotations.length === 0) {
@@ -123,6 +112,21 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     }
   },
 
+  destroyPaper: function (event) {
+    event.preventDefault();
+    var answer = confirm("Are you sure you want to remove this paper? (all of its annotations and comments will be lost)");
+    if (answer === true) {
+      var view = this;
+
+      this.model.destroy({
+        success: function () {
+          view.remove();
+          Backbone.history.navigate("#", { trigger: true });
+        }
+      });
+    }
+  },
+
   overlappingAnnotation: function (startIndex, endIndex) {
     var annotations = this.model.annotations();
 
@@ -152,6 +156,18 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
     this.addAnnotationTags();
     return this;
+  },
+
+  selectionHTML: function (container) {
+    var selection = rangy.getSelection();
+    if (selection.rangeCount > 0) {
+        var range = selection.getRangeAt(0);
+        return {
+            offsets: range.toCharacterRange(container),
+            html: range.toHtml()
+        };
+    }
+    return null;
   },
 
   submitComment: function (event) {

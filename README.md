@@ -16,7 +16,7 @@ A Genius clone for scientific literature. Users can:
 - [x] search papers by topic, journal, etc.
 - [x] reply to annotations
 - [x] comment on papers
-- [ ] up-vote/down-vote on annotations
+- [x] up-vote/down-vote on annotations
 
 ## Design Docs
 * [Wireframes][views]
@@ -57,7 +57,7 @@ Making everything look pretty with CSS and potentially some jQuery plugins. Add 
 [Details][phase-five]
 
 ### Bonus Features
-- [ ] implement user feeds on profile pages that show a user's activity
+- [x] implement user feeds on profile pages that show a user's activity
 - [ ] allow users to follow other users, which puts more activity on the user's feed
 
 [phase-one]: ./docs/phases/phase1.md

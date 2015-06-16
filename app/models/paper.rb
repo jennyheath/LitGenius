@@ -11,6 +11,6 @@ class Paper < ActiveRecord::Base
 
   has_many :annotations, dependent: :destroy
   # has_many :comments, as: :commentable
-  has_many :author_taggings
+  has_many :author_taggings, dependent: :destroy
   has_many :authors, through: :author_taggings, source: :author
 end

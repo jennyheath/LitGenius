@@ -81,6 +81,12 @@ class Api::PapersController < ApplicationController
     @comments.sort! {|a, b| b.vote_count <=> a.vote_count}
   end
 
+  def destroy
+    @paper = Paper.find(params[:id])
+    @paper.delete
+    render json: {}
+  end
+
   private
   def paper_params
     params.require(:paper).permit(:title, :body, :user_id)
