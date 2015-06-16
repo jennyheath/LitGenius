@@ -1,0 +1,9 @@
+<div class="search-dropdown">
+  <ul class="search-results">
+    <% papers.each(function(paper){ %>
+      <li class="search-result-link">
+        <a href="/#/papers/<%= paper.id %>"><%= paper.escape('title') %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>

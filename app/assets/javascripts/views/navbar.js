@@ -1,27 +1,41 @@
 LitGenius.Views.NavBar = Backbone.View.extend({
   template: JST['navbar'],
-
+  searchTemplate: JST['search_dropdown'],
   events: {
     "keyup .search-field": "getResults",
-    "focus": "showResults",
-    "click .sign-out": "signOut"
+    // "submit .search-field": "showResultsPage",
+    "click .sign-out": "signOut",
+    "click .search-result-link": "clearResults"
+  },
+
+  initialize: function(){
+    this.papers = new LitGenius.Collections.Papers();
+    this.listenTo(this.papers, "sync", this.showResults);
+  },
+
+  clearResults: function () {
+    this.papers.reset([]);
+    this.papers.trigger("sync");
   },
 
   getResults: function (event) {
     if (this.$el.find('input').val() === "") {
-      $('#main').html('');
-      return;
+      this.papers.reset([]);
+      this.papers.trigger("sync");
+    } else {
+      this.papers.fetch({
+        data: { search_params: this.$el.find('input').val() }
+      });
     }
-
-    this.collection.fetch({
-      data: { search_params: this.$el.find('input').val() }
-    });
-
-    this.showResults();
   },
 
   showResults: function () {
-    Backbone.history.navigate("#/papers", { trigger: true });
+    if (this.papers.length > 0){
+      this.$(".dropdown-box").html(this.searchTemplate({papers: this.papers}));
+    } else {
+      this.$('.dropdown-box').empty();
+    }
+    // Backbone.history.navigate("#/papers", { trigger: true });
   },
 
   signOut: function () {
@@ -37,6 +51,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
       currentUserId: CURRENT_USER_ID
     });
     this.$el.html(content);
+
     return this;
   }
 });

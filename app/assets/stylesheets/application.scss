@@ -145,6 +145,8 @@ li {
   padding: 5px;
   text-align: right;
   border-bottom: 1px solid #647284;
+  position: relative;
+  // height: 100%;
 }
 
 .search-box {
@@ -154,6 +156,14 @@ li {
   background: #F2F2F2;
   border: 1px solid #647284;
   text-indent: 10px;
+}
+
+.dropdown-box {
+  position: absolute;
+  right: 10px;
+  display: block;
+  float: right;
+  width: 300px;
 }
 
 .sign-out {

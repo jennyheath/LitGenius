@@ -4,7 +4,9 @@
   <div class="col-full-height">
     <pre class="paper-body"><%= paper.formattedBody() %></pre>
 
-    <button class="delete-paper">Delete Paper</button>
+    <% if (paper.get('user_id') === CURRENT_USER_ID) { %>
+      <button class="delete-paper">Delete Paper</button>
+    <% } %>
     <form class="paper-comment-form">
       <input type="text-area"
              name="comment[body]"
