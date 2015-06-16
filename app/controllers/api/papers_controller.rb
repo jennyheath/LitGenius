@@ -7,7 +7,8 @@ class Api::PapersController < ApplicationController
 
   def create
     @paper = Paper.new(paper_params)
-    @paper.assign_attributes(author_id: current_user.id)
+    @paper.assign_attributes(user_id: current_user.id)
+    # debugger;
 
     if @paper.save
       render json: @paper
@@ -29,17 +30,11 @@ class Api::PapersController < ApplicationController
                                    LEFT OUTER JOIN
                                    authors ON authors.id = author_taggings.author_id
                                    LEFT OUTER JOIN
-                                   field_taggings ON field_taggings.paper_id = papers.id
+                                   fields ON fields.id = papers.field_id
                                    LEFT OUTER JOIN
-                                   fields ON fields.id = field_taggings.field_id
+                                   institutions ON institutions.id = papers.institution_id
                                    LEFT OUTER JOIN
-                                   institution_taggings ON institution_taggings.paper_id = papers.id
-                                   LEFT OUTER JOIN
-                                   institutions ON institutions.id = institution_taggings.institution_id
-                                   LEFT OUTER JOIN
-                                   journal_taggings ON journal_taggings.paper_id = papers.id
-                                   LEFT OUTER JOIN
-                                   journals ON journals.id = journal_taggings.journal_id
+                                   journals ON journals.id = papers.journal_id
                                    WHERE
                                    (papers.title LIKE ?)
                                     OR (fields.name LIKE ?)
@@ -56,7 +51,7 @@ class Api::PapersController < ApplicationController
   end
 
   def show
-    @paper = Paper.includes(comments: :author, annotations: :author).find(params[:id])
+    @paper = Paper.includes(comments: :user, annotations: :user).find(params[:id])
     @comments = Comment.find_by_sql ["SELECT
                                       comments.*, SUM(votes.value) AS vote_count
                                       FROM
@@ -80,6 +75,6 @@ class Api::PapersController < ApplicationController
 
   private
   def paper_params
-    params.require(:paper).permit(:title, :body, :author_id)
+    params.require(:paper).permit(:title, :body, :user_id, :journal_id, :institution_id, :field_id)
   end
 end

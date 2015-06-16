@@ -1,4 +1,4 @@
-json.author_name @comment.author.username
+json.author_name @comment.user.username
 json.body @comment.body
 
 json.current_user_vote do

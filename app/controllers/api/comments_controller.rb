@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.assign_attributes(author_id: current_user.id)
+    @comment.assign_attributes(user_id: current_user.id)
 
     if @comment.save
       render json: @comment

@@ -1,11 +1,9 @@
 json.id @annotation.id
-json.author_name @annotation.author.username
+json.author_name @annotation.user.username
 json.body @annotation.body
+
 json.comments do
-  json.array! @annotation.comments do |comment|
-    json.extract! comment, :id, :body, :author_id
-    json.author_name comment.author.username
+  json.array! @comments do |comment|
+    json.extract! comment, :id, :vote_count
   end
 end
-
-# json.comment_counts @comments

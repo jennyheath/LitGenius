@@ -16,7 +16,7 @@ json.username @user.username
 json.activities do
   json.array! @activities do |activity|
     # if typeof activity === Paper
-      json.extract! activity, :id
+    json.extract! activity, :id
     # end
   end
 end

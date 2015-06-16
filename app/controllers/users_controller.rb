@@ -19,15 +19,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_papers = Paper.where(author_id: @user.id)
-    @user_annotations = Annotation.where(author_id: @user.id)
-    @user_comments = Comment.where(author_id: @user.id)
+    @user_papers = Paper.where(user_id: @user.id)
+    @user_annotations = Annotation.where(user_id: @user.id)
+    @user_comments = Comment.where(user_id: @user.id)
     @activities = @user_papers
                     .concat(@user_annotations)
                     .concat(@user_comments)
                     .sort_by(&:created_at)
 
-    render json: @activities
+    render :show
   end
 
   def edit

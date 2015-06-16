@@ -8,13 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :papers
   has_many :annotations
-  has_many(
-    :comments,
-    class_name: "Comments",
-    foreign_key: :author_id,
-    primary_key: :id
-  )
-
+  has_many :comments
   has_many :votes
   has_many :voted_for_comments, through: :votes, source: :comments
 

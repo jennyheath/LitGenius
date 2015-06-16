@@ -8,6 +8,9 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.comments = this.model.comments();
     this.listenTo(this.comments, 'add', this.addCommentView);
+    this.comments.each(function (comment) {
+      this.addCommentView(comment);
+    }.bind(this));
   },
 
   addCommentView: function (model) {

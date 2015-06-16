@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613211900) do
+ActiveRecord::Schema.define(version: 20150616000604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
-    t.integer  "author_id",   null: false
+    t.integer  "user_id",     null: false
     t.integer  "paper_id",    null: false
     t.text     "body",        null: false
     t.integer  "start_index", null: false
@@ -47,17 +47,10 @@ ActiveRecord::Schema.define(version: 20150613211900) do
     t.string   "commentable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "author_id",        null: false
+    t.integer  "user_id",          null: false
   end
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
-
-  create_table "field_taggings", force: :cascade do |t|
-    t.integer  "paper_id",   null: false
-    t.integer  "field_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "fields", force: :cascade do |t|
     t.string   "name",       null: false
@@ -65,22 +58,8 @@ ActiveRecord::Schema.define(version: 20150613211900) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "institution_taggings", force: :cascade do |t|
-    t.integer  "paper_id",       null: false
-    t.integer  "institution_id", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "institutions", force: :cascade do |t|
     t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "journal_taggings", force: :cascade do |t|
-    t.integer  "paper_id",   null: false
-    t.integer  "journal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,11 +71,14 @@ ActiveRecord::Schema.define(version: 20150613211900) do
   end
 
   create_table "papers", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "body",       null: false
-    t.integer  "author_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",          null: false
+    t.text     "body",           null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "journal_id"
+    t.integer  "field_id"
+    t.integer  "institution_id"
   end
 
   add_index "papers", ["title"], name: "index_papers_on_title", unique: true, using: :btree

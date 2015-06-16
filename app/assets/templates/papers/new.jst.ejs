@@ -9,7 +9,7 @@
   </label>
   <br>
   <label>Field:
-    <select name="paper[field]">
+    <select name="paper[field_id]" value="">
       <option value:"astrophysics">Astrophysics</option>
       <option value:"biochemistry">Biochemistry</option>
       <option value:"bioengineering">Bioengineering</option>
@@ -31,15 +31,15 @@
   </label>
   <br>
   <label>Authors:
-    <input type="text" name="paper[authors]" value="<%= paper.escape("authors") %>">
+    <input type="text" name="paper[authors]" value="">
   </label>
   <br>
   <label>Institution:
-    <input type="text" name="paper[institution]" value="<%= paper.escape("institution") %>">
+    <input type="text" name="paper[institution_id]" value="">
   </label>
   <br>
   <label>Journal:
-    <input type="text" name="paper[journal]" value="<%= paper.escape("journal") %>">
+    <input type="text" name="paper[journal_id]" value="">
   </label>
   <br>
   <button class="submit">Post Paper</button>
