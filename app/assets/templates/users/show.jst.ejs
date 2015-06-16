@@ -6,7 +6,36 @@
 </div>
 
 <ul>
+  <% if (activities) { %>
   <% activities.forEach(function (activity) { %>
-    <%= activity.id %>
+
+    <% if (activity.type === "paper") { %>
+      <li>
+        <%= user.get('username') %> submitted a paper:
+        <a href="#/papers/<%= activity.id %>"><%= activity.title %></a>,
+        <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+      </li>
+
+    <% } else if (activity.type === "annotation") { %>
+      <li>
+        <%= user.get('username') %> annotated a paper:
+        <a href="#/papers/<%= activity.paper_id %>"><%= activity.body %></a>,
+        <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+      </li>
+
+    <% } else if (activity.type === "comment") { %>
+      <li>
+        <% if (activity.commentable_type === "Paper") { %>
+          <%= user.get('username') %> commented on a paper:
+          <a href="#/papers/<%= activity.commentable_id %>"><%= activity.body %></a>,
+          <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+        <% } else { %>
+          <%= user.get('username') %> replied to an annotation: 
+          <%= activity.body %>,
+          <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+        <% } %>
+      </li>
+    <% } %>
   <% }) %>
+  <% } %>
 </ul>

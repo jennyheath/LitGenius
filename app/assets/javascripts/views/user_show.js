@@ -3,16 +3,17 @@ LitGenius.Views.UserShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    LitGenius.Collections.users.getOrFetch(this.model.id, { parse: true });
   },
 
   render: function () {
-    var user = LitGenius.Collections.users.getOrFetch(this.model.id);
     var content = this.template({
       user: this.model,
-      activities: user.get('activities')
+      activities: this.model.get('activities')
     });
 
     this.$el.html(content);
+    $('.timeago').timeago();
     return this;
   }
 });

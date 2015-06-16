@@ -25,8 +25,7 @@ class UsersController < ApplicationController
     @activities = @user_papers
                     .concat(@user_annotations)
                     .concat(@user_comments)
-                    .sort_by(&:created_at)
-
+                    .sort_by(&:created_at).reverse!
     render :show
   end
 
