@@ -1,8 +1,13 @@
-<h3><%= paper.escape('title') %></h3>
+<div class="paper-heading">
+  <h3><%= paper.escape('title') %></h3>
+  <h6>Published in: </h6>
+  <p>Authors:</p>
+  <p>Name of institution</p>
+</div>
 
 <div class="paper-show clearfix row-full-height">
   <div class="col-full-height">
-    <pre class="paper-body"><%= paper.formattedBody() %></pre>
+    <div class="paper-body"><%= paper.formattedBody() %></div>
 
     <% if (paper.get('user_id') === CURRENT_USER_ID) { %>
       <button class="delete-paper">Delete Paper</button>
@@ -17,6 +22,7 @@
       <input type="hidden" name="comment[commentable_type]" value="Paper">
       <button class="submit">Comment</button>
     </form>
+    <p class="paper-comments-title">Comments:</p>
     <ul class="paper-comment-list"></ul>
   </div>
 

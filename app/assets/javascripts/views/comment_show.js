@@ -58,6 +58,7 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   },
 
   upVote: function () {
+    // debugger;
     var currentVote = this.model.current_user_vote;
     var voteVal = currentVote.get('value');
     var initialVal = voteVal;
@@ -80,6 +81,11 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   },
 
   updateVoteCount: function (voteVal) {
-    this.model.set({vote_count: this.model.get('vote_count') + voteVal});
+    var currentVoteCount = this.model.get('vote_count');
+    if (currentVoteCount) {
+      this.model.set({vote_count: currentVoteCount + voteVal});
+    } else {
+      this.model.set({vote_count: voteVal});
+    }
   }
 });

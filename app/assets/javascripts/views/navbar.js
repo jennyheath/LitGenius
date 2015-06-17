@@ -5,7 +5,9 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     "keyup .search-field": "getResults",
     // "submit .search-field": "showResultsPage",
     "click .sign-out": "signOut",
-    "click .search-result-link": "clearResults"
+    "click .search-result-link": "clearResults",
+    "mouseover .field": "openDropdown",
+    "mouseleave .hover-dropdown": "closeDropdown"
   },
 
   initialize: function(){
@@ -18,6 +20,10 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     this.papers.trigger("sync");
   },
 
+  closeDropdown: function (event) {
+    $(event.target).parent().removeClass("open");
+  },
+
   getResults: function (event) {
     if (this.$el.find('input').val() === "") {
       this.papers.reset([]);
@@ -27,6 +33,10 @@ LitGenius.Views.NavBar = Backbone.View.extend({
         data: { search_params: this.$el.find('input').val() }
       });
     }
+  },
+
+  openDropdown: function (event) {
+    $(event.target).parent().addClass("open");
   },
 
   showResults: function () {

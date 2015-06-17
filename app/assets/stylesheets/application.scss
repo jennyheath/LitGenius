@@ -19,24 +19,46 @@
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 a:hover, .field-category-home:hover {
   text-decoration: none;
-  color: #337AB7;//#FFCC00;
+  color: #B2B2B2; //#337AB7;//#FFCC00;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 .about-link {
   display: block;
 }
 
+.about-box {
+  height: 300px;
+  background-color: #eee;
+  border: 1px solid #000;
+  margin: 50px;
+}
+
 .annotation-pane {
   width: 500px;
-  margin-left: 50px;
+  padding-left: 50px;
+}
+
+.annotation-tag {
+  background-color: yellow;
+}
+
+.annotation-tag:hover {
+  background-color: orange;
 }
 
 .app-name {
   text-align: center;
+  color: #fff;
+  padding: 120px;
 }
 
 body {
@@ -47,9 +69,10 @@ body {
 
 .category-nav {
   display: block;
-  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 5px;
   // border-bottom: 1px solid #fff;
-  border-bottom: 1px solid #647284;
+  border-bottom: 2px solid #E0E0E0; //#647284;
 }
 
 .col-full-height {
@@ -61,10 +84,27 @@ body {
   list-style: none;
 }
 
+.dropdown-box {
+  position: absolute;
+  right: 10px;
+  width: 300px;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.featured-box {
+  height: 200px;
+  background-color: #eee;
+  border: 1px solid #000;
+  margin: 50px;
+}
+
 .field {
   // color: #fff;
   color: #555;
   font-size: 14px;
+  padding-bottom: 15px;
 }
 
 .field-category {
@@ -79,23 +119,37 @@ body {
   display: block;
   float: left;
   margin-left: 90px;
-  color: #242424;
+  color: #555555; //#242424;
+  padding-top: 15px;
 }
 
 .field-index-home {
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
+  height: 50px;
+  background-color: #F3F3F3;
+}
+
+.field-list-home {
+  text-align: center;
 }
 
 .jumbotron {
-  height: 400px;
-  // position: relative;
-  // background: #000 url("../../images/neurons.jpg") center center;
-  // width: 100%;
-  // height: 100%;
-  // background-size: cover;
-  // overflow: hidden;
+  height: 425px;
+  position: relative;
+  background-image: url("neurons-2.png");
+  background-size: cover;
+  overflow: hidden;
+}
+
+.jumbotron a {
+  color: #fff;
+}
+
+.jumbotron p {
+  font-weight: bold;
+  font-size: 35px;
 }
 
 li {
@@ -104,13 +158,15 @@ li {
 
 .logo {
   width: 150px;
+  padding-left: 10px;
 }
 
 .navbar-main {
-  // background-color: #000;
+  background-color: #fff;
   // color: #fff;
-  background-color: #EAEAEA; //#EEE;
-  color: #647284;//#555;
+  // background-color: #EAEAEA; //#EEE;
+  color: #000; // #647284;//#555;
+  border-top: 3px solid red;
 }
 
 .new-paper-link {
@@ -118,14 +174,34 @@ li {
   text-align: center;
 }
 
+.paper-body {
+  width: 500px;
+  margin-left: 50px;
+  white-space: pre-wrap;
+  font-size: 12px;
+}
+
+.paper-comment-form {
+  padding-top: 30px;
+  padding-left: 50px;
+}
+
+.paper-comment-list {
+  padding-left: 50px;
+}
+
+.paper-comments-title {
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
 .paper-show {
   display: block;
   float: left;
 }
 
-.paper-body {
-  width: 500px;
-  margin-left: 50px;
+.paper-heading {
+  padding-left: 50px;
 }
 
 .profile-icon {
@@ -133,6 +209,7 @@ li {
   float: right;
   height: 25px;
   margin-right: 15px;
+  margin-bottom: 15px;
 }
 
 .row-full-height {
@@ -144,34 +221,36 @@ li {
   display: block;
   padding: 5px;
   text-align: right;
-  border-bottom: 1px solid #647284;
+  border-bottom: 1px solid #E0E0E0; //#647284;
   position: relative;
-  // height: 100%;
 }
 
 .search-box {
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 5px;
   width: 300px;
-  background: #F2F2F2;
-  border: 1px solid #647284;
+  // background: #F2F2F2;
+  background: url('magnifying-glass.png') no-repeat;// 5px 5px;
+  background-size: 20px 20px;
+  background-position: 98% 50%;
+  border: 1px solid #E0E0E0; //#647284;
   text-indent: 10px;
 }
 
-.dropdown-box {
-  position: absolute;
-  right: 10px;
-  display: block;
-  float: right;
-  width: 300px;
+.search-result-link {
+  border-bottom: 1px solid #000;
+  text-align: left;
+  text-indent: 10px;
+}
+
+a:li .search-result-link {
+  background-color: #eee;
 }
 
 .sign-out {
-  // text-align: right;
   display: block;
   float: right;
-  margin-right: 10px;
-  // margin-top: 10px;
+  margin-right: 15px;
 }
 
 .logo {
@@ -182,4 +261,13 @@ li {
 .toggle-sign-in {
   display: block;
   float: right;
+}
+
+.user-feed {
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.user-profile-sidebar {
+  padding-left: 50px;
 }

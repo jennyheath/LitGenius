@@ -1,41 +1,46 @@
-<p> user: <%= user.get('username') %> </p>
-<a href="#/users/<%= user.id %>/edit">Edit Profile</a>
+<div class="row">
+  <div class="user-profile-sidebar col-md-3">
+    <h3><%= user.get('username') %>'s profile</h3>
+    <a href="#/users/<%= user.id %>/edit">Edit Profile</a>
+    <br>
+    <a href="#/papers/new">Add a paper</a>
+    <br><br>
+  </div>
 
-<div class="new-paper-link">
-  <a href="#/papers/new">Add a paper</a>
-</div>
+  <div class="col-md-6">
+    <ul class="user-feed">
+      <% if (activities) { %>
+      <% activities.forEach(function (activity) { %>
 
-<ul>
-  <% if (activities) { %>
-  <% activities.forEach(function (activity) { %>
+        <% if (activity.type === "paper") { %>
+          <li>
+            <%= user.get('username') %> submitted a paper:
+            <a href="#/papers/<%= activity.id %>"><%= activity.title %></a>,
+            <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+          </li>
 
-    <% if (activity.type === "paper") { %>
-      <li>
-        <%= user.get('username') %> submitted a paper:
-        <a href="#/papers/<%= activity.id %>"><%= activity.title %></a>,
-        <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
-      </li>
+        <% } else if (activity.type === "annotation") { %>
+          <li>
+            <%= user.get('username') %> annotated a paper:
+            <a href="#/papers/<%= activity.paper_id %>"><%= activity.body %></a>,
+            <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+          </li>
 
-    <% } else if (activity.type === "annotation") { %>
-      <li>
-        <%= user.get('username') %> annotated a paper:
-        <a href="#/papers/<%= activity.paper_id %>"><%= activity.body %></a>,
-        <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
-      </li>
-
-    <% } else if (activity.type === "comment") { %>
-      <li>
-        <% if (activity.commentable_type === "Paper") { %>
-          <%= user.get('username') %> commented on a paper:
-          <a href="#/papers/<%= activity.commentable_id %>"><%= activity.body %></a>,
-          <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
-        <% } else { %>
-          <%= user.get('username') %> replied to an annotation: 
-          <%= activity.body %>,
-          <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+        <% } else if (activity.type === "comment") { %>
+          <li>
+            <% if (activity.commentable_type === "Paper") { %>
+              <%= user.get('username') %> commented on a paper:
+              <a href="#/papers/<%= activity.commentable_id %>"><%= activity.body %></a>,
+              <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+            <% } else { %>
+              <%= user.get('username') %> replied to an annotation:
+              <%= activity.body %>,
+              <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
+            <% } %>
+          </li>
         <% } %>
-      </li>
-    <% } %>
-  <% }) %>
-  <% } %>
-</ul>
+      <% }) %>
+      <% } %>
+    </ul>
+  </div>
+</div>
