@@ -54,45 +54,41 @@ author16 = Author.create!({name: "Collum, D.B"})
 # author = Author.create!({name: ""})
 # author = Author.create!({name: ""})
 
-file1 = File.open("./app/assets/papers/Neurobiology1.rtf", "rb")
+# file1 = File.open("./app/assets/papers/Neurobiology1.txt", "r")
 paper1 = Paper.create!({title: "Balanced inhibition underlies tuning and sharpens spike timing in auditory cortex.",
-                        body: file1.read,
+                        body: File.read("./app/assets/papers/Neurobiology1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
                         user_id: 1,
                         journal_id: 1,
                         field_id: 9,
                         institution_id: 4})
 paper1.authors = [author13, author14]
 
-file2 = File.open("./app/assets/papers/Neurobiology2.rtf", "rb")
 paper2 = Paper.create!({title: "Currents carried by sodium and potassium ions through the membrane of the giant axon of Loligo",
-                        body: file2.read,
+                        body: File.read("./app/assets/papers/Neurobiology2.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
                         user_id: 1,
                         journal_id: 2,
                         field_id: 9,
                         institution_id: 2})
 paper2.authors = [author5, author7]
 
-file3 = File.open("./app/assets/papers/Neurobiology3.rtf", "rb")
 paper3 = Paper.create!({title: "A Neural Circuit for Spatial Summation in Visual Cortex",
-                        body: file3.read,
+                        body: File.read("./app/assets/papers/Neurobiology3.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
                         user_id: 1,
                         journal_id: 1,
                         field_id: 9,
                         institution_id: 1})
 paper3.authors = [author1, author2, author12, author6, author10]
 
-file4 = File.open("./app/assets/papers/Genetics1.rtf", "rb")
 paper4 = Paper.create!({title: "Genetic Breeding and Diversity of the Genus Passiflora",
-                        body: file4.read,
+                        body: File.read("./app/assets/papers/Genetics1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
                         user_id: 1,
                         journal_id: 3,
                         field_id: 7,
                         institution_id: 3})
 paper4.authors = [author3, author8, author9, author4, author11]
 
-file5 = File.open("./app/assets/papers/OrganicChemistry1.rtf", "rb")
 paper5 = Paper.create!({title: "Computational Studies of Lithium Diisopropylamide Deaggregation",
-                        body: file5.read,
+                        body: File.read("./app/assets/papers/OrganicChemistry1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
                         user_id: 1,
                         journal_id: 4,
                         field_id: 13,
