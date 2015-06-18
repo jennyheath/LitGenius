@@ -55,7 +55,60 @@ class Api::PapersController < ApplicationController
                                    '%' + search_string + '%',
                                    '%' + search_string + '%']
       render json: @papers
+    elsif params[:field]
+      field = params[:field]
+      if field == "Biological Sciences"
+        @papers = Paper.find_by_sql ["SELECT
+                                      papers.id, papers.title
+                                      FROM
+                                      papers
+                                      WHERE
+                                      field_id = 1
+                                      OR field_id = 2
+                                      OR field_id = 3
+                                      OR field_id = 4
+                                      OR field_id = 5
+                                      OR field_id = 6
+                                      OR field_id = 7
+                                      OR field_id = 8
+                                      OR field_id = 9
+                                      OR field_id = 21"]
+      elsif field == "Chemical Sciences"
+        @papers = Paper.find_by_sql ["SELECT
+                                      papers.id, papers.title
+                                      FROM
+                                      papers
+                                      WHERE
+                                      field_id = 10
+                                      OR field_id = 11
+                                      OR field_id = 12
+                                      OR field_id = 13
+                                      OR field_id = 14"]
+      elsif field == "Physical Sciences"
+        @papers = Paper.find_by_sql ["SELECT
+                                      papers.id, papers.title
+                                      FROM
+                                      papers
+                                      WHERE
+                                      field_id = 15
+                                      OR field_id = 16"]
+      elsif field == "Mathematics"
+        @papers = Paper.find_by_sql ["SELECT
+                                      papers.id, papers.title
+                                      FROM
+                                      papers
+                                      WHERE
+                                      field_id = 17
+                                      OR field_id = 18
+                                      OR field_id = 19
+                                      OR field_id = 20"]
+      end
+      render json: @papers
     end
+  end
+
+  def field
+
   end
 
   def show

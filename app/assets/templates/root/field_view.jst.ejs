@@ -1,0 +1,7 @@
+<div class="row-centered">
+  <% paperLinks.each(function (paper) { %>
+    <div class="paper-link-home col-md-5 col-centered">
+      <a href="#/papers/<%= paper.id %>"><%= paper.get('title') %></a>
+    </div>
+  <% }) %>
+</div>

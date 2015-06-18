@@ -159,6 +159,8 @@ li {
 .logo {
   width: 150px;
   padding-left: 10px;
+  display: block;
+  float: left;
 }
 
 .navbar-main {
@@ -193,6 +195,21 @@ li {
 .paper-comments-title {
   padding-top: 20px;
   padding-left: 50px;
+}
+
+.row-centered {
+  text-align:center;
+}
+
+.col-centered {
+  display:inline-block;
+  float:none;
+  text-align:left;
+  border: 1px solid #000;
+  margin-right:-4px;
+  margin-left: 50px;
+  margin-top: 50px;
+  height: 200px;
 }
 
 .paper-show {
@@ -253,9 +270,8 @@ a:li .search-result-link {
   margin-right: 15px;
 }
 
-.logo {
-  display: block;
-  float: left;
+.annotation-tag:hover {
+  color: #000;
 }
 
 .toggle-sign-in {

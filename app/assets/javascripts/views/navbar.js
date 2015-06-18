@@ -3,7 +3,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
   searchTemplate: JST['search_dropdown'],
   events: {
     "keyup .search-field": "getResults",
-    // "submit .search-field": "showResultsPage",
+    // "submit .search-field": "showResults",
     "click .sign-out": "signOut",
     "click .search-result-link": "clearResults",
     "mouseover .field": "openDropdown",
