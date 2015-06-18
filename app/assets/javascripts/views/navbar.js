@@ -1,18 +1,37 @@
 LitGenius.Views.NavBar = Backbone.View.extend({
   template: JST['navbar'],
   searchTemplate: JST['search_dropdown'],
+  // homeTemplate: JST['root/home'],
+
   events: {
     "keyup .search-field": "getResults",
     // "submit .search-field": "showResults",
     "click .sign-out": "signOut",
     "click .search-result-link": "clearResults",
     "mouseover .field": "openDropdown",
-    "mouseleave .hover-dropdown": "closeDropdown"
+    "mouseleave .hover-dropdown": "closeDropdown",
+    "click .field": "addFieldView",
+    "click .logo": "addHomeView"
   },
 
   initialize: function(){
     this.papers = new LitGenius.Collections.Papers();
     this.listenTo(this.papers, "sync", this.showResults);
+  },
+
+  addFieldView: function (event) {
+    var field = $(event.target).text();
+    var view = new LitGenius.Views.FieldView({
+      field: field
+    });
+
+    $('#main').html(view.render().$el);
+  },
+
+  addHomeView: function () {
+    var view = new LitGenius.Views.HomeShow();
+
+    $('#main').html(view.render().$el);
   },
 
   clearResults: function () {

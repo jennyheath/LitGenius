@@ -91,7 +91,8 @@ class Api::PapersController < ApplicationController
                                       papers
                                       WHERE
                                       field_id = 15
-                                      OR field_id = 16"]
+                                      OR field_id = 16
+                                      OR field_id = 22"]
       elsif field == "Mathematics"
         @papers = Paper.find_by_sql ["SELECT
                                       papers.id, papers.title
