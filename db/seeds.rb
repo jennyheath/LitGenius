@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+Journal.destroy_all
+Institution.destroy_all
+Field.destroy_all
+Author.destroy_all
+
 user1 = User.create!({username: "Guest User", password: "password"})
 
 journal1 = Journal.create!({name: "Nature"})
