@@ -20,7 +20,6 @@ class Api::PapersController < ApplicationController
 
     if @paper.save
       render json: @paper
-      # render :show?
     else
       render json: @paper.errors.full_messages, status: 402
     end
@@ -29,32 +28,37 @@ class Api::PapersController < ApplicationController
   def index
     if params[:search_params]
       search_string = params[:search_params]
-      @papers = Paper.find_by_sql ["SELECT
-                                   papers.id, papers.title
-                                   FROM
-                                   papers
-                                   LEFT OUTER JOIN
-                                   author_taggings ON author_taggings.paper_id = papers.id
-                                   LEFT OUTER JOIN
-                                   authors ON authors.id = author_taggings.author_id
-                                   LEFT OUTER JOIN
-                                   fields ON fields.id = papers.field_id
-                                   LEFT OUTER JOIN
-                                   institutions ON institutions.id = papers.institution_id
-                                   LEFT OUTER JOIN
-                                   journals ON journals.id = papers.journal_id
-                                   WHERE
-                                   (papers.title LIKE ?)
-                                    OR (fields.name LIKE ?)
-                                    OR (institutions.name LIKE ?)
-                                    OR (journals.name LIKE ?)
-                                    OR (authors.name LIKE ?)",
+
+      sql_str = <<-SQL
+        SELECT
+        papers.*
+        FROM
+        papers
+        LEFT OUTER JOIN
+        author_taggings ON author_taggings.paper_id = papers.id
+        LEFT OUTER JOIN
+        authors ON authors.id = author_taggings.author_id
+        LEFT OUTER JOIN
+        fields ON fields.id = papers.field_id
+        LEFT OUTER JOIN
+        institutions ON institutions.id = papers.institution_id
+        LEFT OUTER JOIN
+        journals ON journals.id = papers.journal_id
+        WHERE
+        (papers.title LIKE ?)
+        OR (fields.name LIKE ?)
+        OR (institutions.name LIKE ?)
+        OR (journals.name LIKE ?)
+        OR (authors.name LIKE ?)
+      SQL
+
+      @papers = Paper.find_by_sql([sql_str,
                                    '%' + search_string + '%',
                                    '%' + search_string + '%',
                                    '%' + search_string + '%',
                                    '%' + search_string + '%',
-                                   '%' + search_string + '%']
-      render json: @papers
+                                   '%' + search_string + '%']).uniq
+      render :index
     elsif params[:field]
       field = params[:field]
       if field == "BiologicalSciences"

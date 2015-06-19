@@ -38,6 +38,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
       this.papers.reset([]);
       this.papers.trigger("sync");
     } else {
+      debugger
       this.papers.fetch({
         data: { search_params: this.$el.find('input').val() }
       });
