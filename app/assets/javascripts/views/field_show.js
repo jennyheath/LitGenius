@@ -16,7 +16,7 @@ LitGenius.Views.FieldView = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      paperLinks: this.papers.first(),
+      paperLinks: this.papers,
       on_home_page: this.on_home_page,
       field: this.field
     });

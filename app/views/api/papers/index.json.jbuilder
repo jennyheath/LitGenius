@@ -1,4 +1,4 @@
-json.papers do
+# json.papers do
   json.array! @papers do |paper|
     json.extract! paper, :id, :title
     json.authors do
@@ -9,4 +9,4 @@ json.papers do
     json.institution_name paper.institution.name
     json.journal_name paper.journal.name
   end
-end
+# end

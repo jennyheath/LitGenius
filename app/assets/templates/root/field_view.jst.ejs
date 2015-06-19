@@ -7,7 +7,7 @@
 
 <div class="row-centered">
   <% if (paperLinks) { %>
-    <% paperLinks.get('papers').forEach(function (paper) { %>
+    <% paperLinks.each(function (paper) { %>
       <a href="#/papers/<%= paper.id %>">
       <div class="paper-link-home col-md-3 col-centered">
         <div class="paper-link-image">
@@ -15,19 +15,19 @@
         </div>
 
         <div class="paper-link-text">
-          <div class="paper-link-title"><%= paper.title %></div>
+          <div class="paper-link-title"><%= paper.escape('title') %></div>
           <br>
 
           <div class="paper-info">
             <% var author_names = [] %>
-            <% paper.authors.forEach(function (author) { %>
+            <% paper.get('authors').forEach(function (author) { %>
               <% author_names.push(author.name) %>
             <% }) %>
             <b><%= author_names.join(", ") %></b>
             <br>
-            <%= paper.institution_name %>
+            <%= paper.escape('institution_name') %>
             <br>
-            <%= paper.journal_name %>
+            <%= paper.escape('journal_name') %>
           </div>
         </div>
       </div>

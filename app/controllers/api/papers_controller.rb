@@ -63,50 +63,58 @@ class Api::PapersController < ApplicationController
       field = params[:field]
       if field == "BiologicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      *
+                                      papers.*
                                       FROM
                                       papers
+                                      LEFT OUTER JOIN
+                                      fields ON papers.field_id = fields.id
                                       WHERE
-                                      field_id = 1
-                                      OR field_id = 2
-                                      OR field_id = 3
-                                      OR field_id = 4
-                                      OR field_id = 5
-                                      OR field_id = 6
-                                      OR field_id = 7
-                                      OR field_id = 8
-                                      OR field_id = 9
-                                      OR field_id = 21"]
+                                      fields.name = 'Biochemistry'
+                                      OR fields.name = 'Bioengineering'
+                                      OR fields.name = 'Bioinformatics'
+                                      OR fields.name = 'Biophysics'
+                                      OR fields.name = 'Cell Biology'
+                                      OR fields.name = 'Epidemiology'
+                                      OR fields.name = 'Genetics'
+                                      OR fields.name = 'Molecular Biology'
+                                      OR fields.name = 'Neurobiology'
+                                      OR fields.name = 'Physiology'"]
       elsif field == "ChemicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      *
+                                      papers.*
                                       FROM
                                       papers
+                                      LEFT OUTER JOIN
+                                      fields ON papers.field_id = fields.id
                                       WHERE
-                                      field_id = 10
-                                      OR field_id = 11
-                                      OR field_id = 12
-                                      OR field_id = 13
-                                      OR field_id = 14"]
+                                      fields.name = 'Chemistry'
+                                      OR fields.name = 'Chemical Engineering'
+                                      OR fields.name = 'Inorganic Chemistry'
+                                      OR fields.name = 'Organic Chemistry'
+                                      OR fields.name = 'Physical Chemistry'"]
       elsif field == "PhysicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      *
+                                      papers.*
                                       FROM
                                       papers
+                                      LEFT OUTER JOIN
+                                      fields ON papers.field_id = fields.id
                                       WHERE
-                                      field_id = 15
-                                      OR field_id = 16
-                                      OR field_id = 22"]
+                                      fields.name = 'Geophysics'
+                                      OR fields.name = 'Physics'
+                                      OR fields.name = 'Astrophysics'"]
       elsif field == "Mathematics"
         @papers = Paper.find_by_sql ["SELECT
-                                      *
+                                      papers.*
                                       FROM
                                       papers
+                                      LEFT OUTER JOIN
+                                      fields ON papers.field_id = fields.id
                                       WHERE
-                                      field_id = 17
-                                      OR field_id = 18
-                                      OR field_id = 19
-                                      OR field_id = 20"]
+                                      fields.name = 'Topology'
+                                      OR fields.name = 'Abstract Algebra'
+                                      OR fields.name = 'Geometry'
+                                      OR fields.name = 'Number Theory'"]
       end
       render :index
     end

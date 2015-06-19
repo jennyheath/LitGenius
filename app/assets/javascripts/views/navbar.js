@@ -38,7 +38,6 @@ LitGenius.Views.NavBar = Backbone.View.extend({
       this.papers.reset([]);
       this.papers.trigger("sync");
     } else {
-      debugger
       this.papers.fetch({
         data: { search_params: this.$el.find('input').val() }
       });
@@ -47,7 +46,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
 
   showResults: function () {
     if (this.papers.length > 0){
-      this.$(".dropdown-box").html(this.searchTemplate({papers: this.papers}));
+      this.$(".dropdown-box").html(this.searchTemplate({ papers: this.papers }));
     } else {
       this.$('.dropdown-box').empty();
     }
