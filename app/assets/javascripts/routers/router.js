@@ -11,6 +11,7 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     '': 'home',
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
+    'fields/:name': 'fieldView',
     'papers': 'searchResults',
     'papers/new': 'paperNew',
     'papers/:id': 'paperShow'
@@ -20,6 +21,17 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     var homeView = new LitGenius.Views.HomeShow();
 
     this._swapView(homeView);
+
+    var homeSubView = new LitGenius.Views.HomeSubView();
+    $('.home-page-content').html(homeSubView.render().$el);
+  },
+
+  fieldView: function (name) {
+    var view = new LitGenius.Views.FieldView({
+      field: name
+    });
+
+    this._swapView(view);
   },
 
   paperNew: function () {

@@ -1,33 +1,35 @@
 <div class="row">
   <div class="user-profile-sidebar col-md-3">
-    <h3><%= user.get('username') %>'s profile</h3>
-    <a href="#/users/<%= user.id %>/edit">Edit Profile</a>
+    <h3><%= user.get('username') %></h3>
     <br>
-    <a href="#/papers/new">Add a paper</a>
+    <img class="profile-picture" src="assets/lady_profile.png">
     <br><br>
+    <img class="new-paper-icon" src="assets/new_paper.png">
+    <a class="new-paper" href="#/papers/new">Add a paper</a>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-7">
     <ul class="user-feed">
+      <p class="user-feed-title">Recent Activity</p>
       <% if (activities) { %>
       <% activities.forEach(function (activity) { %>
 
         <% if (activity.type === "paper") { %>
-          <li>
+          <li class="user-feed-item paper-item">
             <%= user.get('username') %> submitted a paper:
             <a href="#/papers/<%= activity.id %>"><%= activity.title %></a>,
             <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
           </li>
 
         <% } else if (activity.type === "annotation") { %>
-          <li>
+          <li class="user-feed-item annotation-item">
             <%= user.get('username') %> annotated a paper:
             <a href="#/papers/<%= activity.paper_id %>"><%= activity.body %></a>,
             <abbr class="timeago" title="<%= activity.created_at %>"></abbr>
           </li>
 
         <% } else if (activity.type === "comment") { %>
-          <li>
+          <li class="user-feed-item comment-item">
             <% if (activity.commentable_type === "Paper") { %>
               <%= user.get('username') %> commented on a paper:
               <a href="#/papers/<%= activity.commentable_id %>"><%= activity.body %></a>,

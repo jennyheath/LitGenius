@@ -1,12 +1,14 @@
-<li class="comment">
-  <h6><%= comment.escape('author_name') %></h6>
-  <p><%= comment.escape('body')%></p>
+<li class="comment clearfix">
+  <div class="comment-content">
+    <h6><%= comment.escape('author_name') %></h6>
+    <p class="comment-body"><%= comment.escape('body')%></p>
 
-  <button class="up-vote">up-vote</button>
-  <%= voteCount %>
-  <button class="down-vote">down-vote</button>
+    <div class="up-vote"><img class="vote" src="assets/thumbs_up.png"></div>
+    <div class="vote-count vote"><%= voteCount %></div>
+    <div class="down-vote"><img class="vote" src="assets/thumbs_down.png"></div>
 
-  <% if (CURRENT_USER_ID === comment.get('user_id')) { %>
-    <button class="delete-comment">Delete</button>
-  <% } %>
+    <% if (CURRENT_USER_ID === comment.get('user_id')) { %>
+      <button class="delete">Delete</button>
+    <% } %>
+  </div>
 </li>

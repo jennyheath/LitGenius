@@ -1,58 +1,19 @@
 <nav class="navbar-main">
-  <nav class="category-nav clearfix">
-    <div class="go-home"><img class="logo" src="assets/logo-2.png"/></div>
-    <nav class="field-index">
-      <ul class="field-list">
-        <li class="field-category dropdown">
-          <a href="#" class="field dropdown-toggle hover-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Biological Sciences</a>
-          <ul class="field-categories dropdown-menu hover-dropdown" role="menu" aria-labelledby="dropdownMenu1">
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Biochemistry</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Bioengineering</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Bioinformatics</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Biophysics</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Cell Biology</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Epidemiology</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Genetics</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Molecular Biology</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Neurobiology</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Physiology</a></li>
-          </ul>
-        </li>
+  <nav class="category-nav clearfix row">
+    <div class="go-home col"><a href="#"><img class="logo" src="assets/logo-2.png"/></a></div>
 
-        <li class="field-category dropdown">
-          <a href="#" class="field dropdown-toggle hover-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Chemical Sciences</a>
-          <ul class="field-categories dropdown-menu hover-dropdown" role="menu" aria-labelledby="dropdownMenu1">
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Chemical Engineering</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Inorganic Chemistry</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Organic Chemistry</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Physical Chemistry</a></li>
-          </ul>
-        </li>
+    <div class="field-category col">Biological Sciences</div>
+    <div class="field-category col">Chemical Sciences</div>
+    <div class="field-category col">Physical Sciences</div>
+    <div class="field-category col">Mathematics</div>
 
-        <li class="field-category dropdown">
-          <a href="#" class="field dropdown-toggle hover-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Physical Sciences</a>
-          <ul class="field-categories dropdown-menu hover-dropdown" role="menu" aria-labelledby="dropdownMenu1">
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Astrophysics</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Geophysics</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Physics</a></li>
-          </ul>
-        </li>
-
-        <li class="field-category dropdown">
-          <a href="#" class="field dropdown-toggle hover-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Mathematics</a>
-          <ul class="field-categories dropdown-menu hover-dropdown" role="menu" aria-labelledby="dropdownMenu1">
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Topology</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Abstract Algebra</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Geometry</a></li>
-            <li><a class="field hover-dropdown" role="menuitem" tabindex="-1" href="#">Number Theory</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <p class="sign-out">Sign Out</p>
-    <a href="#/users/<%= currentUserId %>"><img class="profile-icon" src="assets/profile-icon-2.png"></a>
+    <p class="sign-out col">Sign Out</p>
+    <a href="#/users/<%= currentUserId %>">
+      <div class="profile col">
+        <p class="profile-link">Profile</p>
+        <img class="profile-icon" src="assets/profile-icon-2.png">
+      </div>
+    </a>
   </nav>
 
   <nav class="search-bar">

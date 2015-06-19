@@ -13,6 +13,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.annotations(), 'add', this.addAnnotationTags);
+    this.listenTo(this.model.annotations(), 'remove', this.render);
     this.listenTo(this.model.comments(), 'add', this.addCommentView);
   },
 
@@ -27,11 +28,6 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     var selection = this.selectionHTML(document.getElementsByClassName('paper-body')[0]);
     var startIndex = selection.offsets.start;
     var endIndex = selection.offsets.end;
-
-    if (selection.toString() === "") {
-      this.$('.annotation-pane').html("");
-      return;
-    }
 
     this.annotation_overlaps = false;
     this.overlappingAnnotation(startIndex, endIndex);
@@ -134,11 +130,11 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
       var compareStart = annotation.get('start_index');
       var compareEnd = annotation.get('end_index');
 
-      if (startIndex > compareStart && startIndex < compareEnd) {
+      if (startIndex >= compareStart && startIndex <= compareEnd) {
         this.annotation_overlaps = true;
-      } else if (endIndex > compareStart && endIndex < compareEnd) {
+      } else if (endIndex >= compareStart && endIndex <= compareEnd) {
         this.annotation_overlaps = true;
-      } else if (startIndex < compareStart && endIndex > compareEnd) {
+      } else if (startIndex <= compareStart && endIndex >= compareEnd) {
         this.annotation_overlaps = true;
       }
     }.bind(this));
@@ -153,8 +149,12 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
 
     this.$el.html(content);
     this.attachSubviews();
-
     this.addAnnotationTags();
+
+    if (this.model.comments().length === 0) {
+      $('.paper-comment-list').append($('<h6>').text("This paper has no comments."));
+    }
+
     return this;
   },
 

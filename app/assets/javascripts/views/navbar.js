@@ -8,10 +8,7 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     // "submit .search-field": "showResults",
     "click .sign-out": "signOut",
     "click .search-result-link": "clearResults",
-    "mouseover .field": "openDropdown",
-    "mouseleave .hover-dropdown": "closeDropdown",
-    "click .field": "addFieldView",
-    "click .logo": "addHomeView"
+    "click .field-category": "addFieldView"
   },
 
   initialize: function(){
@@ -20,12 +17,9 @@ LitGenius.Views.NavBar = Backbone.View.extend({
   },
 
   addFieldView: function (event) {
-    var field = $(event.target).text();
-    var view = new LitGenius.Views.FieldView({
-      field: field
-    });
+    var field = $(event.target).text().replace(" ", "");
 
-    $('#main').html(view.render().$el);
+    Backbone.history.navigate("#/fields/"+field, { trigger: true });
   },
 
   addHomeView: function () {
@@ -39,10 +33,6 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     this.papers.trigger("sync");
   },
 
-  closeDropdown: function (event) {
-    $(event.target).parent().removeClass("open");
-  },
-
   getResults: function (event) {
     if (this.$el.find('input').val() === "") {
       this.papers.reset([]);
@@ -54,17 +44,12 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     }
   },
 
-  openDropdown: function (event) {
-    $(event.target).parent().addClass("open");
-  },
-
   showResults: function () {
     if (this.papers.length > 0){
       this.$(".dropdown-box").html(this.searchTemplate({papers: this.papers}));
     } else {
       this.$('.dropdown-box').empty();
     }
-    // Backbone.history.navigate("#/papers", { trigger: true });
   },
 
   signOut: function () {

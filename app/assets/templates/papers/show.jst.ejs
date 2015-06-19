@@ -1,8 +1,9 @@
 <div class="paper-heading">
   <h3><%= paper.escape('title') %></h3>
-  <h6>Published in: </h6>
-  <p>Authors:</p>
-  <p>Name of institution</p>
+  <h6>Published in: <%= paper.escape('journal_name') %></h6>
+  <h6>Authors: <%= paper.escape('author_names') %></h6>
+  <h6><%= paper.escape('institution_name') %></h6>
+  <br>
 </div>
 
 <div class="paper-show clearfix row-full-height">
@@ -13,16 +14,18 @@
       <button class="delete-paper">Delete Paper</button>
     <% } %>
     <form class="paper-comment-form">
-      <input type="text-area"
-             name="comment[body]"
-             id="comment"
-             value="<%= comment.escape('body') %>">
+      <textarea name="comment[body]"
+                class="paper-comment-form-body"
+                id="comment"
+                value="<%= comment.escape('body') %>"></textarea>
 
       <input type="hidden" name="comment[commentable_id]" value="<%= paper.id %>">
       <input type="hidden" name="comment[commentable_type]" value="Paper">
-      <button class="submit">Comment</button>
+      <br>
+      <button class="submit submit-comment">Comment</button>
     </form>
-    <p class="paper-comments-title">Comments:</p>
+
+    <h5 class="paper-comments-title">Comments:</h5>
     <ul class="paper-comment-list"></ul>
   </div>
 

@@ -1,21 +1,26 @@
 <div class="annotation-show">
-  <h5><%= annotation.escape('author_name') %></h5>
+  <p class="header"><%= annotation.escape('author_name') %></p>
 
   <p class="annotation-body">
     <%= annotation.escape('body') %>
   </p>
 
   <% if (CURRENT_USER_ID === annotation.get('user_id')) { %>
-    <button class="delete-annotation">Delete</button>
+    <button class="delete">Delete Annotation</button>
   <% } %>
-
-  <p>Replies: </p>
+  <br><br>
+  <p class="header">Replies: </p>
   <ul class="comment-list"></ul>
   <form class="comment-form">
-    <input type="text-area" name="comment[body]" id="comment" value="<%= comment.escape('body') %>">
+    <textarea name="comment[body]"
+              class="comment-form-body"
+              id="comment"
+              value="<%= comment.escape('body') %>">
+    </textarea>
     <input type="hidden" name="comment[commentable_id]" value="<%= annotation.id %>">
     <input type="hidden" name="comment[commentable_type]" value="Annotation">
 
-    <button class="submit">Comment</button>
+    <br>
+    <button class="submit submit-comment">Comment</button>
   </form>
 </div>

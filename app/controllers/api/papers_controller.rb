@@ -57,9 +57,9 @@ class Api::PapersController < ApplicationController
       render json: @papers
     elsif params[:field]
       field = params[:field]
-      if field == "Biological Sciences"
+      if field == "BiologicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      papers.id, papers.title
+                                      *
                                       FROM
                                       papers
                                       WHERE
@@ -73,9 +73,9 @@ class Api::PapersController < ApplicationController
                                       OR field_id = 8
                                       OR field_id = 9
                                       OR field_id = 21"]
-      elsif field == "Chemical Sciences"
+      elsif field == "ChemicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      papers.id, papers.title
+                                      *
                                       FROM
                                       papers
                                       WHERE
@@ -84,9 +84,9 @@ class Api::PapersController < ApplicationController
                                       OR field_id = 12
                                       OR field_id = 13
                                       OR field_id = 14"]
-      elsif field == "Physical Sciences"
+      elsif field == "PhysicalSciences"
         @papers = Paper.find_by_sql ["SELECT
-                                      papers.id, papers.title
+                                      *
                                       FROM
                                       papers
                                       WHERE
@@ -95,7 +95,7 @@ class Api::PapersController < ApplicationController
                                       OR field_id = 22"]
       elsif field == "Mathematics"
         @papers = Paper.find_by_sql ["SELECT
-                                      papers.id, papers.title
+                                      *
                                       FROM
                                       papers
                                       WHERE
@@ -104,7 +104,7 @@ class Api::PapersController < ApplicationController
                                       OR field_id = 19
                                       OR field_id = 20"]
       end
-      render json: @papers
+      render :index
     end
   end
 

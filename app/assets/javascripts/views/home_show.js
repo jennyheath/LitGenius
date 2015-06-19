@@ -7,12 +7,17 @@ LitGenius.Views.HomeShow = Backbone.View.extend({
   },
 
   addFieldView: function (event) {
-    var field = $(event.target).text();
+    var field = $(event.target).text().replace(" ", "");
     var view = new LitGenius.Views.FieldView({
-      field: field
+      field: field,
+      on_home_page: true
     });
 
+    var scrollPos = $('body').scrollTop();
     this._swapView(view);
+    this.listenToOnce(view.papers, 'sync', function () {
+      $('body').scrollTop(scrollPos);
+    });
   },
 
   addHomeView: function (event) {
