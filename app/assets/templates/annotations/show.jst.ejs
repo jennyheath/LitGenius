@@ -12,11 +12,7 @@
   <p class="header">Replies: </p>
   <ul class="comment-list"></ul>
   <form class="comment-form">
-    <textarea name="comment[body]"
-              class="comment-form-body"
-              id="comment"
-              value="<%= comment.escape('body') %>">
-    </textarea>
+    <textarea name="comment[body]" class="comment-form-body" id="comment" value="<%= comment.escape('body') %>"></textarea>
     <input type="hidden" name="comment[commentable_id]" value="<%= annotation.id %>">
     <input type="hidden" name="comment[commentable_type]" value="Annotation">
 

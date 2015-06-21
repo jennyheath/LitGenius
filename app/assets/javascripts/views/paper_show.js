@@ -46,6 +46,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.highlightSpan = document.createElement("span");
     this.highlightRange.surroundContents(this.highlightSpan);
     this.highlightSpan.style.backgroundColor = "#91E4D4";
+    var textHeight = this.highlightSpan.offsetTop;
 
     var subView = new LitGenius.Views.AnnotationForm({
       collection: collection,
@@ -55,6 +56,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
       endIndex: endIndex
     });
     this.addSubview('.annotation-pane', subView);
+    subView.$el.css("margin-top", textHeight+"px");
   },
 
   addAnnotationShow: function (event) {
@@ -68,6 +70,8 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.annotation-pane', subView);
+    var textHeight = event.target.offsetTop;
+    subView.$el.css("margin-top", textHeight+"px");
   },
 
   addAnnotationTags: function () {
