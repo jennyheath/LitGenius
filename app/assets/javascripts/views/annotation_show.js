@@ -42,7 +42,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     this.model.destroy({
       success: function () {
         view.remove({ silent: true });
-        // TODO: figure out what the fuck to do here
+        // TODO: figure out what the fuck is going on here
         $('.annotation-pane').html('');
       }.bind(this)
     });
@@ -56,7 +56,6 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     this.newComment.save({}, {
       success: function () {
         this.comments.add(this.newComment);
-        // this.comments.getOrFetch(this.newComment);
         this.$('#comment').val('');
       }.bind(this)
     });

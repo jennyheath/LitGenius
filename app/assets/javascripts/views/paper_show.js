@@ -20,6 +20,10 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   addAnnotationForm: function (event) {
     this.$('.annotation-pane').html("");
     if (window.getSelection().toString().length === 0) {
+      if (this.highlightSpan) {
+        var text = $('span').text();
+        $('span').replaceWith(text);
+      }
       return;
     }
     var collection = this.model.annotations();
@@ -38,10 +42,10 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     }
 
     var highlight = window.getSelection();
-    var range = highlight.getRangeAt(0);
-    var span = document.createElement("span");
-    range.surroundContents(span);
-    span.style.backgroundColor = "#91E4D4";
+    this.highlightRange = highlight.getRangeAt(0);
+    this.highlightSpan = document.createElement("span");
+    this.highlightRange.surroundContents(this.highlightSpan);
+    this.highlightSpan.style.backgroundColor = "#91E4D4";
 
     var subView = new LitGenius.Views.AnnotationForm({
       collection: collection,
@@ -112,6 +116,16 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     if (event.target.className === "annotation-pane col-full-height") {
       this.$('.annotation-pane').html("");
     }
+
+    if (this.highlightSpan) {
+      if (event.target.className === "annotation-button" ||
+          event.target.className === "annotation-form-body" ||
+          event.target.className === "submit-annotation") {
+        return;
+      }
+      var text = $('span').text();
+      $('span').replaceWith(text);
+    }
   },
 
   destroyPaper: function (event) {
@@ -147,9 +161,6 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    // if(options && options.ignore_this) {
-    //   return;
-    // }
     this.newComment = new LitGenius.Models.Comment();
     var content = this.template({
       paper: this.model,
