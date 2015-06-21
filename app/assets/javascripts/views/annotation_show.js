@@ -8,13 +8,27 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.comments = this.model.comments();
+    this.hiddenComments = [];
     this.listenTo(this.comments, 'add', this.addCommentView);
+    this.listenTo(this.comments, 'add', this.render);
+
     this.comments.each(function (comment) {
       this.addCommentView(comment);
     }.bind(this));
+    // this.listenTo(this.model, 'change', this.render, this.limitComments);
   },
 
   addCommentView: function (model) {
+    // var numComments = $('ul.comment-list li').length;
+    //
+    // if (numComments === 3) {
+    //   this.hiddenComments.push(model);
+    //   if (numComments + this.hiddenComments.length === this.comments.length) {
+    //     $('.comment-list').append($('<div>').text("show "+this.hiddenComments.length+" more comment(s)"));
+    //   }
+    //   return;
+    // }
+
     var comment = this.comments.getOrFetch(model.id, { parse: true });
     var subView = new LitGenius.Views.CommentShow({
       model: comment
@@ -22,6 +36,23 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
     this.addSubview('.comment-list', subView);
   },
+
+  // limitComments: function () {
+  //   var numComments = $('ul.comment-list li').length;
+  //   var hiddenComments = 0;
+  //
+  //   if (numComments > 3) {
+  //     while (numComments > 3) {
+  //       $('.comment-list li:last').remove();
+  //       hiddenComments += 1;
+  //       numComments = $('ul.comment-list li').length;
+  //     }
+  //   }
+  //
+  //   if (hiddenComments > 0) {
+  //     $('.comment-list').append($('<div>').text("show "+hiddenComments+" more comment(s)"));
+  //   }
+  // },
 
   render: function () {
     this.newComment = new LitGenius.Models.Comment();
@@ -32,6 +63,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
     this.$el.html(content);
     this.attachSubviews();
+
     return this;
   },
 
