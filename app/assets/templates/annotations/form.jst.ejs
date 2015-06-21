@@ -1,25 +1,18 @@
 <form class="annotation-form">
-  <label>Annotation:
-    <input
-      type="text"
-      name="annotation[body]"
-      value="<%= annotation.escape("body") %>">
-  </label>
+  <label>Annotation:<br><textarea class="annotation-form-body" name="annotation[body]" value="<%= annotation.escape("body") %>"></textarea></label>
 
   <input
     type="hidden"
     name="annotation[paper_id]"
     value="<%= paper.id %>">
-
-    <input
-      type="hidden"
-      name="annotation[start_index]"
-      value="<%= startIndex %>">
-
-      <input
-        type="hidden"
-        name="annotation[end_index]"
-        value="<%= endIndex %>">
-
-  <button class="submit">Make Annotation</button>
+  <input
+    type="hidden"
+    name="annotation[start_index]"
+    value="<%= startIndex %>">
+  <input
+    type="hidden"
+    name="annotation[end_index]"
+    value="<%= endIndex %>">
+  <br>
+  <button class="submit-annotation submit">Make Annotation</button>
 </form>

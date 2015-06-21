@@ -37,6 +37,12 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
       return;
     }
 
+    var highlight = window.getSelection();
+    var range = highlight.getRangeAt(0);
+    var span = document.createElement("span");
+    range.surroundContents(span);
+    span.style.backgroundColor = "#91E4D4";
+
     var subView = new LitGenius.Views.AnnotationForm({
       collection: collection,
       model: annotation,
@@ -141,6 +147,9 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    // if(options && options.ignore_this) {
+    //   return;
+    // }
     this.newComment = new LitGenius.Models.Comment();
     var content = this.template({
       paper: this.model,
@@ -154,7 +163,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     if (this.model.comments().length === 0) {
       $('.paper-comment-list').append($('<h6>').text("This paper has no comments."));
     }
-
+    $('[data-toggle="tooltip"]').tooltip();
     return this;
   },
 

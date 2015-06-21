@@ -1,15 +1,26 @@
 <form class="new-paper-form">
   <h3>Post a New Paper</h3>
-  <label>Title:
-    <input type="text" name="paper[title]" value="<%= paper.escape("title") %>">
+  <br>
+  <label>Title
+    <br>
+    <input
+      class="paper-input"
+      type="text"
+      name="paper[title]"
+      value="<%= paper.escape("title") %>">
   </label>
   <br>
-  <label>Body:
-    <textarea name="paper[body]"><%= paper.escape("body") %></textarea>
+  <label>Body
+    <br>
+    <textarea
+      class="paper-input paper-input-body"
+      name="paper[body]"><%= paper.escape("body") %>
+    </textarea>
   </label>
   <br>
-  <label>Field:
-    <select name="paper[field]" value="">
+  <label>Field
+    <br>
+    <select name="paper[field]" class="paper-input">
       <option value:"Abstract Algebra">Abstract Algebra</option>
       <option value:"Astrophysics">Astrophysics</option>
       <option value:"Biochemistry">Biochemistry</option>
@@ -36,17 +47,32 @@
     </select>
   </label>
   <br>
-  <label>Authors:
-    <input type="text" name="paper[authors]" value="">
+  <label>Authors
+    <br>
+    <input
+      class="paper-input"
+      type="text"
+      name="paper[authors]"
+      value="">
   </label>
   <br>
-  <label>Institution:
-    <input type="text" name="paper[institution]" value="">
+  <label>Institution
+    <br>
+    <input
+      class="paper-input"
+      type="text"
+      name="paper[institution]"
+      value="">
   </label>
   <br>
-  <label>Journal:
-    <input type="text" name="paper[journal]" value="">
+  <label>Journal
+    <br>
+    <input
+      class="paper-input"
+      type="text"
+      name="paper[journal]"
+      value="">
   </label>
   <br>
-  <button class="submit">Post Paper</button>
+  <button class="submit-paper submit">Post Paper</button>
 </form>

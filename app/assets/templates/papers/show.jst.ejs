@@ -6,9 +6,9 @@
   <br>
 </div>
 
-<div class="paper-show clearfix row-full-height">
-  <div class="col-full-height">
-    <div class="paper-body"><%= paper.formattedBody() %></div>
+<div class="paper-show clearfix row">
+  <div class="col-md-6">
+    <div class="paper-body" data-toggle="tooltip" title="to annotate a piece of text, highlight it"><%= paper.formattedBody() %></div>
 
     <% if (paper.get('user_id') === CURRENT_USER_ID) { %>
       <button class="delete-paper">Delete Paper</button>
@@ -29,5 +29,5 @@
     <ul class="paper-comment-list"></ul>
   </div>
 
-  <div class="annotation-pane col-full-height"></div>
+  <div class="annotation-pane col-md-6"></div>
 </div>

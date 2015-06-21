@@ -38,12 +38,12 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   destroyAnnotation: function (model) {
     event.preventDefault();
     var view = this;
-    // debugger;
 
     this.model.destroy({
       success: function () {
-        view.remove();
-        // Backbone.history.navigate('#/papers/'+this.model.get('paper_id'), { trigger: true });
+        view.remove({ silent: true });
+        // TODO: figure out what the fuck to do here
+        $('.annotation-pane').html('');
       }.bind(this)
     });
   },

@@ -22,6 +22,8 @@ a {
   color: #000;
 }
 
+// TODO: visited text doesn't change color
+
 a:hover, .field-category-home:hover {
   text-decoration: none;
   color: #B2B2B2; //#337AB7;//#FFCC00;
@@ -58,6 +60,10 @@ a:li .search-result-link {
   font-family: Helvetica, Arial;
 }
 
+.annotation-form-body {
+  width: 300px;
+}
+
 .annotation-item a {
   background-color: #FDE367;
 }
@@ -68,8 +74,11 @@ a:li .search-result-link {
 }
 
 .annotation-pane {
+  height: 100%;
   width: 500px;
   padding-left: 50px;
+  // display: table-cell;
+  // position: absolute;
 }
 
 .annotation-show {
@@ -118,6 +127,12 @@ button {
 .col-full-height {
   float: none;
   display: table-cell;
+}
+
+.col-md-6 {
+  text-align: left;
+  // display:
+  // position: absolute;
 }
 
 .comment {
@@ -321,6 +336,17 @@ li {
   height: 20px;
 }
 
+.new-paper-icon-nav, .new-paper-nav {
+  height: 20px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.new-paper-form {
+  margin-left: 50px;
+}
+
 .new-paper-link {
   display: block;
   text-align: center;
@@ -332,6 +358,9 @@ li {
   white-space: pre-wrap;
   font-size: 12px;
   font-family: "Helvetica", Helvetica, Arial;
+  // position: absolute;
+  // height: 100%;
+  // display: table-cell;
 }
 
 .paper-comment-form-body {
@@ -354,8 +383,9 @@ li {
 }
 
 .paper-show {
-  display: block;
+  // display: table;
   float: left;
+  // position: relative;
 }
 
 .paper-heading {
@@ -390,6 +420,10 @@ li {
   height: 100%;
 }
 
+.paper-input-body {
+  height: 100px;
+}
+
 .paper-link-text {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -407,6 +441,10 @@ li {
 .paper-info {
   font-size: 12px;
   font-family: Helvetica, Arial;
+}
+
+.paper-input {
+  width: 350px;
 }
 
 .paper-item a {
@@ -484,13 +522,19 @@ li {
   margin-right: 30px;
 }
 
-.submit-comment {
+.submit-comment,
+.annotation-button,
+.submit-annotation,
+.submit-paper {
   background-color: #23C8AA; //#A0FB70;
   opacity: 0.8;
   margin-top: 5px;
 }
 
-.submit-comment:hover {
+.submit-comment:hover,
+.annotation-button:hover,
+.submit-annotation:hover,
+.submit-paper:hover {
   opacity: 1.0;
 }
 
