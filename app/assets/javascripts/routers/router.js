@@ -17,9 +17,17 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     'papers/new': 'paperNew',
     'papers/:id': 'paperShow',
     'fields/:name': 'fieldView',
-    'authors/:id': 'authorView',
+    'authors/:name': 'authorView',
     'journals/:id': 'journalView',
     'institutions/:id': 'institutionView'
+  },
+
+  authorView: function (name) {
+    var view = new LitGenius.Views.AuthorView({
+      author_name: name
+    });
+
+    this._swapView(view);
   },
 
   home: function () {

@@ -1,17 +1,20 @@
 <div class="paper-heading">
   <h3><%= paper.escape('title') %></h3>
+
   <% var journal_link = "#/journals/"+ paper.escape('journal_id') %>
-  <h6 class="journal-name">Published in:
+  <h6 class="paper-subheading">Published in:
   <a href=<%= journal_link %>>
     <%= paper.escape('journal_name') %>
   </a>
   </h6>
-  <h6>Authors: </h6>
+
+  <div class="paper-subheading paper-authors">Authors: </div>
     <% var authors = this.model.get('author_names') %>
     <% if (authors) { %>
       <% num = 0 %>
       <% authors.forEach(function (author) { %>
-        <a href="#/authors/"+<%= author.id %>>
+        <% var author_link = "#/authors/"+ author.name.replace(" ", "-") %>
+        <a href=<%= author_link %> class="paper-author-name">
           <div class="author-name"><%= author.name %></div>
         </a>
         <% num += 1 %>
@@ -23,13 +26,13 @@
   <br>
   <% var institution_link = "#/institutions/" + paper.escape('institution_id') %>
   <a href=<%= institution_link %>>
-    <h6 class="institution-name"><%= paper.escape('institution_name') %></h6>
+    <h6 class="paper-subheading paper-institution"><%= paper.escape('institution_name') %></h6>
   </a>
   <br>
 </div>
 
 <div class="paper-show clearfix row">
-  <div class="col-md-6">
+  <div class="col-md-6 paper-body-col">
     <div class="paper-body" data-toggle="tooltip" title="to annotate a piece of text, highlight it"><%= paper.formattedBody() %></div>
 
     <% if (paper.get('user_id') === CURRENT_USER_ID) { %>

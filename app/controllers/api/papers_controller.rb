@@ -152,7 +152,7 @@ class Api::PapersController < ApplicationController
         LEFT OUTER JOIN
         authors ON authors.id = author_taggings.author_id
         WHERE
-        authors.id = ?
+        authors.name = ?
       SQL
       @papers = Paper.find_by_sql([sql_str, params[:author]])
     end

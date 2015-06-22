@@ -31,7 +31,6 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
     this.model.destroy({
       success: function () {
         view.remove();
-        console.log("comment deleted");
       }
     });
   },

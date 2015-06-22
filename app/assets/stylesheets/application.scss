@@ -73,18 +73,12 @@ a:li .search-result-link {
   color: #000;
 }
 
-.annotation-pane {
-  height: 100%;
-  width: 500px;
-  padding-left: 50px;
-  // display: table-cell;
-  // position: absolute;
-}
-
 .annotation-show {
   border-left: 3px solid #EB7D24;
   padding-left: 15px;
   font-size: 13px;
+  text-align: left;
+  width: 500px;
 }
 
 .annotation-tag {
@@ -106,6 +100,7 @@ a:li .search-result-link {
   font-size: 12px;
   display: inline-block;
   float: left;
+  text-decoration: underline;
 }
 
 .comma {
@@ -141,12 +136,6 @@ button {
 .col-full-height {
   float: none;
   display: table-cell;
-}
-
-.col-md-6 {
-  text-align: left;
-  // display:
-  // position: absolute;
 }
 
 .comment {
@@ -231,6 +220,8 @@ button {
   list-style: none;
   margin-left: 30px;
   font-size: 14px;
+  padding: 10px;
+  margin-top: -10px;
 }
 
 .field-category:hover {
@@ -250,7 +241,10 @@ button {
   background-color: #F3F3F3;
 }
 
-.field-page-title, .institution-page-title, .journal-page-title {
+.field-page-title,
+.institution-page-title,
+.journal-page-title,
+.author-page-title {
   // text-align: center;
   left: 50%;
   position: relative;
@@ -265,7 +259,10 @@ button {
   font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.field-title, .institution-title, .journal-title {
+.field-title,
+.institution-title,
+.journal-title,
+.author-title {
   background-color: red;
   padding: 10px;
   float: left;
@@ -282,6 +279,11 @@ button {
   left: 0;
   background-color: #242424;
   text-decoration: none;
+}
+
+.footer-nav {
+  color: #fff;
+  font-weight: 100;
 }
 
 .footer-nav a:visited {
@@ -301,7 +303,7 @@ button {
 .footer-home, .footer-about, .footer-contact, .footer-sign-out {
   display: block;
   color: #fff;
-  margin-top: 7px;
+  margin-top: 5px;
   font-family: "Helvetica Light", Helvetica, sans-serif;
 }
 
@@ -402,15 +404,46 @@ li {
   text-align: center;
 }
 
+.paper-authors {
+  float: left;
+  margin-right: 5px;
+}
+
+.paper-author-name {
+  display: inline-block;
+  float: left;
+}
+
+.paper-show {
+  overflow: hidden;
+  width: 100%;
+}
+
+.paper-body-col {
+  margin-left: 35px;
+  float: left;
+  height: 100%;
+  width: 515px;
+  padding-right: 0px;
+  right: 0;
+  top: 0;
+}
+
 .paper-body {
+  text-align: left;
   width: 500px;
-  margin-left: 50px;
   white-space: pre-wrap;
   font-size: 12px;
   font-family: "Helvetica", Helvetica, Arial;
-  // position: absolute;
-  // height: 100%;
-  // display: table-cell;
+}
+
+.annotation-pane {
+  height: 100%;
+  width: 50%;
+  float: left;
+  right: 0;
+  top: 0;
+  padding-left: 25px;
 }
 
 .paper-comment-form-body {
@@ -420,23 +453,22 @@ li {
 
 .paper-comment-form {
   padding-top: 25px;
-  padding-left: 50px;
+  text-align: left;
 }
 
 .paper-comment-list {
-  padding-left: 50px;
+  text-align: left;
+  padding-left: 0px;
   margin-bottom: 50px;
 }
 
 .paper-comments-title {
   padding-top: 20px;
-  padding-left: 50px;
+  text-align: left;
 }
 
-.paper-show {
-  // display: table;
-  float: left;
-  // position: relative;
+.paper-institution {
+  margin-top: 7px;
 }
 
 .paper-heading {
@@ -488,7 +520,6 @@ li {
   font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-
 .paper-info {
   font-size: 12px;
   font-family: Helvetica, Arial;
@@ -502,6 +533,16 @@ li {
   font-style: italic;
 }
 
+.paper-subheading {
+  font-size: 12px;
+}
+
+a .paper-subheading,
+.paper-author-name,
+.paper-subheading a {
+  color: #005F97;
+  text-decoration: underline;
+}
 
 .profile {
   display: block;
