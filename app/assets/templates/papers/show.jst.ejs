@@ -1,8 +1,30 @@
 <div class="paper-heading">
   <h3><%= paper.escape('title') %></h3>
-  <h6>Published in: <%= paper.escape('journal_name') %></h6>
-  <h6>Authors: <%= paper.escape('author_names') %></h6>
-  <h6><%= paper.escape('institution_name') %></h6>
+  <% var journal_link = "#/journals/"+ paper.escape('journal_id') %>
+  <h6 class="journal-name">Published in:
+  <a href=<%= journal_link %>>
+    <%= paper.escape('journal_name') %>
+  </a>
+  </h6>
+  <h6>Authors: </h6>
+    <% var authors = this.model.get('author_names') %>
+    <% if (authors) { %>
+      <% num = 0 %>
+      <% authors.forEach(function (author) { %>
+        <a href="#/authors/"+<%= author.id %>>
+          <div class="author-name"><%= author.name %></div>
+        </a>
+        <% num += 1 %>
+        <% if (num < authors.length) { %>
+          <div class="comma"><%=",  "%></div>
+        <% } %>
+      <% }) %>
+    <% } %>
+  <br>
+  <% var institution_link = "#/institutions/" + paper.escape('institution_id') %>
+  <a href=<%= institution_link %>>
+    <h6 class="institution-name"><%= paper.escape('institution_name') %></h6>
+  </a>
   <br>
 </div>
 

@@ -1,14 +1,17 @@
 json.title @paper.title
 json.body @paper.body
+
 json.journal_name @paper.journal.name
+json.journal_id @paper.journal.id
+
 json.institution_name @paper.institution.name
+json.institution_id @paper.institution.id
 
-names = []
-@paper.authors.each do |author|
-  names.push(author.name)
+json.author_names do
+  json.array! @paper.authors.each do |author|
+    json.extract! author, :id, :name # names.push(author.name)
+  end
 end
-json.author_names names.join(", ")
-
 
 json.annotations do
   json.array! @paper.annotations do |annotation|

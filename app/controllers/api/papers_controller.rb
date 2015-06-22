@@ -117,11 +117,45 @@ class Api::PapersController < ApplicationController
                                       OR fields.name = 'Number Theory'"]
       end
       render :index
+    elsif params[:institution]
+      sql_str = <<-SQL
+        SELECT
+        papers.*
+        FROM
+        papers
+        LEFT OUTER JOIN
+        institutions ON papers.institution_id = institutions.id
+        WHERE
+        institutions.id = ?
+      SQL
+      @papers = Paper.find_by_sql([sql_str, params[:institution]])
+    elsif params[:journal]
+      sql_str = <<-SQL
+        SELECT
+        papers.*
+        FROM
+        papers
+        LEFT OUTER JOIN
+        journals ON papers.journal_id = journals.id
+        WHERE
+        journals.id = ?
+      SQL
+      @papers = Paper.find_by_sql([sql_str, params[:journal]])
+    elsif params[:author]
+      sql_str = <<-SQL
+        SELECT
+        papers.*
+        FROM
+        papers
+        LEFT OUTER JOIN
+        author_taggings ON author_taggings.paper_id = papers.id
+        LEFT OUTER JOIN
+        authors ON authors.id = author_taggings.author_id
+        WHERE
+        authors.id = ?
+      SQL
+      @papers = Paper.find_by_sql([sql_str, params[:author]])
     end
-  end
-
-  def field
-
   end
 
   def show

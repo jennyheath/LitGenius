@@ -102,6 +102,16 @@ a:li .search-result-link {
   padding: 120px;
 }
 
+.author-name, .comma {
+  font-size: 12px;
+  display: inline-block;
+  float: left;
+}
+
+.comma {
+  margin-right: 5px;
+}
+
 body {
   background-color: #fff;
   font-family: "Helvetica-Light", "Helvetica Light", "Helvetica", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -240,7 +250,7 @@ button {
   background-color: #F3F3F3;
 }
 
-.field-page-title {
+.field-page-title, .institution-page-title, .journal-page-title {
   // text-align: center;
   left: 50%;
   position: relative;
@@ -255,7 +265,7 @@ button {
   font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.field-title {
+.field-title, .institution-title, .journal-title {
   background-color: red;
   padding: 10px;
   float: left;
@@ -357,7 +367,7 @@ li {
 #main {
   min-height: 700px;
   display: table;
-  // width: 100%;
+  width: 100%;
 }
 
 .navbar-main {
