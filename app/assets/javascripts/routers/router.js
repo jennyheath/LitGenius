@@ -5,6 +5,8 @@ LitGenius.Routers.Router = Backbone.Router.extend({
       collection: LitGenius.Collections.papers
     });
     $('#navbar').html(navbar.render().$el);
+    var footer = new LitGenius.Views.Footer();
+    $('#footer').html(footer.render().$el);
   },
 
   routes: {
