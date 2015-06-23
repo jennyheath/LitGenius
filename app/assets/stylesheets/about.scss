@@ -1,11 +1,20 @@
 .about-block {
-  height: 150px;
+  height: 200px;
   overflow: hidden;
   width: 100%;
+  padding-bottom: 30px;
+  // padding-top: 15px;
+  border-bottom: 1px solid #242424;
+  padding-right: 50px;
+}
+
+.about-block:last-child {
+  padding-bottom: 0px;
+  border-bottom: none;
 }
 
 .about-image {
-  width: 300px;
+  width: 400px;
   display: table-cell;
   float: left;
   height: 100%;
