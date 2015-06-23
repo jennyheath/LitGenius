@@ -7,7 +7,8 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
     "click .delete-comment": "destroyComment"
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.parentView = options.parentView;
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'change:vote_count', this.render);
   },
@@ -31,7 +32,8 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
     this.model.destroy({
       success: function () {
         view.remove();
-      }
+        this.parentView.removeSubview('.comment-list', this);
+      }.bind(this)
     });
   },
 
@@ -58,7 +60,6 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   },
 
   upVote: function () {
-    // debugger;
     var currentVote = this.model.current_user_vote;
     var voteVal = currentVote.get('value');
     var initialVal = voteVal;

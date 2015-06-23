@@ -8,7 +8,9 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.comments = this.model.comments();
-    this.hiddenComments = [];
+    // this.hiddenComments = [];
+
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'add', this.render);
 
@@ -18,10 +20,10 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   },
 
   addCommentView: function (model) {
-
     var comment = this.comments.getOrFetch(model.id, { parse: true });
     var subView = new LitGenius.Views.CommentShow({
-      model: comment
+      model: comment,
+      parentView: this
     });
 
     this.addSubview('.comment-list', subView);

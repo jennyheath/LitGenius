@@ -15,6 +15,7 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.annotations(), 'add', this.addAnnotationTags);
     this.listenTo(this.model.annotations(), 'remove', this.render);
     this.listenTo(this.model.comments(), 'add', this.addCommentView);
+    this.listenTo(this.model.comments(), 'add', this.render);
   },
 
   addAnnotationForm: function (event) {
@@ -126,12 +127,13 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
   },
 
   addCommentView: function (model) {
-    var comment = this.model.comments().getOrFetch(model.id);
+    var comment = this.model.comments().getOrFetch(model.id, { parse: true });
     var subView = new LitGenius.Views.CommentShow({
-      model: comment
+      model: comment,
+      parentView: this
     });
 
-    this.addSubview('.paper-comment-list', subView);
+    this.addSubview('.comment-list', subView);
   },
 
   clearAnnotationPane: function (event) {

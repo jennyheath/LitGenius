@@ -164,7 +164,12 @@ button {
 }
 
 .comment-list {
+  text-align: left;
   padding-left: 0px;
+}
+
+.paper-comment-list {
+  margin-bottom: 50px;
 }
 
 .contact-box {
@@ -454,12 +459,6 @@ li {
 .paper-comment-form {
   padding-top: 25px;
   text-align: left;
-}
-
-.paper-comment-list {
-  text-align: left;
-  padding-left: 0px;
-  margin-bottom: 50px;
 }
 
 .paper-comments-title {
