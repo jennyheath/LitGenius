@@ -1,21 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-User.destroy_all
-Journal.destroy_all
-Institution.destroy_all
-Field.destroy_all
-Author.destroy_all
-
 user1 = User.create!({username: "Guest User", password: "password"})
 
 journal1 = Journal.create!({name: "Nature"})
 journal2 = Journal.create!({name: "Journal of Physiology"})
-journal3 = Journal.create!({name: "Internaitonal Journal of Molecular Sciences"})
+journal3 = Journal.create!({name: "International Journal of Molecular Sciences"})
 journal4 = Journal.create!({name: "Journal of Organic Chemistry"})
 journal5 = Journal.create!({name: "Journal of Graph Theory"})
 journal6 = Journal.create!({name: "Journal of Commutative Calculus"})
@@ -58,8 +45,8 @@ institution8 = Institution.create!({name: "University of Bucharest"})
 
 author1 = Author.create!({name: "Adesnik, H."})
 author2 = Author.create!({name: "Bruns, W."})
-author3 = Author.create!({name: "Cerqueira-Silva, C.B.M."})
-author4 = Author.create!({name: "Corrêa, R.X."})
+author3 = Author.create!({name: "CerqueiraSilva, C.B.M."})
+author4 = Author.create!({name: "Correa, R.X."})
 author5 = Author.create!({name: "Hodgkin, A.L."})
 author6 = Author.create!({name: "Huang, J."})
 author7 = Author.create!({name: "Huxley, A.F."})
@@ -87,7 +74,7 @@ author28 = Author.create!({name: "Gestal, C."})
 author29 = Author.create!({name: "Holban, A.M."})
 
 paper1 = Paper.create!({title: "Balanced inhibition underlies tuning and sharpens spike timing in auditory cortex.",
-                        body: File.read("./app/assets/papers/Neurobiology1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Neurobiology1.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 1,
                         field_id: 9,
@@ -95,7 +82,7 @@ paper1 = Paper.create!({title: "Balanced inhibition underlies tuning and sharpen
 paper1.authors = [author13, author14]
 
 paper2 = Paper.create!({title: "Currents carried by sodium and potassium ions through the membrane of the giant axon of Loligo",
-                        body: File.read("./app/assets/papers/Neurobiology2.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Neurobiology2.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 2,
                         field_id: 9,
@@ -103,7 +90,7 @@ paper2 = Paper.create!({title: "Currents carried by sodium and potassium ions th
 paper2.authors = [author5, author7]
 
 paper3 = Paper.create!({title: "A Neural Circuit for Spatial Summation in Visual Cortex",
-                        body: File.read("./app/assets/papers/Neurobiology3.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Neurobiology3.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 1,
                         field_id: 9,
@@ -111,7 +98,7 @@ paper3 = Paper.create!({title: "A Neural Circuit for Spatial Summation in Visual
 paper3.authors = [author1, author2, author12, author6, author10]
 
 paper4 = Paper.create!({title: "Genetic Breeding and Diversity of the Genus Passiflora",
-                        body: File.read("./app/assets/papers/Genetics1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Genetics1.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 3,
                         field_id: 7,
@@ -119,15 +106,15 @@ paper4 = Paper.create!({title: "Genetic Breeding and Diversity of the Genus Pass
 paper4.authors = [author3, author8, author9, author4, author11]
 
 paper5 = Paper.create!({title: "Computational Studies of Lithium Diisopropylamide Deaggregation",
-                        body: File.read("./app/assets/papers/OrganicChemistry1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/OrganicChemistry1.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 4,
                         field_id: 13,
                         institution_id: 5})
 paper5.authors = [author15, author6]
 
-paper6 = Paper.create!({title: "Prime, Banach, Fr´echet–Von Neumann Groups of Subsets and Problems in Descriptive Graph Theory",
-                        body: File.read("./app/assets/papers/Math1.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+paper6 = Paper.create!({title: "Prime, Banach, Frechet Von Neumann Groups of Subsets and Problems in Descriptive Graph Theory",
+                        body: File.read("./app/assets/papers/Math1.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 5,
                         field_id: 20,
@@ -135,15 +122,15 @@ paper6 = Paper.create!({title: "Prime, Banach, Fr´echet–Von Neumann Groups of
 paper6.authors = [author17, author18, author19, author20]
 
 paper7 = Paper.create!({title: "Isometries and Kovalevskaya’s Conjecture",
-                        body: File.read("./app/assets/papers/Math2.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Math2.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 6,
                         field_id: 19,
                         institution_id: 6})
 paper7.authors = [author22, author21, author20, author19]
 
-paper8 = Paper.create!({title: "B-Integral Homomorphisms over Maclaurin, Right-Geometric, Pappus Matrices",
-                        body: File.read("./app/assets/papers/Math3.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+paper8 = Paper.create!({title: "B Integral Homomorphisms over Maclaurin, Right Geometric, Pappus Matrices",
+                        body: File.read("./app/assets/papers/Math3.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 7,
                         field_id: 17,
@@ -151,15 +138,15 @@ paper8 = Paper.create!({title: "B-Integral Homomorphisms over Maclaurin, Right-G
 paper8.authors = [author17, author22, author18]
 
 paper9 = Paper.create!({title: "Homomorphisms and Minimality Methods",
-                        body: File.read("./app/assets/papers/Math4.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Math4.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 5,
                         field_id: 20,
                         institution_id: 6})
 paper9.authors = [author23, author21, author19, author17]
 
-paper10 = Paper.create!({title: "Measurements of Ω and Λ from 42 high-redshift supernovae",
-                        body: File.read("./app/assets/papers/Physics.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+paper10 = Paper.create!({title: "Measurements of omega and theta from 42 high redshift supernovae",
+                        body: File.read("./app/assets/papers/Physics.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 8,
                         field_id: 22,
@@ -167,7 +154,7 @@ paper10 = Paper.create!({title: "Measurements of Ω and Λ from 42 high-redshif
 paper10.authors = [author24, author25, author26]
 
 paper11 = Paper.create!({title: "Dark Energy and Extending the Geodesic Equations of Motion: Its Construction and Experimental Constraints",
-                        body: File.read("./app/assets/papers/Physics2.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Physics2.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 9,
                         field_id: 16,
@@ -175,7 +162,7 @@ paper11 = Paper.create!({title: "Dark Energy and Extending the Geodesic Equation
 paper11.authors = [author27]
 
 paper12 = Paper.create!({title: "Advances in Nanotechnology as an Alternative against Superbugs",
-                        body: File.read("./app/assets/papers/Chemistry2.txt").encode("UTF-8", invalid: :replace, undef: :replace, replace: "-"),
+                        body: File.read("./app/assets/papers/Chemistry2.txt").encode("UTF-8", :invalid=>:replace, :replace=>"?"),
                         user_id: 1,
                         journal_id: 10,
                         field_id: 12,
