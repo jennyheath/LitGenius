@@ -1,3 +1,67 @@
 // Place all the styles related to the fields controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.field {
+  // color: #fff;
+  color: #555;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+
+.field-category {
+  display: block;
+  float: left;
+  list-style: none;
+  margin-left: 30px;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: -10px;
+}
+
+.field-category:hover {
+  background-color: #eee;
+}
+
+.field-category-home {
+  color: #555555; //#242424;
+  padding-top: 15px;
+}
+
+.field-index-home {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  height: 50px;
+  background-color: #F3F3F3;
+}
+
+.field-page-title,
+.institution-page-title,
+.journal-page-title,
+.author-page-title {
+  // text-align: center;
+  left: 50%;
+  position: relative;
+}
+
+.field-subtitle {
+  float: left;
+  padding: 10px;
+  transform: translateX(-50%);
+  color: #666666;
+  // font-size: 16px;
+  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.field-title,
+.institution-title,
+.journal-title,
+.author-title {
+  background-color: red;
+  padding: 10px;
+  float: left;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}

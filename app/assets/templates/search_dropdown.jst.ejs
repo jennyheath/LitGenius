@@ -1,20 +1,25 @@
 <div class="search-dropdown">
   <ul class="search-results">
     <% papers.each(function (paper) { %>
-      <a href="/#/papers/<%= paper.id %>">
-        <li class="search-result-link">
-          <%= paper.escape('title') %>
-
-          <% var author_names = [] %>
-          <% paper.get('authors').forEach(function (author) { %>
-              <% author_names.push(author.name) %>
-          <% }) %>
-          <%= author_names.join(", ") %>
-
-          <%= paper.escape('institution_name') %>
-          <%= paper.escape('journal_name') %>
-        </li>
-      </a>
+      <div class="search-dropdown-item">
+        <a href="/#/papers/<%= paper.id %>">
+          <li class="search-result-link">
+            <%= paper.escape('title') %>
+            break
+            <% var author_names = [] %>
+            <% paper.get('authors').forEach(function (author) { %>
+                <% author_names.push(author.name) %>
+            <% }) %>
+            <%= author_names.join(", ") %>
+            break
+            <%= paper.escape('institution_name') %>
+            break
+            <%= paper.escape('journal_name') %>
+            break
+            <%= paper.escape('field_name') %>
+          </li>
+        </a>
+      </div>
     <% }) %>
   </ul>
 </div>

@@ -7,4 +7,5 @@ json.array! @papers do |paper|
   end
   json.institution_name paper.institution.name
   json.journal_name paper.journal.name
+  json.field_name paper.field.name
 end

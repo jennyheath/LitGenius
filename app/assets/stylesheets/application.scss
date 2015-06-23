@@ -33,25 +33,6 @@ a:active {
   text-decoration: none;
 }
 
-a:li .search-result-link {
-  background-color: #eee;
-}
-
-.about-box {
-  margin-left: 25px;
-  height: 600px;
-  width: 30.4%;
-  margin-top: 75px;
-  background: url('ecoli.png');
-  overflow: hidden;
-  background-size: auto 100%;
-  opacity: 0.8;
-}
-
-.about-link {
-  display: block;
-}
-
 .annotation-body {
   font-size: 12px;
   background-color: #eee;
@@ -92,19 +73,14 @@ a:li .search-result-link {
 
 .app-name {
   text-align: center;
-  color: #fff;
   padding: 120px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 35px;
 }
 
-.author-name, .comma {
-  font-size: 12px;
-  display: inline-block;
-  float: left;
-  text-decoration: underline;
-}
-
-.comma {
-  margin-right: 5px;
+.about-link {
+  display: block;
 }
 
 body {
@@ -115,6 +91,7 @@ body {
   padding:0;
   height:100%;
   position: relative;
+  cursor: default;
 }
 
 button {
@@ -124,62 +101,9 @@ button {
   border-style: none;
 }
 
-.category-nav {
-  display: block;
-  padding-top: 15px;
-  padding-bottom: 5px;
-  margin: 0px;
-  // border-bottom: 1px solid #fff;
-  border-bottom: 2px solid #E0E0E0; //#647284;
-}
-
 .col-full-height {
   float: none;
   display: table-cell;
-}
-
-.comment {
-  list-style: none;
-  border: 1px solid #eee;
-  margin-bottom: 8px;
-}
-
-.comment-body {
-  background-color: #eee;
-  margin-right: -10px;
-  margin-left: -10px;
-  padding: 5px;
-  padding-left: 20px;
-  font-family: Helvetica, Arial;
-  font-size: 12px;
-}
-
-.comment-content {
-  margin: 10px;
-}
-
-.comment-form-body {
-  width: 100%;
-  padding-bottom: 35px;
-}
-
-.comment-list {
-  text-align: left;
-  padding-left: 0px;
-}
-
-.paper-comment-list {
-  margin-bottom: 50px;
-}
-
-.contact-box {
-  height: 200px;
-  width: 88%;
-  margin-top: 25px;
-  background: url('catseye.png');
-  overflow: hidden;
-  background-size: 100% auto;
-  opacity: 0.8;
 }
 
 .delete {
@@ -193,106 +117,18 @@ button {
   opacity: 1.0;
 }
 
-.dropdown-box {
-  position: absolute;
-  right: 10px;
-  width: 300px;
-  background-color: #fff;
-  z-index: 1;
-  border-radius: 5px;
-}
-
-.featured-box {
-  height: 600px;
-  width: 55%;
-  margin-top: 75px;
-  background: url('crispr.png');
-  overflow: hidden;
-  background-size: auto 100%;
-  opacity: 0.8;
-}
-
-.field {
-  // color: #fff;
-  color: #555;
-  font-size: 14px;
-  padding-bottom: 15px;
-}
-
-.field-category {
-  display: block;
-  float: left;
-  list-style: none;
-  margin-left: 30px;
-  font-size: 14px;
-  padding: 10px;
-  margin-top: -10px;
-}
-
-.field-category:hover {
-  background-color: #eee;
-}
-
-.field-category-home {
-  color: #555555; //#242424;
-  padding-top: 15px;
-}
-
-.field-index-home {
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
-  height: 50px;
-  background-color: #F3F3F3;
-}
-
-.field-page-title,
-.institution-page-title,
-.journal-page-title,
-.author-page-title {
-  // text-align: center;
-  left: 50%;
-  position: relative;
-}
-
-.field-subtitle {
-  float: left;
-  padding: 10px;
-  transform: translateX(-50%);
-  color: #666666;
-  // font-size: 16px;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.field-title,
-.institution-title,
-.journal-title,
-.author-title {
-  background-color: red;
-  padding: 10px;
-  float: left;
-  transform: translateX(-50%);
-  color: #fff;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
 #footer {
   width: 100%;
   height: 30px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #242424;
   text-decoration: none;
+  border-top: 2px solid red;
 }
 
-.footer-nav {
-  color: #fff;
+.footer-nav, .footer-nav a {
   font-weight: 100;
-}
-
-.footer-nav a:visited {
-  color: #fff;
 }
 
 .footer-home, .footer-about, .footer-contact {
@@ -307,55 +143,12 @@ button {
 
 .footer-home, .footer-about, .footer-contact, .footer-sign-out {
   display: block;
-  color: #fff;
   margin-top: 5px;
   font-family: "Helvetica Light", Helvetica, sans-serif;
 }
 
 .header {
   font-weight: bold;
-}
-
-.home-page-content {
-  height: 1000px;
-}
-
-.home-subview {
-  width: 1000px;
-  height: 1000px;
-  margin: 0 auto;
-}
-
-.home-subview-box {
-  float: left;
-  background-color: #000;
-  // background: url('grid.png');
-  color: #fff;
-}
-
-.home-subview-box:hover {
-  opacity: 0.9;
-}
-
-.home-subview-box-text {
-  margin: 10px;
-}
-
-.jumbotron {
-  height: 425px;
-  position: relative;
-  background-image: url("neurons-2.png");
-  background-size: cover;
-  overflow: hidden;
-}
-
-.jumbotron a {
-  color: #fff;
-}
-
-.jumbotron p {
-  font-weight: bold;
-  font-size: 35px;
 }
 
 li {
@@ -374,53 +167,6 @@ li {
 #main {
   min-height: 700px;
   display: table;
-  width: 100%;
-}
-
-.navbar-main {
-  background-color: #fff;
-  // color: #fff;
-  // background-color: #EAEAEA; //#EEE;
-  color: #000; // #647284;//#555;
-  border-top: 2px solid red;
-}
-
-.new-paper {
-  font-size: 14px;
-}
-
-.new-paper-icon {
-  height: 20px;
-}
-
-.new-paper-icon-nav, .new-paper-nav {
-  height: 20px;
-  float: left;
-  margin-left: 10px;
-  margin-top: 5px;
-}
-
-.new-paper-form {
-  margin-left: 50px;
-}
-
-.new-paper-link {
-  display: block;
-  text-align: center;
-}
-
-.paper-authors {
-  float: left;
-  margin-right: 5px;
-}
-
-.paper-author-name {
-  display: inline-block;
-  float: left;
-}
-
-.paper-show {
-  overflow: hidden;
   width: 100%;
 }
 
@@ -449,122 +195,7 @@ li {
   right: 0;
   top: 0;
   padding-left: 25px;
-}
-
-.paper-comment-form-body {
-  width: 100%;
-  padding-bottom: 35px;
-}
-
-.paper-comment-form {
-  padding-top: 25px;
   text-align: left;
-}
-
-.paper-comments-title {
-  padding-top: 20px;
-  text-align: left;
-}
-
-.paper-institution {
-  margin-top: 7px;
-}
-
-.paper-heading {
-  padding-left: 50px;
-}
-
-.paper-link-home {
-  margin: 50px;
-  display: inline-block;
-  float: none;
-  text-align: left;
-  overflow: hidden;
-  border-bottom: 3px solid red;
-  vertical-align: top;
-}
-
-.paper-link-home:hover {
-  background: url('dots.jpg');
-  color: #000;
-}
-
-.paper-link-image {
-  margin-left: -14px;
-  width: 355px;
-  height: 200px;
-  overflow: hidden;
-  top: 0px;
-  left: 0px;
-}
-
-.paper-image {
-  height: 100%;
-}
-
-.paper-input-body {
-  height: 100px;
-}
-
-.paper-link-text {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  bottom: 0px;
-  left: 0px;
-}
-
-.paper-link-title {
-  color: red;
-  font-size: 16px;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.paper-info {
-  font-size: 12px;
-  font-family: Helvetica, Arial;
-}
-
-.paper-input {
-  width: 350px;
-}
-
-.paper-item a {
-  font-style: italic;
-}
-
-.paper-subheading {
-  font-size: 12px;
-}
-
-a .paper-subheading,
-.paper-author-name,
-.paper-subheading a {
-  color: #005F97;
-  text-decoration: underline;
-}
-
-.profile {
-  display: block;
-  float: right;
-  margin-right: 20px;
-}
-
-.profile-icon {
-  display: block;
-  float: right;
-  height: 25px;
-  margin-right: 15px;
-  margin-top: -3px;
-  // margin-bottom: 20px;
-}
-
-.profile-link {
-  float: left;
-  margin-right: 15px;
-}
-
-.profile-picture {
-  height: 100px;
 }
 
 .row {
@@ -579,38 +210,6 @@ a .paper-subheading,
 .row-full-height {
   float: none;
   display: table;
-}
-
-.search-bar {
-  display: block;
-  padding: 5px;
-  text-align: right;
-  border-bottom: 1px solid #E0E0E0; //#647284;
-  position: relative;
-}
-
-.search-box {
-  border-radius: 5px;
-  padding: 5px;
-  width: 300px;
-  // background: #F2F2F2;
-  background: url('magnifying-glass.png') no-repeat;// 5px 5px;
-  background-size: 20px 20px;
-  background-position: 98% 50%;
-  border: 1px solid #E0E0E0; //#647284;
-  text-indent: 10px;
-}
-
-.search-result-link {
-  border-bottom: 1px solid #000;
-  text-align: left;
-  text-indent: 10px;
-}
-
-.sign-out {
-  display: block;
-  float: right;
-  margin-right: 30px;
 }
 
 .submit-comment,
@@ -632,46 +231,4 @@ a .paper-subheading,
 .toggle-sign-in {
   display: block;
   float: right;
-}
-
-.user-feed {
-  padding-left: 50px;
-  margin-top: 35px;
-  text-align: left;
-  margin-bottom: 50px;
-}
-
-.user-feed-item {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 13px;
-}
-
-.user-feed-title {
-  font-weight: bold;
-}
-
-.user-profile-sidebar {
-  padding-left: 50px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.down-vote, .up-vote {
-  height: 20px;
-  float: left;
-}
-
-.vote {
-  height: 20px;
-  float: left;
-}
-
-.vote-count {
-  float: left;
-  width: 25px;
-  font-family: Helvetica, Arial;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 30px;
 }

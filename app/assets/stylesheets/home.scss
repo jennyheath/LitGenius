@@ -1,0 +1,35 @@
+.category-nav {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  margin: 0px;
+  // border-bottom: 1px solid #fff;
+  border-bottom: 2px solid #E0E0E0; //#647284;
+}
+
+.home-page-content {
+  height: 1000px;
+  display: table-cell;
+}
+
+.home-subview {
+  width: 1000px;
+  height: 1000px;
+  margin-top: 50px;
+  margin-left: 200px;
+  // margin-right: 200px;
+  display: inline-block;
+  float: none;
+  text-align: left;
+}
+
+.jumbotron {
+  height: 425px;
+  position: relative;
+  background-image: url("neurons-2.png");
+  background-size: cover;
+  overflow: hidden;
+  color: #fff;
+  font-weight: bold;
+  font-size: 35px;
+}

@@ -2,7 +2,7 @@ LitGenius.Views.Footer = Backbone.View.extend({
   template: JST['footer'],
 
   events: {
-    "click .sign-out": "signOut"
+    "click .footer-sign-out": "signOut"
   },
 
   render: function () {

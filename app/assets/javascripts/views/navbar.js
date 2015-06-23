@@ -1,11 +1,10 @@
 LitGenius.Views.NavBar = Backbone.View.extend({
   template: JST['navbar'],
   searchTemplate: JST['search_dropdown'],
-  // homeTemplate: JST['root/home'],
 
   events: {
     "keyup .search-field": "getResults",
-    // "submit .search-field": "showResults",
+    "submit .search-field": "showSearchResults",
     "click .sign-out": "signOut",
     "click .search-result-link": "clearResults",
     "click .field-category": "addFieldView"
@@ -45,11 +44,31 @@ LitGenius.Views.NavBar = Backbone.View.extend({
   },
 
   showResults: function () {
+    var toHighlight = this.$el.find('input').val();
     if (this.papers.length > 0){
-      this.$(".dropdown-box").html(this.searchTemplate({ papers: this.papers }));
+      this.$(".dropdown-box").html(this.searchTemplate({
+        papers: this.papers
+      }));
+      this.$(".search-result-link").each(function (index, link) {
+      var searchContent = link.textContent.replace(toHighlight,
+        "<span style='background-color: yellow'>" + toHighlight +
+        "</span>");
+
+      searchContent = searchContent.replace("break", "<br>")
+                                   .replace("break", "<br>")
+                                   .replace("break", "<br>")
+                                   .replace("break", "<br>");
+      link.innerHTML = searchContent;
+      link.style.fontSize = "12px";
+      });
     } else {
       this.$('.dropdown-box').empty();
     }
+  },
+
+  showSearchResults: function () {
+    var searchString = this.$el.find('input').val().replace(" ", "+");
+    Backbone.history.navigate("#/search/"+searchString, { trigger: true });
   },
 
   signOut: function () {

@@ -1,12 +1,24 @@
-<h3>Search Results:</h3>
-<p class="search-results">
-  <ul>
+<div class="search-page">
+  <h3>Search Results:</h3>
+  <ul class="search-results">
     <% papers.each(function (paper) { %>
-      <li>
-        <a href="#/papers/<%= paper.id %>">
-          <%= paper.escape('title') %>
+      <div class="search-item">
+        <a href="/#/papers/<%= paper.id %>">
+          <li class="search-result-link">
+            <div class="search-title"><%= paper.escape('title') %></div>
+
+            <% var author_names = [] %>
+            <% paper.get('authors').forEach(function (author) { %>
+                <% author_names.push(author.name) %>
+            <% }) %>
+            <div class="search-author"><%= author_names.join(", ") %></div>
+
+            <div class="search-institution"><%= paper.escape('institution_name') %></div>
+            <div class="search-journal">Published in: <%= paper.escape('journal_name') %></div>
+            <div class="search-field-name">Field: <%= paper.escape('field_name') %></div>
+          </li>
         </a>
-      </li>
+      </div>
     <% }) %>
   </ul>
-</p>
+</div>

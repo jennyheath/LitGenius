@@ -1,3 +1,50 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile {
+  display: block;
+  float: right;
+  margin-right: 20px;
+}
+
+.profile-icon {
+  display: block;
+  float: right;
+  height: 25px;
+  margin-right: 15px;
+  margin-top: -3px;
+  // margin-bottom: 20px;
+}
+
+.profile-link {
+  float: left;
+  margin-right: 15px;
+}
+
+.profile-picture {
+  height: 100px;
+}
+
+.user-feed {
+  padding-left: 50px;
+  margin-top: 35px;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.user-feed-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.user-feed-title {
+  font-weight: bold;
+}
+
+.user-profile-sidebar {
+  padding-left: 50px;
+  text-align: center;
+  margin-top: 10px;
+}

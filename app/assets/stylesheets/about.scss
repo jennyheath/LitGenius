@@ -1,0 +1,31 @@
+.about-block {
+  height: 150px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.about-image {
+  width: 300px;
+  display: table-cell;
+  float: left;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.about-list {
+  padding-left: 0px;
+}
+
+.about-text {
+  margin-left: 50px;
+  width: 400px;
+  float: left;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.genius {
+  color: orange;
+}

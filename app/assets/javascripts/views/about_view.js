@@ -1,4 +1,4 @@
-LitGenius.Views.HomeSubView = Backbone.View.extend({
+LitGenius.Views.AboutView = Backbone.View.extend({
   template: JST['static/about'],
 
   render: function () {

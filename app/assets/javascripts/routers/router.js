@@ -11,6 +11,7 @@ LitGenius.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'home',
+    'about': 'aboutView',
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
     'papers': 'searchResults',
@@ -19,7 +20,15 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     'fields/:name': 'fieldView',
     'authors/:name': 'authorView',
     'journals/:id': 'journalView',
-    'institutions/:id': 'institutionView'
+    'institutions/:id': 'institutionView',
+    'search/:searchstring': 'searchView'
+  },
+
+  aboutView: function () {
+    var view = new LitGenius.Views.AboutView();
+
+    this._swapView(view);
+    $('body').scrollTop(0);
   },
 
   authorView: function (name) {
@@ -89,6 +98,19 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     var collection = LitGenius.Collections.papers;
     var view = new LitGenius.Views.SearchResults({
       collection: collection
+    });
+
+    this._swapView(view);
+  },
+
+  searchView: function (searchstring) {
+    searchstring = searchstring.replace("+", " ");
+    var papers = new LitGenius.Collections.Papers();
+    papers.fetch({
+      data: { search_params: searchstring }
+    });
+    var view = new LitGenius.Views.SearchResults({
+      collection: papers
     });
 
     this._swapView(view);
