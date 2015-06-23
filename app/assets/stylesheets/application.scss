@@ -101,6 +101,12 @@ button {
   border-style: none;
 }
 
+.contact-content {
+  margin-left: 100px;
+  margin-top: 50px;
+  width: 700px;
+}
+
 .col-full-height {
   float: none;
   display: table-cell;
@@ -151,6 +157,17 @@ button {
   font-weight: bold;
 }
 
+.jumbotron {
+  height: 425px;
+  position: relative;
+  background-image: url("neurons-2.png");
+  background-size: cover;
+  overflow: hidden;
+  color: #fff;
+  font-weight: bold;
+  font-size: 35px;
+}
+
 li {
   list-style: none;
 }
@@ -168,6 +185,53 @@ li {
   min-height: 700px;
   display: table;
   width: 100%;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-header,
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-size: 18px;
+  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 8px;
+}
+
+.navbar-default .navbar-nav > li {
+  padding: 10px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+  background-color: #00A37A;
+  border-radius: 10px;
+}
+
+.navbar-header {
+  padding: 20px;
+}
+
+.splash-content {
+  min-height: 705px;
+  background-color: #313445; //#46C1CE; //#EB3B31;
+  font-family: "Helvetica Light", Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+.splash-image {
+  height: 200px;
+}
+
+.splash-logo {
+  width: 150px;
+}
+
+.splash-header {
+  color: #fff;
+  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .paper-body-col {
@@ -231,4 +295,24 @@ li {
 .toggle-sign-in {
   display: block;
   float: right;
+}
+
+.user-form {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-style: none;
+  text-indent: 5px;
+  height: 30px;
+  width: 200px;
+}
+
+.user-submit {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #00A37A;
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }

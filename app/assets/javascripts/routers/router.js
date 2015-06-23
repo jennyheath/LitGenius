@@ -12,6 +12,7 @@ LitGenius.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'home',
     'about': 'aboutView',
+    'contact': 'contactView',
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
     'papers': 'searchResults',
@@ -37,6 +38,13 @@ LitGenius.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+
+  contactView: function () {
+    var view = new LitGenius.Views.ContactView();
+
+    this._swapView(view);
+    $('body').scrollTop(0);
   },
 
   home: function () {

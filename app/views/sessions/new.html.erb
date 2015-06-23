@@ -1,32 +1,32 @@
-<nav class="navbar navbar-default">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">LitGenius</a>
-  </div>
+<div class="splash-content">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <img class="splash-logo" src=<%= asset_path('logo.png') %>>
+    </div>
 
-  <ul class="nav navbar-nav toggle-sign-in">
-    <li class="about-link">
-      <a href="#">
-      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-      </a>
-    </li>
-    <li><a href="<%= new_user_url %>">Sign Up</a></li>
-  </ul>
-</nav>
+    <ul class="nav navbar-nav toggle-sign-in">
+      <li><a href="<%= new_user_url %>">Sign Up</a></li>
+    </ul>
+  </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="sign-in-form col-centered">
-      <h3>Sign In</h3>
-
-      <form action="<%= session_url %>" method="post">
-        <%= auth_token %>
-        <input type="text" name="user[username]" placeholder="username">
-        <br>
-        <input type="password" name="user[password]" placeholder="password">
-        <br>
-        <input type="submit" value="sign in">
-      </form>
-      <%= button_to "Sign in as Guest", :guest_login_url, method: :get %>
+  <div class="container">
+    <div class="row">
+      <div class="col-centered">
+        <img class="splash-image" src=<%= asset_path('microscope.png') %>>
       </div>
+      <div class="sign-in-form col-centered">
+        <h3 class="splash-header">Sign In</h3>
+
+        <form action="<%= session_url %>" method="post">
+          <%= auth_token %>
+          <input class="user-form" type="text" name="user[username]" placeholder="username">
+          <br>
+          <input class="user-form" type="password" name="user[password]" placeholder="password">
+          <br>
+          <input class="user-submit" type="submit" value="Sign in">
+        </form>
+        <%= button_to "Sign in as Guest", :guest_login_url, method: :get, class: "user-submit" %>
+      </div>
+    </div>
   </div>
 </div>
