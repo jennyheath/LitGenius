@@ -2,7 +2,7 @@
 
 [Live][heroku]
 
-[heroku]: https://litgenius.io/
+[heroku]: http://litgenius.io/
 
 ## Minimum Viable Product
 A Genius clone for scientific literature. Users can:
