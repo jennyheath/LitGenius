@@ -1,8 +1,8 @@
 # LitGenius
 
-[Heroku link][heroku]
+[Live][heroku]
 
-[heroku]: https://fathomless-reaches-2713.herokuapp.com/
+[heroku]: https://litgenius.io/
 
 ## Minimum Viable Product
 A Genius clone for scientific literature. Users can:
