@@ -27,7 +27,7 @@ class Api::PapersController < ApplicationController
 
   def index
     if params[:search_params]
-      search_string = params[:search_params]
+      search_string = params[:search_params].downcase
 
       sql_str = <<-SQL
         SELECT
@@ -45,11 +45,11 @@ class Api::PapersController < ApplicationController
         LEFT OUTER JOIN
         journals ON journals.id = papers.journal_id
         WHERE
-        (papers.title LIKE ?)
-        OR (fields.name LIKE ?)
-        OR (institutions.name LIKE ?)
-        OR (journals.name LIKE ?)
-        OR (authors.name LIKE ?)
+        (lower(papers.title) LIKE ?)
+        OR (lower(fields.name) LIKE ?)
+        OR (lower(institutions.name) LIKE ?)
+        OR (lower(journals.name) LIKE ?)
+        OR (lower(authors.name) LIKE ?)
       SQL
 
       @papers = Paper.find_by_sql([sql_str,

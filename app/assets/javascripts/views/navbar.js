@@ -44,22 +44,27 @@ LitGenius.Views.NavBar = Backbone.View.extend({
   },
 
   showResults: function () {
-    var toHighlight = this.$el.find('input').val();
+    var searched = this.$el.find('input').val();
     if (this.papers.length > 0){
       this.$(".dropdown-box").html(this.searchTemplate({
         papers: this.papers
       }));
       this.$(".search-result-link").each(function (index, link) {
-      var searchContent = link.textContent.replace(toHighlight,
-        "<span style='background-color: yellow'>" + toHighlight +
-        "</span>");
+        var findSearched = link.textContent.toLowerCase()
+                                           .indexOf(searched.toLowerCase());
+        var endOfSearched = findSearched + searched.length;
+        var toHighlight = link.textContent.slice(findSearched, endOfSearched);
 
-      searchContent = searchContent.replace("break", "<br>")
-                                   .replace("break", "<br>")
-                                   .replace("break", "<br>")
-                                   .replace("break", "<br>");
-      link.innerHTML = searchContent;
-      link.style.fontSize = "12px";
+        var searchContent = link.textContent.replace(toHighlight,
+          "<span style='background-color: yellow'>" + toHighlight +
+          "</span>");
+
+        searchContent = searchContent.replace("break", "<br>")
+                                     .replace("break", "<br>")
+                                     .replace("break", "<br>")
+                                     .replace("break", "<br>");
+        link.innerHTML = searchContent;
+        link.style.fontSize = "12px";
       });
     } else {
       this.$('.dropdown-box').empty();
