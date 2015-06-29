@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.1'
 gem 'pg'
 
@@ -25,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'backbone-on-rails'
+gem 'seed_dump'
 # gem 'cloudinary'
 # gem 'figaro'
 
