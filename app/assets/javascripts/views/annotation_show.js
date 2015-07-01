@@ -3,19 +3,26 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   events: {
     "submit form": "submitComment",
-    "click .delete-annotation": "destroyAnnotation"
+    "click .delete-annotation": "destroyAnnotation",
+    "click .more-comments": "showMoreComments"
   },
 
   initialize: function () {
     this.comments = this.model.comments();
-    // this.hiddenComments = [];
+    this.invisibleComments = [];
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'add', this.render);
 
+    var visibleComments = 0;
     this.comments.each(function (comment) {
-      this.addCommentView(comment);
+      visibleComments += 1;
+      if (visibleComments <= 3) {
+        this.addCommentView(comment);
+      } else {
+        this.invisibleComments.push(comment);
+      }
     }.bind(this));
   },
 
@@ -38,6 +45,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
     this.$el.html(content);
     this.attachSubviews();
+    this.onRender();
     return this;
   },
 
@@ -52,6 +60,21 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
         $('.annotation-pane').html('');
       }.bind(this)
     });
+  },
+
+  onRender: function () {
+    var hidden = this.invisibleComments.length;
+    this.$('.comment-list')
+        .append($('<button>')
+        .addClass("more-comments")
+        .text(hidden.toString() + " more comments"));
+  },
+
+  showMoreComments: function () {
+    this.$('.more-comments').remove();
+    this.invisibleComments.forEach(function (comment) {
+      this.addCommentView(comment);
+    }.bind(this));
   },
 
   submitComment: function (event) {

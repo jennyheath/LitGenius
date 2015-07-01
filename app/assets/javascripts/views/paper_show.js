@@ -78,6 +78,9 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     setTimeout(function () {
       this.$('.annotation-show').addClass('transitioned');
     }.bind(this), 0);
+    setTimeout(function () {
+      subView.render();
+    }.bind(this), 10);
   },
 
   addAnnotationTags: function () {
