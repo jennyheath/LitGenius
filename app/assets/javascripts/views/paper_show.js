@@ -73,25 +73,12 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.addSubview('.annotation-pane', subView);
     var textHeight = event.target.offsetTop;
     subView.$el.css("margin-top", textHeight+"px");
-    // subView.limitComments();
-  },
+    this.$('.annotation-show').addClass('appear');
 
-  // limitComments: function () {
-  //   var numComments = $('ul.comment-list li').length;
-  //   var hiddenComments = 0;
-  //
-  //   if (numComments > 3) {
-  //     while (numComments > 3) {
-  //       $('.comment-list li:last').remove();
-  //       hiddenComments += 1;
-  //       numComments = $('ul.comment-list li').length;
-  //     }
-  //   }
-  //
-  //   if (hiddenComments > 0) {
-  //     $('.comment-list').append($('<div>').text("show "+hiddenComments+" more comments"));
-  //   }
-  // },
+    setTimeout(function () {
+      this.$('.annotation-show').addClass('transitioned');
+    }.bind(this), 0);
+  },
 
   addAnnotationTags: function () {
     var annotations = this.model.annotations();

@@ -42,7 +42,7 @@ class Api::AnnotationsController < ApplicationController
     @annotation.delete
     render json: {}
   end
-  
+
   private
   def annotation_params
     params.require(:annotation).permit(:user_id, :paper_id, :body, :start_index, :end_index)

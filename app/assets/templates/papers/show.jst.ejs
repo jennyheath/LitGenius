@@ -33,7 +33,11 @@
 
 <div class="paper-show clearfix row">
   <div class="col-md-6 paper-body-col">
-    <div class="paper-body" data-toggle="tooltip" title="to annotate a piece of text, highlight it"><%= paper.formattedBody() %></div>
+    <div class="paper-body"
+         data-toggle="tooltip"
+         data-placement="top"
+         data-container="body"
+         title="to annotate a piece of text, highlight it"><%= paper.formattedBody() %></div>
 
     <% if (paper.get('user_id') === CURRENT_USER_ID) { %>
       <button class="delete-paper">Delete Paper</button>

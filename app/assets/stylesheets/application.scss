@@ -60,6 +60,17 @@ a:active {
   font-size: 13px;
   text-align: left;
   width: 500px;
+  position: absolute;
+  -webkit-transition: left 1s linear;
+  transition: left 1s linear;
+}
+
+.appear {
+  left: 0px;
+}
+
+.transitioned {
+  left: 50px;
 }
 
 .annotation-tag {
@@ -258,7 +269,7 @@ li {
   float: left;
   right: 0;
   top: 0;
-  padding-left: 25px;
+  // padding-left: 25px;
   text-align: left;
 }
 
