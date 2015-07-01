@@ -25,7 +25,7 @@
     <% } %>
   <br>
   <% var institution_link = "#/institutions/" + paper.escape('institution_id') %>
-  <a href=<%= institution_link %>>
+  <a class="paper-institution" href=<%= institution_link %>>
     <h6 class="paper-subheading paper-institution"><%= paper.escape('institution_name') %></h6>
   </a>
   <br>

@@ -6,12 +6,13 @@
   font-size: 12px;
   display: inline-block;
   float: left;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 
 .comma {
   margin-right: 5px;
 }
+
 
 .new-paper {
   font-size: 14px;
@@ -141,5 +142,13 @@ a .paper-subheading,
 .paper-author-name,
 .paper-subheading a {
   color: #005F97;
-  text-decoration: underline;
+  // text-decoration: underline;
+}
+
+.paper-institution {
+  text-decoration: none;
+}
+
+.paper-institution:hover {
+  color: #B2B2B2;
 }

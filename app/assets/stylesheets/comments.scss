@@ -8,6 +8,16 @@
   margin-bottom: 8px;
 }
 
+.deleting {
+  display: block;
+  -webkit-transition: display 1s linear;
+  transition: display 1s linear;
+}
+
+.deleted {
+  display: none;
+}
+
 .comment-body {
   background-color: #eee;
   margin-right: -10px;

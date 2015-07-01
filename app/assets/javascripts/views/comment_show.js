@@ -28,11 +28,15 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   destroyComment: function (model) {
     event.preventDefault();
     var view = this;
+    this.$('.comment').addClass("deleting");
 
     this.model.destroy({
       success: function () {
-        view.remove();
-        this.parentView.removeSubview('.comment-list', this);
+        this.$('.comment').addClass("deleted");
+        setTimeout(function () {
+          view.remove();
+          this.parentView.removeSubview('.comment-list', this);
+        }.bind(this), 0);
       }.bind(this)
     });
   },
