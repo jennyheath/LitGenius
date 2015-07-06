@@ -9,14 +9,13 @@ class Api::CommentsController < ApplicationController
 
     if @comment.save
       render json: @comment
-      # render :show?
     else
       render json: @comment.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.includes(:user, :votes).find(params[:id])
   end
 
   def destroy

@@ -25,4 +25,5 @@ json.comments do
     json.extract! comment, :id, :body, :user_id, :vote_count
   end
 end
+
 # json.paragraphs @paper.body.split("\n")

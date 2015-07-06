@@ -26,6 +26,8 @@
           <input class="user-submit" type="submit" value="Sign in">
         </form>
         <%= button_to "Sign in as Guest", :guest_login_url, method: :get, class: "user-submit" %>
+        <br>
+        <div class="errors"><%= render "shared/errors" %></div>
       </div>
     </div>
   </div>

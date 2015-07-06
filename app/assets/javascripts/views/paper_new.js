@@ -24,7 +24,10 @@ LitGenius.Views.PaperNew = Backbone.View.extend({
         Backbone.history.navigate("#/papers/"+this.model.id, { trigger: true });
       }.bind(this),
       error: function (model, response) {
-        this.$el.append(response.responseText);
+        var errorText = "";
+        if (attrs.paper.title === "") { errorText += "Title missing <br>"; }
+        if (attrs.paper.body === "") { errorText += "Body missing <br>"; }
+        this.$('.errors').html(errorText);
       }.bind(this)
     });
   }

@@ -4,7 +4,7 @@
   <label>Title
     <br>
     <input
-      class="paper-input"
+      class="paper-input paper-input-title"
       type="text"
       name="paper[title]"
       value="<%= paper.escape("title") %>">
@@ -71,5 +71,6 @@
       value="">
   </label>
   <br>
+  <div class="errors"></div>
   <button class="submit-paper submit">Post Paper</button>
 </form>

@@ -21,7 +21,7 @@ class Api::PapersController < ApplicationController
     if @paper.save
       render json: @paper
     else
-      render json: @paper.errors.full_messages, status: 402
+      render json: { errors: @paper.errors.full_messages}, status: 402
     end
   end
 
