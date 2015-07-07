@@ -14,7 +14,7 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   },
 
   render: function () {
-    var votes = this.model.get('vote_count');
+    var votes = this.model.get('vote_count') || 0;
 
     var content = this.template({
       comment: this.model,
