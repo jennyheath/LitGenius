@@ -7,12 +7,19 @@
   border-radius: 3px;
 }
 
+.profile, .sign-out {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
 .navbar-main {
-  background-color: #fff;
+  background-color: #F5F5F5; //#fff;
   // color: #fff;
   // background-color: #EAEAEA; //#EEE;
   color: #000; // #647284;//#555;
-  border-top: 2px solid red;
+  // border-top: 2px solid #4078C0; //red;
+  padding-top: 10px;
 }
 
 .search-bar {
@@ -43,5 +50,5 @@
 }
 
 .sign-out:hover {
-  color: #959595;
+  color: #4078C0;
 }

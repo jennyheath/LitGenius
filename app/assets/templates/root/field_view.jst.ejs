@@ -1,7 +1,6 @@
 <% if (!on_home_page) { %>
   <div class="field-page-title clearfix">
     <h3 class="field-title"><%= field.replace("lS", "l S") %></h3>
-    <!-- <h6 class="field-subtitle">Read (and annotate) the latest</h6> -->
   </div>
 <% } %>
 
@@ -11,7 +10,8 @@
       <a href="#/papers/<%= paper.id %>">
       <div class="paper-link-home col-md-3 col-centered">
         <div class="paper-link-image">
-          <img class="paper-image" src="assets/paper_covers/paper_1.png">
+          <% filePath = ["assets/paper_covers/", paper.escape('title').split(" ")[0], ".png"].join("") %>
+          <img class="paper-image" src=<%= filePath %>>
         </div>
 
         <div class="paper-link-text">
