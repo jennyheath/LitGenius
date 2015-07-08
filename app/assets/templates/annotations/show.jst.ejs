@@ -1,5 +1,10 @@
 <div class="annotation-show transitioned">
-  <p class="header"><%= annotation.escape('author_name') %></p>
+  <p class="header user-name">
+    <% var userProfile = "#/users/" + annotation.get('user_id') %>
+    <a href=<%= userProfile %>>
+      <%= annotation.escape('author_name') %>
+    </a>
+  </p>
 
   <p class="annotation-body">
     <%= annotation.escape('body') %>
@@ -17,6 +22,6 @@
     <input type="hidden" name="comment[commentable_type]" value="Annotation">
 
     <br>
-    <button class="submit submit-comment">Comment</button>
+    <button class="submit submit-comment">Reply</button>
   </form>
 </div>

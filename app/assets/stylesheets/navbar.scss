@@ -1,10 +1,31 @@
-.dropdown-box {
-  position: absolute;
-  right: 10px;
-  width: 400px;
-  background-color: #fff;
-  z-index: 1;
-  border-radius: 3px;
+// .dropdown-box {
+//   position: absolute;
+//   right: 10px;
+//   width: 400px;
+//   background-color: #fff;
+//   z-index: 1;
+//   border-radius: 3px;
+// }
+
+.dropdown.open > .dropdown-toggle > * {
+  display: block;
+}
+
+.dropdown-menu.dropdown-menu-right {
+  margin-right: 10px;
+  font-size: 12px;
+  font-family: Helvetica, sans-serif;
+}
+
+
+
+.profile-icon {
+  display: block;
+  float: right;
+  height: 25px;
+  margin-right: 5px;
+  margin-top: -3px;
+  padding-bottom: 1px;
 }
 
 .profile, .sign-out {
@@ -44,9 +65,8 @@
 }
 
 .sign-out {
-  display: block;
-  float: right;
-  margin-right: 30px;
+  margin-left: 20px;
+  padding-bottom: 5px;
 }
 
 .sign-out:hover {

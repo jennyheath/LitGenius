@@ -1,6 +1,9 @@
 <li class="comment clearfix">
   <div class="comment-content">
-    <h6><%= comment.escape('author_name') %></h6>
+    <% var userProfile = "#/users/" + comment.get('user_id') %>
+    <a href=<%= userProfile %>>
+      <h6 class="user-name"><%= comment.escape('author_name') %></h6>
+    </a>
     <p class="comment-body"><%= comment.escape('body')%></p>
 
     <div class="up-vote"><img class="vote" src="assets/thumbs_up.png"></div>

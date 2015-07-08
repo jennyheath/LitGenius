@@ -1,5 +1,7 @@
 json.title @paper.title
 json.body @paper.body
+json.user_id @paper.user_id
+json.username User.find(@paper.user_id).username
 
 json.journal_name @paper.journal.name
 json.journal_id @paper.journal.id

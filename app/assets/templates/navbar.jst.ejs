@@ -7,13 +7,17 @@
     <div class="field-category col">Physical Sciences</div>
     <div class="field-category col">Mathematics</div>
 
-    <p class="sign-out col">Sign Out</p>
-    <a href="#/users/<%= currentUserId %>">
-      <div class="profile col">
-        <p class="profile-link">Profile</p>
+    <div class="dropdown col pull-right">
+      <div class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <img class="profile-icon" src="assets/profile-icon-2.png">
-      </div>
-    </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+          <li class="menu-item"><a href="/#/users/<%= currentUserId %>">Your Profile</a></li>
+          <li><a href="/#/about">About</a></li>
+          <li><a href="/#/contact">Contact</a></li>
+          <li role="separator" class="divider"></li>
+          <li class="sign-out">Sign Out</li>
+        </ul>
+    </div>
   </nav>
 
   <nav class="search-bar">

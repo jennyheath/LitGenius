@@ -55,7 +55,7 @@ a:active {
 }
 
 .annotation-show {
-  border-left: 3px solid #EB7D24;
+  border-left: 3px solid #E0E0E0; //#EB7D24;
   // padding-left: 15px;
   font-size: 13px;
   text-align: left;
@@ -98,24 +98,35 @@ body {
   background-color: #fff;
   font-family: "Helvetica-Light", "Helvetica Light", "Helvetica", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
-  margin:0;
-  padding:0;
-  height:100%;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100% !important;
   position: relative;
   cursor: default;
 }
 
 button {
-  color: #fff;
-  background-color: #000;
+  color: #333;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
   border-radius: 3px;
-  border-style: none;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 
-.contact-content {
-  margin-left: 100px;
+.contact-photo, .contact-info {
   margin-top: 50px;
-  width: 700px;
+  text-align: left;
+}
+
+.contact-photo {
+  margin-left: 50px;
+}
+
+.contact-photo.col-md-2 {
+  float: left;
 }
 
 .col-full-height {
@@ -134,13 +145,21 @@ button {
 .delete {
   font-size: 12px;
   float: right;
-  background-color: red; //#FF5C33;
-  opacity: 0.6;
+  background-color: #E0E0E0;
+  color: #333;
+  border: 1px solid #d5d5d5;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  font-weight: bold;
 }
 
 .delete:hover {
-  opacity: 1.0;
+  background-image: linear-gradient(#FF6666, #FF0000); //#FF5C33;
+  color: #fff;
 }
+
+// .dropdown-menu.dropdown-menu-right > li:hover {
+//   background-color: #4078C0;
+// }
 
 .errors {
   color: red;
@@ -160,6 +179,7 @@ button {
   border-top: 1px solid #E0E0E0; //2px solid red;
   font-size: 12px;
   font-family: Helvetica, sans-serif;
+  font-weight: bold;
   padding-top: 10px;
   margin-bottom: 10px;
 }
@@ -181,6 +201,13 @@ button {
 
 .footer-home a, .footer-about a, .footer-contact a, .footer-sign-out {
   color: #4078C0;
+}
+
+.footer-home a:hover,
+.footer-about a:hover,
+.footer-contact a:hover,
+.footer-sign-out:hover {
+  text-decoration: underline;
 }
 
 .header {
@@ -218,6 +245,12 @@ li {
   width: 100%;
 }
 
+.more-comments:hover {
+  color: #fff;
+  background-image: linear-gradient(#8CAED9, #4078C0);
+  border: 1px solid #4078C0;
+}
+
 .navbar-default {
   background-color: transparent;
   border: none;
@@ -225,7 +258,7 @@ li {
 
 .navbar-header,
 .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: #000;
   font-size: 18px;
   font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 8px;
@@ -236,7 +269,7 @@ li {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #fff;
+  // color: #fff;
   background-color: #00A37A;
   border-radius: 10px;
 }
@@ -245,9 +278,20 @@ li {
   padding: 20px;
 }
 
+.posted-by {
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.posted-by a {
+  color: #4078C0; 
+}
+
 .splash-content {
   min-height: 705px;
-  background-color: #313445; //#46C1CE; //#EB3B31;
+  background-color: #fff; //#313445;
   font-family: "Helvetica Light", Helvetica, sans-serif;
   font-weight: lighter;
 }
@@ -261,7 +305,7 @@ li {
 }
 
 .splash-header {
-  color: #fff;
+  color: #000;
   font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
@@ -311,16 +355,23 @@ li {
 .annotation-button,
 .submit-annotation,
 .submit-paper {
-  background-color: #23C8AA; //#A0FB70;
-  opacity: 0.8;
+  // background-color: #23C8AA; //#A0FB70;
+  // opacity: 0.8;
   margin-top: 5px;
+  color: #333;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .submit-comment:hover,
 .annotation-button:hover,
 .submit-annotation:hover,
 .submit-paper:hover {
-  opacity: 1.0;
+  // opacity: 1.0;
+  background-image: linear-gradient(#eee, #CACACA);
 }
 
 .toggle-sign-in {
@@ -330,11 +381,21 @@ li {
 
 .user-form {
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 5px;
   border-style: none;
+  border: 1px solid #eee;
   text-indent: 5px;
   height: 30px;
   width: 200px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #4078C0;
+}
+
+.header.user-name {
+  font-size: 14px;
 }
 
 .user-submit {

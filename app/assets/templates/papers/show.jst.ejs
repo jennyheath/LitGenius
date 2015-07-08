@@ -39,6 +39,11 @@
          data-container="body"
          title="to annotate a piece of text, highlight it"><%= paper.formattedBody() %></div>
 
+    <div class="posted-by">
+      <% var posterProfile = "#/users/" + paper.get('user_id') %>
+      <p>posted by: <a href=<%= posterProfile %>><%= paper.escape('username') %></a></p>
+    </div>
+
     <% if (paper.get('user_id') === CURRENT_USER_ID) { %>
       <button class="delete-paper">Delete Paper</button>
     <% } %>

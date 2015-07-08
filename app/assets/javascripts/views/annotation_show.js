@@ -68,7 +68,7 @@ LitGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
       this.$('.comment-list')
           .append($('<button>')
           .addClass("more-comments")
-          .text(hidden.toString() + " more comments"));  
+          .text("show " + hidden.toString() + " more comments..."));  
     }
   },
 
