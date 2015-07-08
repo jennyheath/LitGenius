@@ -152,14 +152,38 @@ button {
   font-weight: bold;
 }
 
-.delete:hover {
+.delete:hover, .delete-paper:hover {
   background-image: linear-gradient(#FF6666, #FF0000); //#FF5C33;
   color: #fff;
 }
 
-// .dropdown-menu.dropdown-menu-right > li:hover {
-//   background-color: #4078C0;
-// }
+.delete-paper {
+  float: left;
+  margin-bottom: 20px;
+}
+
+.dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  left: 135px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 136px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
 
 .errors {
   color: red;
@@ -286,7 +310,7 @@ li {
 }
 
 .posted-by a {
-  color: #4078C0; 
+  color: #4078C0;
 }
 
 .splash-content {

@@ -4,8 +4,10 @@
     <br>
     <img class="profile-picture" src="assets/lady_profile.png">
     <br><br>
-    <img class="new-paper-icon" src="assets/new_paper.png">
-    <a class="new-paper" href="#/papers/new">Add a paper</a>
+    <% if (CURRENT_USER_ID === user.get('id')) { %>
+      <img class="new-paper-icon" src="assets/cross.png">
+      <a class="new-paper" href="#/papers/new">New paper</a>
+    <% } %>
   </div>
 
   <div class="col-md-7">
