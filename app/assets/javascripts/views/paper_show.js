@@ -73,14 +73,15 @@ LitGenius.Views.PaperShow = Backbone.CompositeView.extend({
     this.addSubview('.annotation-pane', subView);
     var textHeight = event.target.offsetTop;
     subView.$el.css("margin-top", textHeight+"px");
-    this.$('.annotation-show').addClass('appear');
 
+    this.$('.annotation-show').removeClass('transitioned');
     setTimeout(function () {
+      // this.$('.annotation-show').addClass('appear');
       this.$('.annotation-show').addClass('transitioned');
     }.bind(this), 0);
-    setTimeout(function () {
-      subView.render();
-    }.bind(this), 10);
+    // setTimeout(function () {
+    //   subView.render();
+    // }.bind(this), 10);
   },
 
   addAnnotationTags: function () {
