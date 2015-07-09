@@ -254,13 +254,17 @@ li {
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
   padding-left: 10px;
   margin-left: 15px;
   margin-top: -8px;
   display: block;
   float: left;
   padding-bottom: 3px;
+}
+
+.go-home {
+  height: 9px;
 }
 
 #main {
@@ -284,7 +288,7 @@ li {
 .navbar-default .navbar-nav > li > a {
   color: #000;
   font-size: 18px;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
   padding: 8px;
 }
 
@@ -293,7 +297,7 @@ li {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  // color: #fff;
+  color: #fff;
   background-color: #00A37A;
   border-radius: 10px;
 }
@@ -325,12 +329,13 @@ li {
 }
 
 .splash-logo {
-  width: 150px;
+  width: 500px;
+  margin-top: 100px;
 }
 
 .splash-header {
   color: #000;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .paper-body-col {
@@ -407,7 +412,7 @@ li {
   margin-bottom: 10px;
   border-radius: 5px;
   border-style: none;
-  border: 1px solid #eee;
+  border: 1px solid #CACACA;
   text-indent: 5px;
   height: 30px;
   width: 200px;
@@ -430,5 +435,5 @@ li {
   color: #fff;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: "Roboto Condensed", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
