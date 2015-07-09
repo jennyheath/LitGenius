@@ -7,10 +7,20 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     "submit .search-field": "showSearchResults",
     "click .sign-out": "signOut",
     "click .search-result-link": "clearResults",
-    "click .field-category": "addFieldView"
+    "click .field-category": "addFieldView",
+    "mouseover .logo": "wink",
+    "mouseleave .logo": "unwink"
   },
 
-  initialize: function(){
+  wink: function () {
+    document.getElementById("logoImg").src="assets/hover-logo.png";
+  },
+
+  unwink: function () {
+    document.getElementById("logoImg").src="assets/logo-2.png";
+  },
+
+  initialize: function () {
     this.papers = new LitGenius.Collections.Papers();
     this.listenTo(this.papers, "sync", this.showResults);
   },
