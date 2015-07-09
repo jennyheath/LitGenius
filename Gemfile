@@ -27,6 +27,7 @@ gem 'backbone-on-rails'
 gem 'seed_dump'
 # gem 'cloudinary'
 # gem 'figaro'
+gem 'rack-zippy'
 
 group :development, :test do
   gem 'byebug'

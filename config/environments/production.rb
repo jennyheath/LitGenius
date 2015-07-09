@@ -24,6 +24,10 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = true
 
+  # Puts ActionDispatch::Static in middleware stack which we are going to replace with
+  # Rack::Zippy::AssetServer
+  config.serve_static_assets = true
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
