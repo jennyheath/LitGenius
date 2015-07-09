@@ -1,23 +1,14 @@
 .about-block {
-  height: 200px;
   overflow: hidden;
   width: 900px;
-  padding-bottom: 30px;
-  // padding-top: 15px;
-  border-bottom: 1px solid #242424;
   padding-right: 50px;
 }
 
-.about-block:last-child {
-  padding-bottom: 0px;
-  border-bottom: none;
-}
-
-.about-image {
-  width: 400px;
+.about-icon {
+  height: 80px;
+  opacity: 0.5;
   display: table-cell;
   float: left;
-  height: 100%;
   right: 0;
   top: 0;
 }
@@ -28,6 +19,7 @@
 
 .about-text {
   margin-left: 50px;
+  padding-top: 25px;
   width: 400px;
   float: left;
   height: 100%;
@@ -37,4 +29,12 @@
 
 .genius {
   color: orange;
+}
+
+.about-block:hover .about-icon {
+  opacity: 1.0;
+}
+
+.skip {
+  padding-left: 60px;
 }
