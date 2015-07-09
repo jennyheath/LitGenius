@@ -28,30 +28,36 @@
   </div>
 
   <script>
-    $('.guest-login-button').on('click', function () {
+    $('.guest-login-button').on('click', function (event) {
+      event.preventDefault();
+      var guestButton = $(event.currentTarget);
       var username = "Guest User";
-      var upTo = 0;
+      var password = [null, null, null, null, null, null, null, null, null, null,
+                      "p", "a", "s", "s", "w", "o", "r", "d"];
+
+      var nameSlice = 0;
+      var passwordSlice = 0;
+
       var typeUsername = setInterval(function () {
-        var field = $('.user-form').first();
-        field.val(username.slice(0, upTo));
-        console.log(username.slice(0, upTo));
-        upTo += 1;
-        if (upTo >= 11) {
+        var nameField = $('.user-form').first();
+        var passwordField = $('.user-form').last();
+
+        nameField.val(username.slice(0, nameSlice));
+        passwordField.val(password.slice(0, passwordSlice).join(""));
+
+        if (nameSlice < 11) {
+          nameSlice += 1;
+        }
+        passwordSlice += 1;
+        if (passwordSlice >= 18) {
           clearInterval(typeUsername);
         }
       }, 50);
 
       setTimeout(function () {
-        upTo = 0;
-        var typeUsername = setInterval(function () {
-          var field = $('.user-form').last();
-          field.val(username.slice(0, upTo));
-          upTo += 1;
-          if (upTo >= 11) {
-            clearInterval(typeUsername);
-          }
-        }, 50);
-      }, 750);
+        console.log("timeout");
+        guestButton.find('form').trigger("submit");
+      }, 1000);
     });
 
   </script>
