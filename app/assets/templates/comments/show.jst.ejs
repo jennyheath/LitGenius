@@ -6,9 +6,9 @@
     </a>
     <p class="comment-body"><%= comment.escape('body')%></p>
 
-    <div class="up-vote"><img class="vote" src="assets/thumbs_up.png"></div>
+    <div class="up-vote"><img id="upVote" class="vote" src="assets/thumbs_up.png"></div>
     <div class="vote-count vote"><%= voteCount %></div>
-    <div class="down-vote"><img class="vote" src="assets/thumbs_down.png"></div>
+    <div class="down-vote"><img id="downVote" class="vote" src="assets/thumbs_down.png"></div>
 
     <% if (CURRENT_USER_ID === comment.get('user_id')) { %>
       <button class="delete-comment delete">Delete</button>

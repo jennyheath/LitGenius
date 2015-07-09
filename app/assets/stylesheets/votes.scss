@@ -5,6 +5,11 @@
 .down-vote, .up-vote {
   height: 20px;
   float: left;
+  opacity: 0.5;
+}
+
+.down-vote:hover, .up-vote:hover {
+  opacity: 1.0;
 }
 
 .vote {

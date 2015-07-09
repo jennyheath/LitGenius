@@ -9,15 +9,11 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     "click .search-result-link": "clearResults",
     "click .field-category": "addFieldView",
     "mouseover .logo": "wink",
-    "mouseleave .logo": "unwink"
-  },
-
-  wink: function () {
-    document.getElementById("logoImg").src="assets/hover-logo.png";
-  },
-
-  unwink: function () {
-    document.getElementById("logoImg").src="assets/logo-2.png";
+    "mouseleave .logo": "unwink",
+    "mouseover .profile-icon": "blueBrain",
+    "mouseleave .profile-icon": "blackBrain",
+    "mouseover .new-paper-link": "blueCross",
+    "mouseleave .new-paper-link": "blackCross"
   },
 
   initialize: function () {
@@ -101,5 +97,29 @@ LitGenius.Views.NavBar = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
-  }
+  },
+
+  blueCross: function () {
+    document.getElementById("newImg").src="assets/blue_cross.png";
+  },
+
+  blackCross: function () {
+    document.getElementById("newImg").src="assets/cross.png";
+  },
+
+  blueBrain: function () {
+    document.getElementById("dropdownMenu1").src="assets/blue-profile-icon.png";
+  },
+
+  blackBrain: function () {
+    document.getElementById("dropdownMenu1").src="assets/profile-icon-2.png";
+  },
+
+  wink: function () {
+    document.getElementById("logoImg").src="assets/hover-logo.png";
+  },
+
+  unwink: function () {
+    document.getElementById("logoImg").src="assets/logo-2.png";
+  },
 });

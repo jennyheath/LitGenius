@@ -4,7 +4,11 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
   events: {
     "click .up-vote": "upVote",
     "click .down-vote": "downVote",
-    "click .delete-comment": "destroyComment"
+    "click .delete-comment": "destroyComment",
+    "mouseover .up-vote": "blueUp",
+    "mouseleave .up-vote": "blackUp",
+    "mouseover .down-vote": "blueDown",
+    "mouseleave .down-vote": "blackDown"
   },
 
   initialize: function (options) {
@@ -92,5 +96,21 @@ LitGenius.Views.CommentShow = Backbone.View.extend({
     } else {
       this.model.set({vote_count: voteVal});
     }
+  },
+
+  blueUp: function (event) {
+    event.target.src="assets/blue_thumbs_up.png";
+  },
+
+  blackUp: function (event) {
+    event.target.src="assets/thumbs_up.png";
+  },
+
+  blueDown: function (event) {
+    event.target.src="assets/blue_thumbs_down.png";
+  },
+
+  blackDown: function (event) {
+    event.target.src="assets/thumbs_down.png";
   }
 });

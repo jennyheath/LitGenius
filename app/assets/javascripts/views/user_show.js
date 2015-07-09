@@ -6,6 +6,19 @@ LitGenius.Views.UserShow = Backbone.View.extend({
     LitGenius.Collections.users.getOrFetch(this.model.id, { parse: true });
   },
 
+  events: {
+    "mouseover .new-paper-link": "blueCross",
+    "mouseleave .new-paper-link": "blackCross"
+  },
+
+  blueCross: function () {
+    document.getElementById("newPaper").src="assets/blue_cross.png";
+  },
+
+  blackCross: function () {
+    document.getElementById("newPaper").src="assets/cross.png";
+  },
+
   render: function () {
     var content = this.template({
       user: this.model,

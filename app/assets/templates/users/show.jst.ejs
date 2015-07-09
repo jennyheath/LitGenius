@@ -5,8 +5,10 @@
     <img class="profile-picture" src="assets/lady_profile.png">
     <br><br>
     <% if (CURRENT_USER_ID === user.get('id')) { %>
-      <img class="new-paper-icon" src="assets/cross.png">
-      <a class="new-paper" href="#/papers/new">New paper</a>
+      <a class="new-paper new-paper-link" href="#/papers/new">
+      <img id="newPaper" class="new-paper-icon" src="assets/cross.png">
+      New paper
+      </a>
     <% } %>
   </div>
 
