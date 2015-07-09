@@ -1,16 +1,11 @@
 <div class="splash-content">
-  <nav class="navbar navbar-default">
-    <ul class="nav navbar-nav toggle-sign-in">
-      <li><a href="<%= new_user_url %>">Sign Up</a></li>
-    </ul>
-  </nav>
-
   <div class="container">
     <div class="row">
       <img class="col-centered splash-logo" src=<%= asset_path('splash-logo-2.png') %>>
+      <br>
+      <img class="col-centered splash-name" src=<%= asset_path('splash-name.png') %>>
+      <br><br>
       <div class="sign-in-form col-centered">
-        <h3 class="splash-header">Sign In</h3>
-
         <form action="<%= session_url %>" method="post">
           <%= auth_token %>
           <input class="user-form" type="text" name="user[username]" placeholder="username">
@@ -19,10 +14,46 @@
           <br>
           <input class="user-submit" type="submit" value="Sign in">
         </form>
-        <%= button_to "Sign in as Guest", :guest_login_url, method: :get, class: "user-submit" %>
+        <div class="guest-login-button">
+          <%= button_to "Sign in as Guest", :guest_login_url, method: :get, class: "user-submit" %>
+        </div>
         <br>
         <div class="errors"><%= render "shared/errors" %></div>
+        <p>Not a member?</p>
+        <div class="col-centered">
+          <a class="toggle-sign-up" href="<%= new_user_url %>">Sign Up</a>
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    $('.guest-login-button').on('click', function () {
+      var username = "Guest User";
+      var upTo = 0;
+      var typeUsername = setInterval(function () {
+        var field = $('.user-form').first();
+        field.val(username.slice(0, upTo));
+        console.log(username.slice(0, upTo));
+        upTo += 1;
+        if (upTo >= 11) {
+          clearInterval(typeUsername);
+        }
+      }, 50);
+
+      setTimeout(function () {
+        upTo = 0;
+        var typeUsername = setInterval(function () {
+          var field = $('.user-form').last();
+          field.val(username.slice(0, upTo));
+          upTo += 1;
+          if (upTo >= 11) {
+            clearInterval(typeUsername);
+          }
+        }, 50);
+      }, 750);
+    });
+
+  </script>
+
 </div>

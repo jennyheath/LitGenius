@@ -65,10 +65,6 @@ a:active {
   transition: padding 1s ease;
 }
 
-// .appear {
-//   left: 0px;
-// }
-
 .transitioned {
   padding-left: 15px;
 }
@@ -279,31 +275,33 @@ li {
   border: 1px solid #4078C0;
 }
 
-.navbar-default {
+.toggle-sign-in {
   background-color: transparent;
   border: none;
 }
 
-.navbar-header,
-.navbar-default .navbar-nav > li > a {
-  color: #000;
+.toggle-sign-up {
+  float: none;
+  color: #29C2CE;
   font-size: 18px;
   font-family: Helvetica, sans-serif;
-  padding: 8px;
 }
 
-.navbar-default .navbar-nav > li {
-  padding: 10px;
+.toggle-sign-in {
+  color: #29C2CE;
+  font-size: 18px;
+  font-family: Helvetica, sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
+.toggle-sign-in:hover {
   color: #fff;
-  background-color: #00A37A;
-  border-radius: 10px;
-}
-
-.navbar-header {
-  padding: 20px;
+  background-color: #29C2CE;
+  border-radius: 18px;
 }
 
 .posted-by {
@@ -336,6 +334,10 @@ li {
 .splash-header {
   color: #000;
   font-family: Helvetica, sans-serif;
+}
+
+.splash-name {
+  width: 200px;
 }
 
 .paper-body-col {
@@ -429,11 +431,16 @@ li {
 
 .user-submit {
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   border-style: none;
-  background-color: #00A37A;
+  background-image: linear-gradient(#26BDA4, #29C2CE);
   color: #fff;
   padding-left: 10px;
   padding-right: 10px;
   font-family: Helvetica, sans-serif;
+  opacity: 0.7;
+}
+
+.user-submit:hover {
+  opacity: 1.0;
 }

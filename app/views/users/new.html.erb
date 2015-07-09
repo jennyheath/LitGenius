@@ -1,16 +1,13 @@
 <div class="splash-content">
-  <nav class="navbar navbar-default">
-    <ul class="nav navbar-nav toggle-sign-in">
-      <li><a class="navbar-sign-in" href="<%= root_url %>">Sign In</a></li>
-    </ul>
-  </nav>
+  <a class="navbar-sign-in toggle-sign-in" href="<%= root_url %>">Sign In</a>
 
   <div class="container">
     <div class="row">
       <img class="col-centered splash-logo" src=<%= asset_path('splash-logo-2.png') %>>
+      <br>
+      <img class="col-centered splash-name" src=<%= asset_path('splash-name.png') %>>
+      <br><br>
       <div class="sign-in-form col-centered">
-        <h3 class="splash-header">Sign Up</h3>
-
         <form action="<%= users_url %>" method="post">
           <%= auth_token %>
           <input class="user-form" type="text" name="user[username]" placeholder="username" value="<%= @user.username %>">
