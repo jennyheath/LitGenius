@@ -13,10 +13,12 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 title           | string    | not null
-author_id       | integer   | not null, foreign key
+user_id         | integer   | not null, foreign key
 body            | text      | not null
-institution     | string    | 
-journal         | string    |
+institution_id  | string    | 
+journal_id      | string    |
+field_id        | string    |
+
 
 ## annotations
 column name | data type | details
@@ -55,38 +57,17 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## field_taggings
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-paper_id        | integer   | not null
-field_id        | integer   | not null
-
 ## institutions
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 name            | string    | not null
 
-## institution_taggings
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-paper_id        | integer   | not null
-institution_id  | integer   | not null
-
 ## journals
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 name            | string    | not null
-
-## journal_taggings
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-paper_id        | integer   | not null
-journal_id      | integer   | not null
 
 ## authors
 column name     | data type | details
